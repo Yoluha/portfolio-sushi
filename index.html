@@ -4,7 +4,6 @@
 <meta name="description" content="Chef de cozinha com 16 anos de experiência, 6 dos quais no Home Sushi de Viseu. Especializado em sushi, cozinha japonesa e gestão de cozinhas profissionais.">
 <meta property="og:title" content="Lucas Amaral — Chef de Cozinha">
 <meta property="og:description" content="Portfólio profissional de Lucas Amaral. 16 anos em restauração, especializado em sushi e cozinha asiática.">
-<meta property="og:image" content="https://yoluha.github.io/portfolio-sushi/img/chef-lucas.jpg">
 <meta property="og:url" content="https://yoluha.github.io/portfolio-sushi/">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='80' font-family='serif'>🍣</text></svg>">
@@ -167,25 +166,7 @@
 
   /* ---------- hero ---------- */
   .hero{
-    position: relative;
     padding-block: clamp(3rem, 9vw, 5.5rem) var(--space-6);
-    overflow: clip;
-  }
-  .hero-watermark{
-    position: absolute; right: -4%; top: 8%;
-    width: min(52vw, 620px); height: auto;
-    color: var(--accent); opacity: 0.07;
-    z-index: 0; pointer-events: none;
-  }
-  .hero-inner{ position: relative; z-index: 1; }
-  .hero-seal{
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 2.6rem; height: 2.6rem;
-    border: 1px solid var(--line-strong);
-    transform: rotate(-6deg);
-    font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.05em;
-    color: var(--accent);
-    margin-bottom: var(--space-3);
   }
   .hero-name{ font-size: var(--fs-hero); line-height: 1.04; }
   .hero-role{
@@ -194,17 +175,16 @@
     font-size: 0.92rem;
     font-weight: 400;
     letter-spacing: 0.02em;
-    color: var(--ink-muted);
+    color: var(--accent);
   }
-  .hero-role .dot{ color: var(--accent); padding-inline: 0.5em; }
   .hero-tagline{
     margin-top: var(--space-3);
-    max-width: 46ch;
+    max-width: 52ch;
     font-size: 1.12rem;
     color: var(--ink);
   }
-  .hero-tagline em{ font-style: normal; color: var(--accent-strong); }
   .badge-row{ display:flex; flex-wrap: wrap; gap: 0.6rem; margin-top: var(--space-4); }
+  .section-head + .badge-row{ margin-top: 0; }
   .chip{
     display: inline-flex; align-items: center; gap: 0.5em;
     font-family: var(--font-body); font-size: 0.8rem; font-weight: 400;
@@ -219,13 +199,13 @@
   .chip a:hover{ color: var(--accent-strong); }
 
   @keyframes rise{ from{ opacity: 0; transform: translateY(10px); } to{ opacity: 1; transform: translateY(0); } }
-  .hero-seal, .hero-name, .hero-role, .hero-tagline, .badge-row{
+  .hero-name, .hero-role, .hero-tagline, .hero .badge-row{
     animation: rise .6s ease both;
   }
   .hero-name{ animation-delay: .05s; }
   .hero-role{ animation-delay: .15s; }
   .hero-tagline{ animation-delay: .25s; }
-  .badge-row{ animation-delay: .35s; }
+  .hero .badge-row{ animation-delay: .35s; }
 
   /* ---------- sections ---------- */
   .section{ padding-block: var(--space-6); border-top: 1px solid var(--line); }
@@ -263,38 +243,6 @@
   }
   .role-bullets li::before{ content: "—"; position: absolute; left: 0; color: var(--accent-deep); }
 
-  /* ---------- gallery ---------- */
-  .gallery-note{ max-width: 60ch; color: var(--ink-muted); margin-bottom: var(--space-4); }
-  .gallery{
-    display: grid; gap: 1.1rem;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  }
-  .gallery-card{
-    border: 1px solid var(--line-strong);
-    background: var(--bg-elevated);
-    display: flex; flex-direction: column;
-    overflow: hidden;
-  }
-  .gallery-media{
-    aspect-ratio: 4 / 5;
-    display: block;
-    object-fit: cover;
-    background: var(--bg-elevated-2);
-    width: 100%;
-    height: 100%;
-  }
-  .gallery-caption{
-    padding: 0.85rem 1rem 1rem;
-    border-top: 1px solid var(--line);
-    display: flex; align-items: center; justify-content: space-between; gap: 0.6rem;
-  }
-  .gallery-title{ font-size: 0.96rem; color: var(--ink); }
-  .gallery-status{
-    font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--ink-faint);
-    white-space: nowrap;
-  }
-
   /* ---------- skills ---------- */
   .skills-grid{ display: grid; gap: 1.4rem; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-top: var(--space-4); }
   .skill-group{ border: 1px solid var(--line); background: var(--bg-elevated); padding: 1.4rem; }
@@ -319,17 +267,6 @@
   .cred-meta{ font-family: var(--font-body); font-size: 0.72rem; font-weight: 400; color: var(--ink-faint); margin-top: 0.2rem; letter-spacing: 0.01em; }
   .cred-desc{ margin-top: 0.35rem; font-size: 0.88rem; color: var(--ink-muted); }
 
-  /* ---------- contact ---------- */
-  .contact-card{
-    display: flex; flex-wrap: wrap; gap: var(--space-4);
-    justify-content: space-between; align-items: flex-end;
-    border: 1px solid var(--line-strong);
-    background: var(--bg-elevated);
-    padding: clamp(1.6rem, 4vw, 2.6rem);
-  }
-  .contact-line{ font-family: var(--font-display); font-size: clamp(1.35rem, 2vw + 1rem, 2rem); max-width: 22ch; }
-  .contact-chips{ display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; }
-
   footer{
     padding-block: var(--space-5) var(--space-4);
     display: flex; flex-wrap: wrap; gap: 1rem;
@@ -340,7 +277,6 @@
 
   @media (max-width: 640px){
     .site-header{ flex-direction: column; align-items: flex-start; gap: 0.6rem; }
-    .contact-card{ align-items: flex-start; }
   }
 </style>
 
@@ -393,7 +329,6 @@
   <span class="wordmark">Lucas <span>Amaral</span></span>
   <nav class="site-nav" aria-label="Secções">
     <ul>
-      <li><a href="#bancada">Bancada</a></li>
       <li><a href="#percurso">Percurso</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
@@ -402,18 +337,10 @@
 
 <main>
   <section class="hero container container--wide">
-    <svg class="hero-watermark" viewBox="0 0 400 200" aria-hidden="true">
-      <path d="M40,100 C40,60 150,42 230,55 C218,75 218,125 230,145 C150,158 40,140 40,100 Z" fill="currentColor"/>
-      <path d="M230,55 L285,25 L262,80 Z" fill="currentColor"/>
-      <path d="M230,145 L285,175 L262,120 Z" fill="currentColor"/>
-      <circle cx="76" cy="90" r="4.5" fill="var(--bg)"/>
-    </svg>
     <div class="hero-inner">
-      <span class="eyebrow">Portfólio profissional</span>
-      <div class="hero-seal">L·A</div>
       <h1 class="hero-name">Lucas Alves<br>do Amaral</h1>
-      <p class="hero-role">Chef de Cozinha<span class="dot">·</span>Sushi Chef<span class="dot">·</span>Responsável de Sushi Bar</p>
-      <p class="hero-tagline">16 anos de restauração, <em>6 à frente da cozinha e do sushi bar do Home Sushi</em>, em Viseu. Do corte e maturação do peixe ao HACCP diário — uma cozinha construída com rigor biológico e mão de sushiman.</p>
+      <p class="hero-role">Chef de cozinha e sushi chef</p>
+      <p class="hero-tagline">Cozinho há 16 anos. Comecei em Curitiba, passei pela cozinha italiana e por um navio de cruzeiro, e há seis anos estou à frente da cozinha e do sushi bar do Home Sushi, em Viseu.</p>
       <div class="badge-row">
         <span class="chip"><svg><use href="#icon-pin"/></svg>Viseu, Portugal</span>
         <span class="chip"><svg><use href="#icon-phone"/></svg><a href="tel:+351912071323">+351 912 071 323</a></span>
@@ -425,10 +352,10 @@
   <section id="perfil" class="section container">
     <div class="section-head">
       <span class="eyebrow">Perfil</span>
-      <h2>Da bancada ao laboratório, e de volta à bancada</h2>
+      <h2>Sobre mim</h2>
       <svg class="brush" viewBox="0 0 220 10" aria-hidden="true"><path d="M0,5 C40,1 80,9 110,5 C140,1 180,9 220,5"/></svg>
     </div>
-    <p class="lede">Cozinheiro há 16 anos, dos quais 6 à frente da cozinha e do sushi bar do Home Sushi, em Viseu, onde coordeno uma equipa de 6 — escalas, formação, stock e fornecedores. Formado em Chef de Cuisine e Restaurateur pelo Centro Europeu, em Curitiba, já fui chefe de 4 restaurantes, incluindo a abertura de raiz do Nomiya Sushi &amp; Ramen, no Palácio do Gelo.</p>
+    <p class="lede">No Home Sushi coordeno uma equipa de 6 — escalas, formação, stock e fornecedores. Formei-me em Chef de Cuisine e Restaurateur no Centro Europeu, em Curitiba, e já fui chefe de 4 restaurantes, incluindo a abertura de raiz do Nomiya Sushi &amp; Ramen, no Palácio do Gelo.</p>
     <p class="lede">A licenciatura em Ciências Biológicas trouxe para a bancada o domínio técnico do peixe — espécies, frescura, sazonalidade e parasitologia — aplicado todos os dias ao controlo de qualidade e ao HACCP. Lidero equipas multiculturais em inglês C2.</p>
   </section>
 
@@ -480,40 +407,41 @@
         </ul>
       </div>
 
-    </div>
-  </section>
+      <div class="timeline-item">
+        <div class="role-row">
+          <span class="role-title">3rd Cook</span>
+          <span class="role-place">Costa Cruzeiros — navio Costa Fortuna</span>
+          <span class="role-dates">2011</span>
+        </div>
+        <ul class="role-bullets">
+          <li>Pantry station e preparação de buffet para serviço internacional de grande volume</li>
+          <li>Operação sob normas de sanidade USPHS, com auditorias regulares</li>
+        </ul>
+      </div>
 
-  <section id="bancada" class="section container container--wide">
-    <div class="section-head">
-      <span class="eyebrow">Bancada</span>
-      <h2>A bancada</h2>
-      <svg class="brush" viewBox="0 0 220 10" aria-hidden="true"><path d="M0,5 C40,1 80,9 110,5 C140,1 180,9 220,5"/></svg>
-    </div>
-    <div class="gallery">
-      <figure class="gallery-card">
-        <img src="img/sushi-travessa-home.jpg" alt="Travessa de sushi e sashimi artesanal" loading="lazy" class="gallery-media">
-        <figcaption class="gallery-caption"><span class="gallery-title">Sushi de autor</span></figcaption>
-      </figure>
-      <figure class="gallery-card">
-        <img src="img/sashimi-gelo.jpg" alt="Sashimi variado sobre gelo, com leques de pepino e flores comestíveis" loading="lazy" class="gallery-media">
-        <figcaption class="gallery-caption"><span class="gallery-title">Sashimi sobre gelo</span></figcaption>
-      </figure>
-      <figure class="gallery-card">
-        <img src="img/crudo-salmao.jpg" alt="Crudo de salmão em roseta, com ovas e cebola roxa em pickle" loading="lazy" class="gallery-media">
-        <figcaption class="gallery-caption"><span class="gallery-title">Crudo de salmão</span></figcaption>
-      </figure>
-      <figure class="gallery-card">
-        <img src="img/tabua-empratamento.jpg" alt="Tábua de sushi variado empratada na bancada, ao lado da faca yanagiba" loading="lazy" class="gallery-media">
-        <figcaption class="gallery-caption"><span class="gallery-title">Tábua de autor</span></figcaption>
-      </figure>
-      <figure class="gallery-card">
-        <img src="img/servico-linha.jpg" alt="Linha de caixas de sushi prontas para entrega na bancada de passe" loading="lazy" class="gallery-media">
-        <figcaption class="gallery-caption"><span class="gallery-title">Serviço em volume</span></figcaption>
-      </figure>
-      <figure class="gallery-card">
-        <img src="img/chef-lucas.jpg" alt="Lucas Amaral na cozinha do Home Sushi com duas travessas montadas" loading="lazy" class="gallery-media">
-        <figcaption class="gallery-caption"><span class="gallery-title">Na cozinha</span></figcaption>
-      </figure>
+      <div class="timeline-item">
+        <div class="role-row">
+          <span class="role-title">Capo Chef</span>
+          <span class="role-place">Restaurante Trovatta Risoteria, Curitiba</span>
+          <span class="role-dates">2009 — 2011</span>
+        </div>
+        <ul class="role-bullets">
+          <li>Chefia de equipa de 6 por turno, num quadro total de 12</li>
+          <li>Cozinha italiana e francesa à la carte: risotti, pasta, garde manger, rotisserie e pâtisserie</li>
+          <li>Controlo de comandas, compras e gestão de stock</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="role-row">
+          <span class="role-title">Início de carreira</span>
+          <span class="role-place">Porcini Trattoria, Grimpa Steakhouse e Ki Lanches, Curitiba</span>
+          <span class="role-dates">2003 — 2009</span>
+        </div>
+        <ul class="role-bullets">
+          <li>Cozinha italiana à la carte, churrasco e barbecue, e serviço rápido de alto volume</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -606,13 +534,10 @@
       <h2>Vamos falar</h2>
       <svg class="brush" viewBox="0 0 220 10" aria-hidden="true"><path d="M0,5 C40,1 80,9 110,5 C140,1 180,9 220,5"/></svg>
     </div>
-    <div class="contact-card">
-      <p class="contact-line">Disponível para uma nova cozinha — em Portugal, com disponibilidade para mudança de residência.</p>
-      <div class="contact-chips">
-        <span class="chip"><svg><use href="#icon-pin"/></svg>Viseu, Portugal</span>
-        <span class="chip"><svg><use href="#icon-phone"/></svg><a href="tel:+351912071323">+351 912 071 323</a></span>
-        <span class="chip"><svg><use href="#icon-mail"/></svg><a href="mailto:aquariovicio@gmail.com">aquariovicio@gmail.com</a></span>
-      </div>
+    <div class="badge-row">
+      <span class="chip"><svg><use href="#icon-pin"/></svg>Viseu, Portugal</span>
+      <span class="chip"><svg><use href="#icon-phone"/></svg><a href="tel:+351912071323">+351 912 071 323</a></span>
+      <span class="chip"><svg><use href="#icon-mail"/></svg><a href="mailto:aquariovicio@gmail.com">aquariovicio@gmail.com</a></span>
     </div>
   </section>
 </main>
