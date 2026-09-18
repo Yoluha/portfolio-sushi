@@ -166,8 +166,17 @@
 
   /* ---------- hero ---------- */
   .hero{
+    position: relative;
     padding-block: clamp(3rem, 9vw, 5.5rem) var(--space-6);
+    overflow: clip;
   }
+  .hero-watermark{
+    position: absolute; right: -4%; top: 8%;
+    width: min(52vw, 620px); height: auto;
+    color: var(--accent); opacity: 0.07;
+    z-index: 0; pointer-events: none;
+  }
+  .hero-inner{ position: relative; z-index: 1; }
   .hero-name{ font-size: var(--fs-hero); line-height: 1.04; }
   .hero-role{
     margin-top: var(--space-2);
@@ -348,6 +357,12 @@
 
 <main>
   <section class="hero container container--wide">
+    <svg class="hero-watermark" viewBox="0 0 400 200" aria-hidden="true">
+      <path d="M40,100 C40,60 150,42 230,55 C218,75 218,125 230,145 C150,158 40,140 40,100 Z" fill="currentColor"/>
+      <path d="M230,55 L285,25 L262,80 Z" fill="currentColor"/>
+      <path d="M230,145 L285,175 L262,120 Z" fill="currentColor"/>
+      <circle cx="76" cy="90" r="4.5" fill="var(--bg)"/>
+    </svg>
     <div class="hero-inner">
       <h1 class="hero-name">Lucas Alves<br>do Amaral</h1>
       <p class="hero-role">Chef de cozinha e sushi chef</p>
