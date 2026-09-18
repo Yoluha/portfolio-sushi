@@ -1,0 +1,622 @@
+<title>Lucas Amaral — Chef de Cozinha e Sushi Chef</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Chef de cozinha com 16 anos de experiência, 6 dos quais no Home Sushi de Viseu. Especializado em sushi, cozinha japonesa e gestão de cozinhas profissionais.">
+<meta property="og:title" content="Lucas Amaral — Chef de Cozinha">
+<meta property="og:description" content="Portfólio profissional de Lucas Amaral. 16 anos em restauração, especializado em sushi e cozinha asiática.">
+<meta property="og:image" content="https://yoluha.github.io/portfolio-sushi/img/chef-lucas.jpg">
+<meta property="og:url" content="https://yoluha.github.io/portfolio-sushi/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='80' font-family='serif'>🍣</text></svg>">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap">
+<style>
+  :root{
+    color-scheme: dark;
+    /* -- sumi-ink / uni-gold (dark, base) -- */
+    --bg: #12171a;
+    --bg-elevated: #1b2225;
+    --bg-elevated-2: #222a2d;
+    --ink: #f0e9d8;
+    --ink-muted: #b3ab9a;
+    --ink-faint: #7c7c73;
+    --accent: #d2a24c;
+    --accent-strong: #ecc06a;
+    --accent-deep: #8a5a2b;
+    --rose: #c97b6a;
+    --line: rgba(240,233,216,0.14);
+    --line-strong: rgba(240,233,216,0.26);
+    --shadow: 0 20px 45px -25px rgba(0,0,0,0.65);
+
+    --font-display: 'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+    --font-body: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Yu Gothic', 'Segoe UI', sans-serif;
+
+    --fs-hero: clamp(2.6rem, 4vw + 1.4rem, 4.5rem);
+    --fs-h2: clamp(1.65rem, 1.6vw + 1.2rem, 2.35rem);
+    --fs-h3: 1.2rem;
+    --fs-body: 1.05rem;
+    --fs-small: 0.9rem;
+    --fs-label: 0.74rem;
+
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.75rem;
+    --space-4: 2.75rem;
+    --space-5: 4.25rem;
+    --space-6: clamp(3rem, 6vw, 6rem);
+
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      color-scheme: light;
+      --bg: #e7e9df;
+      --bg-elevated: #f4f5ee;
+      --bg-elevated-2: #dee1d2;
+      --ink: #1c2220;
+      --ink-muted: #52584e;
+      --ink-faint: #7d8274;
+      --accent: #9c6c29;
+      --accent-strong: #7d551d;
+      --accent-deep: #6b4420;
+      --rose: #a24f3f;
+      --line: rgba(28,34,32,0.14);
+      --line-strong: rgba(28,34,32,0.28);
+      --shadow: 0 20px 45px -28px rgba(28,34,32,0.35);
+    }
+  }
+  :root[data-theme="light"]{
+    color-scheme: light;
+    --bg: #e7e9df;
+    --bg-elevated: #f4f5ee;
+    --bg-elevated-2: #dee1d2;
+    --ink: #1c2220;
+    --ink-muted: #52584e;
+    --ink-faint: #7d8274;
+    --accent: #9c6c29;
+    --accent-strong: #7d551d;
+    --accent-deep: #6b4420;
+    --rose: #a24f3f;
+    --line: rgba(28,34,32,0.14);
+    --line-strong: rgba(28,34,32,0.28);
+    --shadow: 0 20px 45px -28px rgba(28,34,32,0.35);
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --bg: #12171a;
+    --bg-elevated: #1b2225;
+    --bg-elevated-2: #222a2d;
+    --ink: #f0e9d8;
+    --ink-muted: #b3ab9a;
+    --ink-faint: #7c7c73;
+    --accent: #d2a24c;
+    --accent-strong: #ecc06a;
+    --accent-deep: #8a5a2b;
+    --rose: #c97b6a;
+    --line: rgba(240,233,216,0.14);
+    --line-strong: rgba(240,233,216,0.26);
+    --shadow: 0 20px 45px -25px rgba(0,0,0,0.65);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    :root{ scroll-behavior: auto; }
+    *,*::before,*::after{ animation: none !important; transition: none !important; }
+  }
+
+  *{ box-sizing: border-box; }
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    line-height: 1.65;
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3{ font-family: var(--font-display); font-weight: 500; margin: 0; text-wrap: balance; }
+  p{ margin: 0; }
+  a{ color: inherit; }
+  ul{ margin: 0; padding: 0; list-style: none; }
+  :focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .container{ max-width: 900px; margin-inline: auto; }
+  .container--wide{ max-width: 1080px; }
+
+  .eyebrow{
+    display: block;
+    font-family: var(--font-body);
+    font-size: var(--fs-label);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-2);
+  }
+
+  .brush{ width: 100%; max-width: 220px; height: 10px; color: var(--accent); opacity: 0.7; margin-block: var(--space-2) 0; }
+  .brush path{ fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; }
+
+  /* ---------- header / nav ---------- */
+  .site-header{
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--space-2);
+    padding-block: 0.9rem;
+    margin-inline: calc(clamp(1.25rem, 4vw, 2.5rem) * -1);
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+    background: color-mix(in srgb, var(--bg) 86%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+  .wordmark{
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+  }
+  .wordmark span{ color: var(--accent); }
+  .site-nav ul{ display: flex; gap: clamp(0.75rem, 2vw, 1.6rem); flex-wrap: wrap; }
+  .site-nav a{
+    font-family: var(--font-body); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none; color: var(--ink-muted);
+    padding-block: 0.25rem; border-bottom: 1px solid transparent;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .site-nav a:hover, .site-nav a:focus-visible{ color: var(--accent); border-color: var(--accent); }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position: relative;
+    padding-block: clamp(3rem, 9vw, 5.5rem) var(--space-6);
+    overflow: clip;
+  }
+  .hero-watermark{
+    position: absolute; right: -4%; top: 8%;
+    width: min(52vw, 620px); height: auto;
+    color: var(--accent); opacity: 0.07;
+    z-index: 0; pointer-events: none;
+  }
+  .hero-inner{ position: relative; z-index: 1; }
+  .hero-seal{
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 2.6rem; height: 2.6rem;
+    border: 1px solid var(--line-strong);
+    transform: rotate(-6deg);
+    font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.05em;
+    color: var(--accent);
+    margin-bottom: var(--space-3);
+  }
+  .hero-name{ font-size: var(--fs-hero); line-height: 1.04; }
+  .hero-role{
+    margin-top: var(--space-2);
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--ink-muted);
+  }
+  .hero-role .dot{ color: var(--accent); padding-inline: 0.5em; }
+  .hero-tagline{
+    margin-top: var(--space-3);
+    max-width: 46ch;
+    font-size: 1.12rem;
+    color: var(--ink);
+  }
+  .hero-tagline em{ font-style: normal; color: var(--accent-strong); }
+  .badge-row{ display:flex; flex-wrap: wrap; gap: 0.6rem; margin-top: var(--space-4); }
+  .chip{
+    display: inline-flex; align-items: center; gap: 0.5em;
+    font-family: var(--font-body); font-size: 0.8rem; font-weight: 400;
+    color: var(--ink-muted);
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    background: var(--bg-elevated);
+  }
+  .chip svg{ width: 1em; height: 1em; flex: none; }
+  .chip a{ text-decoration: none; color: inherit; }
+  .chip a:hover{ color: var(--accent-strong); }
+
+  @keyframes rise{ from{ opacity: 0; transform: translateY(10px); } to{ opacity: 1; transform: translateY(0); } }
+  .hero-seal, .hero-name, .hero-role, .hero-tagline, .badge-row{
+    animation: rise .6s ease both;
+  }
+  .hero-name{ animation-delay: .05s; }
+  .hero-role{ animation-delay: .15s; }
+  .hero-tagline{ animation-delay: .25s; }
+  .badge-row{ animation-delay: .35s; }
+
+  /* ---------- sections ---------- */
+  .section{ padding-block: var(--space-6); border-top: 1px solid var(--line); }
+  .section-head{ margin-bottom: var(--space-4); }
+  .section-head h2{ font-size: var(--fs-h2); }
+
+  .lede{ max-width: 66ch; font-size: 1.05rem; color: var(--ink); }
+  .lede + .lede{ margin-top: var(--space-2); }
+
+  /* ---------- timeline ---------- */
+  .timeline{ position: relative; margin-top: var(--space-4); }
+  .timeline::before{
+    content: ""; position: absolute; left: 5px; top: 0.5rem; bottom: 0.5rem;
+    width: 1px; background: var(--line-strong);
+  }
+  .timeline-item{ position: relative; padding-left: var(--space-4); margin-bottom: var(--space-4); }
+  .timeline-item:last-child{ margin-bottom: 0; }
+  .timeline-item::before{
+    content: ""; position: absolute; left: 0; top: 0.4rem;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--bg); border: 2px solid var(--accent);
+  }
+  .timeline-item.is-current::before{ background: var(--accent); }
+  .role-row{ display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 0.9rem; }
+  .role-title{ font-family: var(--font-display); font-size: var(--fs-h3); color: var(--ink); }
+  .role-place{ color: var(--ink-muted); font-size: var(--fs-small); }
+  .role-dates{
+    font-family: var(--font-body); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.05em;
+    color: var(--accent); border: 1px solid var(--line-strong); border-radius: 4px;
+    padding: 0.15rem 0.5rem; text-transform: uppercase; white-space: nowrap;
+  }
+  .role-bullets{ margin-top: 0.6rem; display: grid; gap: 0.35rem; }
+  .role-bullets li{
+    position: relative; padding-left: 1.1rem; color: var(--ink-muted); font-size: 0.96rem;
+  }
+  .role-bullets li::before{ content: "—"; position: absolute; left: 0; color: var(--accent-deep); }
+
+  /* ---------- gallery ---------- */
+  .gallery-note{ max-width: 60ch; color: var(--ink-muted); margin-bottom: var(--space-4); }
+  .gallery{
+    display: grid; gap: 1.1rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .gallery-card{
+    border: 1px solid var(--line-strong);
+    background: var(--bg-elevated);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .gallery-media{
+    aspect-ratio: 4 / 5;
+    display: block;
+    object-fit: cover;
+    background: var(--bg-elevated-2);
+    width: 100%;
+    height: 100%;
+  }
+  .gallery-caption{
+    padding: 0.85rem 1rem 1rem;
+    border-top: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: space-between; gap: 0.6rem;
+  }
+  .gallery-title{ font-size: 0.96rem; color: var(--ink); }
+  .gallery-status{
+    font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  /* ---------- skills ---------- */
+  .skills-grid{ display: grid; gap: 1.4rem; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-top: var(--space-4); }
+  .skill-group{ border: 1px solid var(--line); background: var(--bg-elevated); padding: 1.4rem; }
+  .skill-group-head{ display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.9rem; color: var(--accent); }
+  .skill-group-head svg{ width: 1.15rem; height: 1.15rem; }
+  .skill-group-head h3{ font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
+  .tag-row{ display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag{
+    font-size: 0.82rem; color: var(--ink-muted);
+    border: 1px solid var(--line-strong); border-radius: 4px;
+    padding: 0.3rem 0.6rem;
+  }
+
+  /* ---------- formacao ---------- */
+  .creds-grid{ display: grid; gap: var(--space-5); margin-top: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .creds-head{ display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.1rem; color: var(--accent); }
+  .creds-head svg{ width: 1.2rem; height: 1.2rem; }
+  .creds-head h3{ font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
+  .cred-item{ padding-block: 0.85rem; border-top: 1px solid var(--line); }
+  .cred-item:first-of-type{ border-top: none; padding-top: 0; }
+  .cred-title{ font-size: 0.98rem; color: var(--ink); }
+  .cred-meta{ font-family: var(--font-body); font-size: 0.72rem; font-weight: 400; color: var(--ink-faint); margin-top: 0.2rem; letter-spacing: 0.01em; }
+  .cred-desc{ margin-top: 0.35rem; font-size: 0.88rem; color: var(--ink-muted); }
+
+  /* ---------- contact ---------- */
+  .contact-card{
+    display: flex; flex-wrap: wrap; gap: var(--space-4);
+    justify-content: space-between; align-items: flex-end;
+    border: 1px solid var(--line-strong);
+    background: var(--bg-elevated);
+    padding: clamp(1.6rem, 4vw, 2.6rem);
+  }
+  .contact-line{ font-family: var(--font-display); font-size: clamp(1.35rem, 2vw + 1rem, 2rem); max-width: 22ch; }
+  .contact-chips{ display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; }
+
+  footer{
+    padding-block: var(--space-5) var(--space-4);
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    justify-content: space-between; align-items: center;
+    color: var(--ink-faint); font-size: 0.85rem;
+  }
+  footer .seal-line{ font-family: var(--font-display); color: var(--ink-muted); }
+
+  @media (max-width: 640px){
+    .site-header{ flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+    .contact-card{ align-items: flex-start; }
+  }
+</style>
+
+<svg style="position:absolute; width:0; height:0; overflow:hidden;" aria-hidden="true">
+  <symbol id="icon-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.25"/>
+  </symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.6 21 3 12.4 3 3c0-.6.4-1 1-1h3.2c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z"/>
+  </symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/>
+  </symbol>
+  <symbol id="icon-nigiri" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="12" cy="15" rx="8" ry="4"/><path d="M5 13c1-2.5 4-4 7-4s6 1.5 7 4"/>
+  </symbol>
+  <symbol id="icon-knife" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 21 17 7a3 3 0 0 0-4-4L4.5 16.5 3 21Z"/><path d="M6.2 17.8 14.5 9.5"/>
+  </symbol>
+  <symbol id="icon-chopsticks" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="5" y1="20" x2="16" y2="4"/><line x1="9" y1="20" x2="19" y2="5"/>
+  </symbol>
+  <symbol id="icon-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3c1.5 2.5-1 3.8-1 6.3a3.2 3.2 0 0 0 6.4 0c0-1-.6-1.7-.9-2.6 2.3 1.6 3.5 4.2 3.5 6.8a8 8 0 1 1-16 0c0-3.8 2.4-6.4 4-8 .8 1 1.3 1.7 4-2.5Z"/>
+  </symbol>
+  <symbol id="icon-plate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/>
+  </symbol>
+  <symbol id="icon-team" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3.5 2.5-6 5.5-6s5.5 2.5 5.5 6"/><circle cx="17" cy="9" r="2.5"/><path d="M14.8 14.2c2.6.4 4.7 2.6 4.7 5.8"/>
+  </symbol>
+  <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/>
+  </symbol>
+  <symbol id="icon-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="5" y="4" width="14" height="17" rx="2"/><rect x="8.5" y="2.3" width="7" height="3" rx="1"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="16" y2="15"/>
+  </symbol>
+  <symbol id="icon-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/>
+  </symbol>
+  <symbol id="icon-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 4 2 9l10 5 10-5-10-5Z"/><path d="M6 12.5V17c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/>
+  </symbol>
+  <symbol id="icon-ribbon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="8" r="5"/><path d="m8.5 12.5-2 8 5.5-3 5.5 3-2-8"/>
+  </symbol>
+</svg>
+
+<header class="site-header">
+  <span class="wordmark">Lucas <span>Amaral</span></span>
+  <nav class="site-nav" aria-label="Secções">
+    <ul>
+      <li><a href="#bancada">Bancada</a></li>
+      <li><a href="#percurso">Percurso</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero container container--wide">
+    <svg class="hero-watermark" viewBox="0 0 400 200" aria-hidden="true">
+      <path d="M40,100 C40,60 150,42 230,55 C218,75 218,125 230,145 C150,158 40,140 40,100 Z" fill="currentColor"/>
+      <path d="M230,55 L285,25 L262,80 Z" fill="currentColor"/>
+      <path d="M230,145 L285,175 L262,120 Z" fill="currentColor"/>
+      <circle cx="76" cy="90" r="4.5" fill="var(--bg)"/>
+    </svg>
+    <div class="hero-inner">
+      <span class="eyebrow">Portfólio profissional</span>
+      <div class="hero-seal">L·A</div>
+      <h1 class="hero-name">Lucas Alves<br>do Amaral</h1>
+      <p class="hero-role">Chef de Cozinha<span class="dot">·</span>Sushi Chef<span class="dot">·</span>Responsável de Sushi Bar</p>
+      <p class="hero-tagline">16 anos de restauração, <em>6 à frente da cozinha e do sushi bar do Home Sushi</em>, em Viseu. Do corte e maturação do peixe ao HACCP diário — uma cozinha construída com rigor biológico e mão de sushiman.</p>
+      <div class="badge-row">
+        <span class="chip"><svg><use href="#icon-pin"/></svg>Viseu, Portugal</span>
+        <span class="chip"><svg><use href="#icon-phone"/></svg><a href="tel:+351912071323">+351 912 071 323</a></span>
+        <span class="chip"><svg><use href="#icon-mail"/></svg><a href="mailto:aquariovicio@gmail.com">aquariovicio@gmail.com</a></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="perfil" class="section container">
+    <div class="section-head">
+      <span class="eyebrow">Perfil</span>
+      <h2>Da bancada ao laboratório, e de volta à bancada</h2>
+      <svg class="brush" viewBox="0 0 220 10" aria-hidden="true"><path d="M0,5 C40,1 80,9 110,5 C140,1 180,9 220,5"/></svg>
+    </div>
+    <p class="lede">Cozinheiro há 16 anos, dos quais 6 à frente da cozinha e do sushi bar do Home Sushi, em Viseu, onde coordeno uma equipa de 6 — escalas, formação, stock e fornecedores. Formado em Chef de Cuisine e Restaurateur pelo Centro Europeu, em Curitiba, já fui chefe de 4 restaurantes, incluindo a abertura de raiz do Nomiya Sushi &amp; Ramen, no Palácio do Gelo.</p>
+    <p class="lede">A licenciatura em Ciências Biológicas trouxe para a bancada o domínio técnico do peixe — espécies, frescura, sazonalidade e parasitologia — aplicado todos os dias ao controlo de qualidade e ao HACCP. Lidero equipas multiculturais em inglês C2.</p>
+  </section>
+
+  <section id="percurso" class="section container">
+    <div class="section-head">
+      <span class="eyebrow">Percurso</span>
+      <h2>Uma cozinha de cada vez</h2>
+      <svg class="brush" viewBox="0 0 220 10" aria-hidden="true"><path d="M0,5 C40,1 80,9 110,5 C140,1 180,9 220,5"/></svg>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item is-current">
+        <div class="role-row">
+          <span class="role-title">Chef de Cozinha / Responsável de Sushi Bar</span>
+          <span class="role-place">Home Sushi, Viseu</span>
+          <span class="role-dates">set. 2020 — atual</span>
+        </div>
+        <ul class="role-bullets">
+          <li>Coordenação de equipa de 6: escalas, formação e distribuição de tarefas</li>
+          <li>Gestão de stock, receção e conferência de mercadorias, controlo de fornecedores</li>
+          <li>Receção, limpeza, corte e maturação de peixe, com avaliação de frescura e qualidade</li>
+          <li>Criação e confeção de sushi e de pratos de cozinha asiática</li>
+          <li>Aplicação e verificação diária das normas HACCP em toda a operação</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="role-row">
+          <span class="role-title">Chef de Cozinha</span>
+          <span class="role-place">Nomiya Sushi Bar, Viseu</span>
+          <span class="role-dates">nov. 2019 — set. 2020</span>
+        </div>
+        <ul class="role-bullets">
+          <li>Chefia da cozinha de duas unidades em simultâneo</li>
+          <li>Abertura do Nomiya Sushi &amp; Ramen, no Palácio do Gelo: montagem de cozinha, criação de carta e formação da equipa de raiz</li>
+          <li>Gestão de pessoal e de stock</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="role-row">
+          <span class="role-title">Cozinheiro</span>
+          <span class="role-place">Hotel Montebelo, Viseu</span>
+          <span class="role-dates">nov. 2018 — out. 2019</span>
+        </div>
+        <ul class="role-bullets">
+          <li>Mise en place, confeção e empratamento de quentes e frios de cozinha portuguesa</li>
+          <li>Serviço de hotelaria de volume elevado, horários rotativos, incluindo trabalho noturno</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="bancada" class="section container container--wide">
+    <div class="section-head">
+      <span class="eyebrow">Bancada</span>
+      <h2>A bancada</h2>
+      <svg class="brush" viewBox="0 0 220 10" aria-hidden="true"><path d="M0,5 C40,1 80,9 110,5 C140,1 180,9 220,5"/></svg>
+    </div>
+    <div class="gallery">
+      <figure class="gallery-card">
+        <img src="img/sushi-travessa-home.jpg" alt="Travessa de sushi e sashimi artesanal" loading="lazy" class="gallery-media">
+        <figcaption class="gallery-caption"><span class="gallery-title">Sushi de autor</span></figcaption>
+      </figure>
+      <figure class="gallery-card">
+        <img src="img/sashimi-gelo.jpg" alt="Sashimi variado sobre gelo, com leques de pepino e flores comestíveis" loading="lazy" class="gallery-media">
+        <figcaption class="gallery-caption"><span class="gallery-title">Sashimi sobre gelo</span></figcaption>
+      </figure>
+      <figure class="gallery-card">
+        <img src="img/crudo-salmao.jpg" alt="Crudo de salmão em roseta, com ovas e cebola roxa em pickle" loading="lazy" class="gallery-media">
+        <figcaption class="gallery-caption"><span class="gallery-title">Crudo de salmão</span></figcaption>
+      </figure>
+      <figure class="gallery-card">
+        <img src="img/tabua-empratamento.jpg" alt="Tábua de sushi variado empratada na bancada, ao lado da faca yanagiba" loading="lazy" class="gallery-media">
+        <figcaption class="gallery-caption"><span class="gallery-title">Tábua de autor</span></figcaption>
+      </figure>
+      <figure class="gallery-card">
+        <img src="img/servico-linha.jpg" alt="Linha de caixas de sushi prontas para entrega na bancada de passe" loading="lazy" class="gallery-media">
+        <figcaption class="gallery-caption"><span class="gallery-title">Serviço em volume</span></figcaption>
+      </figure>
+      <figure class="gallery-card">
+        <img src="img/chef-lucas.jpg" alt="Lucas Amaral na cozinha do Home Sushi com duas travessas montadas" loading="lazy" class="gallery-media">
+        <figcaption class="gallery-caption"><span class="gallery-title">Na cozinha</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="competencias" class="section container container--wide">
+    <div class="section-head">
+      <span class="eyebrow">Competências</span>
+      <h2>Ferramentas de cozinha e de gestão</h2>
+      <svg class="brush" viewBox="0 0 220 10" aria-hidden="true"><path d="M0,5 C40,1 80,9 110,5 C140,1 180,9 220,5"/></svg>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-head"><svg><use href="#icon-clipboard"/></svg><h3>Gestão</h3></div>
+        <div class="tag-row">
+          <span class="tag">Liderança de equipas</span><span class="tag">Formação</span><span class="tag">Escalas</span>
+          <span class="tag">Gestão de stock</span><span class="tag">Compras</span><span class="tag">Food cost</span>
+          <span class="tag">Controlo de qualidade</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-head"><svg><use href="#icon-shield"/></svg><h3>Segurança alimentar</h3></div>
+        <div class="tag-row">
+          <span class="tag">HACCP</span><span class="tag">Cadeia de frio</span><span class="tag">Rastreabilidade</span>
+          <span class="tag">Parasitologia do pescado</span><span class="tag">Conservação</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-head"><svg><use href="#icon-knife"/></svg><h3>Técnica</h3></div>
+        <div class="tag-row">
+          <span class="tag">Sushi &amp; cozinha japonesa</span><span class="tag">Corte de peixe</span>
+          <span class="tag">Cozinha italiana</span><span class="tag">Cozinha francesa</span>
+          <span class="tag">Show cooking</span><span class="tag">Buffets de casamento</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-head"><svg><use href="#icon-globe"/></svg><h3>Idiomas</h3></div>
+        <div class="tag-row">
+          <span class="tag">Português — nativo</span><span class="tag">Inglês — C2</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formacao" class="section container container--wide">
+    <div class="section-head">
+      <span class="eyebrow">Formação</span>
+      <h2>Formação &amp; certificações</h2>
+      <svg class="brush" viewBox="0 0 220 10" aria-hidden="true"><path d="M0,5 C40,1 80,9 110,5 C140,1 180,9 220,5"/></svg>
+    </div>
+    <div class="creds-grid">
+      <div>
+        <div class="creds-head"><svg><use href="#icon-cap"/></svg><h3>Académica</h3></div>
+        <div class="cred-item">
+          <p class="cred-title">Chef de Cuisine e Restaurateur</p>
+          <p class="cred-meta">Centro Europeu, Curitiba · 2009</p>
+          <p class="cred-desc">Administração de pessoal, custos e formação de preços, planeamento de cozinhas, cozinha clássica, contemporânea e italiana, molhos clássicos, garde manger, pâtisserie e enogastronomia.</p>
+        </div>
+        <div class="cred-item">
+          <p class="cred-title">Licenciatura em Ciências Biológicas</p>
+          <p class="cred-meta">Universidade Metropolitana de Santos (UNIMES) · 2012 – 2016</p>
+          <p class="cred-desc">Apoio laboratorial na Universidade Católica de Santos: preparação de meios de cultura e colaboração com o laboratório de Ecotoxicologia. Assepsia, controlo microbiológico e registo de procedimentos.</p>
+        </div>
+        <div class="cred-item">
+          <p class="cred-title">Licenciatura em Geografia</p>
+          <p class="cred-meta">Universidade Metropolitana de Santos (UNIMES) · 2012 – 2015</p>
+          <p class="cred-desc">Cursada em simultâneo com Ciências Biológicas, 2840 horas cada, a par do trabalho em três escolas.</p>
+        </div>
+      </div>
+      <div>
+        <div class="creds-head"><svg><use href="#icon-ribbon"/></svg><h3>Certificações</h3></div>
+        <div class="cred-item">
+          <p class="cred-title">HACCP — Vessel Sanitation (USPHS)</p>
+          <p class="cred-meta">Marinha do Brasil · 2011</p>
+        </div>
+        <div class="cred-item">
+          <p class="cred-title">Quality Standards Compliance and Auditing</p>
+          <p class="cred-meta">Costa Crociere · 2011</p>
+        </div>
+        <div class="cred-item">
+          <p class="cred-title">Curso Básico de Segurança de Navio (CBSN / STCW)</p>
+          <p class="cred-meta">Credenciado pela DPC — Marinha do Brasil · 2011</p>
+          <p class="cred-desc">Prevenção e combate a incêndio, primeiros socorros, técnicas de sobrevivência pessoal, procedimentos de emergência e responsabilidade social.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="section container container--wide">
+    <div class="section-head">
+      <span class="eyebrow">Contacto</span>
+      <h2>Vamos falar</h2>
+      <svg class="brush" viewBox="0 0 220 10" aria-hidden="true"><path d="M0,5 C40,1 80,9 110,5 C140,1 180,9 220,5"/></svg>
+    </div>
+    <div class="contact-card">
+      <p class="contact-line">Disponível para uma nova cozinha — em Portugal, com disponibilidade para mudança de residência.</p>
+      <div class="contact-chips">
+        <span class="chip"><svg><use href="#icon-pin"/></svg>Viseu, Portugal</span>
+        <span class="chip"><svg><use href="#icon-phone"/></svg><a href="tel:+351912071323">+351 912 071 323</a></span>
+        <span class="chip"><svg><use href="#icon-mail"/></svg><a href="mailto:aquariovicio@gmail.com">aquariovicio@gmail.com</a></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="container container--wide">
+  <span>Lucas Alves do Amaral · Viseu, Portugal</span>
+</footer>
