@@ -197,6 +197,9 @@
   .chip svg{ width: 1em; height: 1em; flex: none; }
   .chip a{ text-decoration: none; color: inherit; }
   .chip a:hover{ color: var(--accent-strong); }
+  a.chip{ text-decoration: none; }
+  .chip--accent{ border-color: var(--accent); color: var(--accent-strong); }
+  .chip--accent:hover{ background: var(--bg-elevated-2); }
 
   @keyframes rise{ from{ opacity: 0; transform: translateY(10px); } to{ opacity: 1; transform: translateY(0); } }
   .hero-name, .hero-role, .hero-tagline, .hero .badge-row{
@@ -216,7 +219,12 @@
   .lede + .lede{ margin-top: var(--space-2); }
 
   /* ---------- timeline ---------- */
-  .timeline{ position: relative; margin-top: var(--space-4); }
+  .timeline-subhead{
+    font-family: var(--font-body); font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted);
+  }
+  .timeline + .timeline-subhead{ margin-top: var(--space-5); }
+  .timeline{ position: relative; margin-top: var(--space-3); }
   .timeline::before{
     content: ""; position: absolute; left: 5px; top: 0.5rem; bottom: 0.5rem;
     width: 1px; background: var(--line-strong);
@@ -290,6 +298,9 @@
   <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
     <rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/>
   </symbol>
+  <symbol id="icon-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/>
+  </symbol>
   <symbol id="icon-nigiri" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
     <ellipse cx="12" cy="15" rx="8" ry="4"/><path d="M5 13c1-2.5 4-4 7-4s6 1.5 7 4"/>
   </symbol>
@@ -342,6 +353,7 @@
       <p class="hero-role">Chef de cozinha e sushi chef</p>
       <p class="hero-tagline">Cozinho há 16 anos. Comecei em Curitiba, passei pela cozinha italiana e por um navio de cruzeiro, e há seis anos estou à frente da cozinha e do sushi bar do Home Sushi, em Viseu.</p>
       <div class="badge-row">
+        <a class="chip chip--accent" href="CV_Lucas_Amaral.pdf" target="_blank" rel="noopener"><svg><use href="#icon-download"/></svg>CV em PDF</a>
         <span class="chip"><svg><use href="#icon-pin"/></svg>Viseu, Portugal</span>
         <span class="chip"><svg><use href="#icon-phone"/></svg><a href="tel:+351912071323">+351 912 071 323</a></span>
         <span class="chip"><svg><use href="#icon-mail"/></svg><a href="mailto:aquariovicio@gmail.com">aquariovicio@gmail.com</a></span>
@@ -366,6 +378,7 @@
       <svg class="brush" viewBox="0 0 220 10" aria-hidden="true"><path d="M0,5 C40,1 80,9 110,5 C140,1 180,9 220,5"/></svg>
     </div>
 
+    <h3 class="timeline-subhead">Cozinha</h3>
     <div class="timeline">
       <div class="timeline-item is-current">
         <div class="role-row">
@@ -377,7 +390,7 @@
           <li>Coordenação de equipa de 6: escalas, formação e distribuição de tarefas</li>
           <li>Gestão de stock, receção e conferência de mercadorias, controlo de fornecedores</li>
           <li>Receção, limpeza, corte e maturação de peixe, com avaliação de frescura e qualidade</li>
-          <li>Criação e confeção de sushi e de pratos de cozinha asiática</li>
+          <li>Criação e confeção de sushi e de pratos de cozinha asiática; definição de mise en place</li>
           <li>Aplicação e verificação diária das normas HACCP em toda a operação</li>
         </ul>
       </div>
@@ -404,6 +417,7 @@
         <ul class="role-bullets">
           <li>Mise en place, confeção e empratamento de quentes e frios de cozinha portuguesa</li>
           <li>Serviço de hotelaria de volume elevado, horários rotativos, incluindo trabalho noturno</li>
+          <li>Apoio pontual a outras unidades do grupo Visabeira</li>
         </ul>
       </div>
 
@@ -422,12 +436,12 @@
       <div class="timeline-item">
         <div class="role-row">
           <span class="role-title">Capo Chef</span>
-          <span class="role-place">Restaurante Trovatta Risoteria, Curitiba</span>
+          <span class="role-place">Restaurante Trovatta Risoteria, Curitiba, Brasil</span>
           <span class="role-dates">2009 — 2011</span>
         </div>
         <ul class="role-bullets">
-          <li>Chefia de equipa de 6 por turno, num quadro total de 12</li>
-          <li>Cozinha italiana e francesa à la carte: risotti, pasta, garde manger, rotisserie e pâtisserie</li>
+          <li>Chefia de equipa de 6 por turno, num quadro total de 12: instrução, treino e fiscalização de preparos e higiene</li>
+          <li>Cozinha italiana e francesa à la carte: risotti, pasta, garde manger, charbroiler, rotisserie e pâtisserie</li>
           <li>Controlo de comandas, compras e gestão de stock</li>
         </ul>
       </div>
@@ -435,11 +449,39 @@
       <div class="timeline-item">
         <div class="role-row">
           <span class="role-title">Início de carreira</span>
-          <span class="role-place">Porcini Trattoria, Grimpa Steakhouse e Ki Lanches, Curitiba</span>
+          <span class="role-place">Porcini Trattoria, Grimpa Steakhouse e Ki Lanches, Curitiba, Brasil</span>
           <span class="role-dates">2003 — 2009</span>
         </div>
         <ul class="role-bullets">
           <li>Cozinha italiana à la carte, churrasco e barbecue, e serviço rápido de alto volume</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="timeline-subhead">Segunda carreira — ensino</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="role-row">
+          <span class="role-title">Professor</span>
+          <span class="role-place">Câmara Municipal de Praia Grande, Colégio Alexo Viazovski e Escola Estadual Laudelino Fernandes dos Santos — São Paulo, Brasil</span>
+          <span class="role-dates">2012 — 2018</span>
+        </div>
+        <ul class="role-bullets">
+          <li>Geografia, Ciências, Inglês e Informática no 3.º ciclo e no secundário, com apoio a Física e Química</li>
+          <li>Projeto “Mais Educação”: criação e manutenção da horta escolar com os alunos</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="role-row">
+          <span class="role-title">Monitor-chefe e estagiário</span>
+          <span class="role-place">Museu de Ciências Naturais Joias da Natureza, São Vicente, Brasil</span>
+          <span class="role-dates">2012 — 2014</span>
+        </div>
+        <ul class="role-bullets">
+          <li>Visitas guiadas a turistas e a turmas escolares, técnicas e universitárias, nos três turnos</li>
+          <li>Montagem e manutenção dos recintos animais e dos aquários da nova sede</li>
+          <li>Formação dos novos estagiários para monitoria e manutenção</li>
         </ul>
       </div>
     </div>
@@ -470,15 +512,16 @@
       <div class="skill-group">
         <div class="skill-group-head"><svg><use href="#icon-knife"/></svg><h3>Técnica</h3></div>
         <div class="tag-row">
-          <span class="tag">Sushi &amp; cozinha japonesa</span><span class="tag">Corte de peixe</span>
+          <span class="tag">Sushi &amp; cozinha japonesa</span><span class="tag">Limpeza e corte de peixe</span>
           <span class="tag">Cozinha italiana</span><span class="tag">Cozinha francesa</span>
-          <span class="tag">Show cooking</span><span class="tag">Buffets de casamento</span>
+          <span class="tag">Eventos</span><span class="tag">Show cooking</span><span class="tag">Buffets de casamento</span>
         </div>
       </div>
       <div class="skill-group">
         <div class="skill-group-head"><svg><use href="#icon-globe"/></svg><h3>Idiomas</h3></div>
         <div class="tag-row">
           <span class="tag">Português — nativo</span><span class="tag">Inglês — C2</span>
+          <span class="tag">Espanhol — noções</span><span class="tag">Italiano — noções</span>
         </div>
       </div>
     </div>
@@ -496,17 +539,17 @@
         <div class="cred-item">
           <p class="cred-title">Chef de Cuisine e Restaurateur</p>
           <p class="cred-meta">Centro Europeu, Curitiba · 2009</p>
-          <p class="cred-desc">Administração de pessoal, custos e formação de preços, planeamento de cozinhas, cozinha clássica, contemporânea e italiana, molhos clássicos, garde manger, pâtisserie e enogastronomia.</p>
+          <p class="cred-desc">Administração de pessoal, custos e formação de preços, planeamento de cozinhas, conhecimento de mercadorias, cozinha clássica, contemporânea e italiana, molhos clássicos, garde manger, pâtisserie, enogastronomia e marketing em restaurantes.</p>
         </div>
         <div class="cred-item">
           <p class="cred-title">Licenciatura em Ciências Biológicas</p>
           <p class="cred-meta">Universidade Metropolitana de Santos (UNIMES) · 2012 – 2016</p>
-          <p class="cred-desc">Apoio laboratorial na Universidade Católica de Santos: preparação de meios de cultura e colaboração com o laboratório de Ecotoxicologia. Assepsia, controlo microbiológico e registo de procedimentos.</p>
+          <p class="cred-desc">Apoio laboratorial na Universidade Católica de Santos: preparação de meios de cultura para ensaios de medicamentos da Farmácia e colaboração com o laboratório de Ecotoxicologia, em parceria com o Museu de Ciências Naturais. Assepsia, controlo microbiológico e registo de procedimentos.</p>
         </div>
         <div class="cred-item">
           <p class="cred-title">Licenciatura em Geografia</p>
           <p class="cred-meta">Universidade Metropolitana de Santos (UNIMES) · 2012 – 2015</p>
-          <p class="cred-desc">Cursada em simultâneo com Ciências Biológicas, 2840 horas cada, a par do trabalho em três escolas.</p>
+          <p class="cred-desc">Cursada em simultâneo com Ciências Biológicas, 2840 horas cada, a par do trabalho nas escolas. Trabalho final sobre horticultura nas escolas.</p>
         </div>
       </div>
       <div>
@@ -522,7 +565,7 @@
         <div class="cred-item">
           <p class="cred-title">Curso Básico de Segurança de Navio (CBSN / STCW)</p>
           <p class="cred-meta">Credenciado pela DPC — Marinha do Brasil · 2011</p>
-          <p class="cred-desc">Prevenção e combate a incêndio, primeiros socorros, técnicas de sobrevivência pessoal, procedimentos de emergência e responsabilidade social.</p>
+          <p class="cred-desc">Prevenção e combate a incêndio, primeiros socorros, técnicas de sobrevivência pessoal, procedimentos de emergência, segurança pessoal e responsabilidade social.</p>
         </div>
       </div>
     </div>
@@ -535,9 +578,11 @@
       <svg class="brush" viewBox="0 0 220 10" aria-hidden="true"><path d="M0,5 C40,1 80,9 110,5 C140,1 180,9 220,5"/></svg>
     </div>
     <div class="badge-row">
+      <a class="chip chip--accent" href="CV_Lucas_Amaral.pdf" target="_blank" rel="noopener"><svg><use href="#icon-download"/></svg>CV em PDF</a>
       <span class="chip"><svg><use href="#icon-pin"/></svg>Viseu, Portugal</span>
       <span class="chip"><svg><use href="#icon-phone"/></svg><a href="tel:+351912071323">+351 912 071 323</a></span>
       <span class="chip"><svg><use href="#icon-mail"/></svg><a href="mailto:aquariovicio@gmail.com">aquariovicio@gmail.com</a></span>
+      <span class="chip"><svg><use href="#icon-shield"/></svg>Residência permanente em Portugal</span>
     </div>
   </section>
 </main>
