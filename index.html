@@ -36,7 +36,7 @@
     --font-display: 'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
     --font-body: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Yu Gothic', 'Segoe UI', sans-serif;
 
-    --fs-hero: clamp(2.6rem, 4vw + 1.4rem, 4.5rem);
+    --fs-hero: clamp(2.1rem, 3vw + 1.1rem, 3.6rem);
     --fs-h2: clamp(1.65rem, 1.6vw + 1.2rem, 2.35rem);
     --fs-h3: 1.2rem;
     --fs-body: 1.05rem;
@@ -249,7 +249,7 @@
     font-size: 1.05rem;
     letter-spacing: 0.02em;
   }
-  .wordmark span{ color: var(--accent); }
+  .wordmark-accent{ color: var(--accent); }
   .site-nav ul{ display: flex; gap: clamp(0.75rem, 2vw, 1.6rem); flex-wrap: wrap; }
   .site-nav a{
     font-family: var(--font-body); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em;
@@ -274,6 +274,7 @@
   }
   .hero-watermark .fish-base{ opacity: 0.07; }
   .hero-watermark .fish-cut{ opacity: 0.3; }
+  .hero-watermark .fish-tail{ opacity: 0.16; }
   .hero-watermark #fishBladeLine{ opacity: 0.55; }
   @keyframes fish-drift{
     0%,100%{ transform: translateY(0) rotate(0deg); }
@@ -282,7 +283,6 @@
   @media (prefers-reduced-motion: reduce){ .hero-watermark .fish-cut, .hero-watermark #fishBladeLine{ display: none; } }
   .hero-inner{ position: relative; z-index: 1; }
   .hero-name{ font-size: var(--fs-hero); line-height: 1.04; }
-  .hero-name-accent{ color: var(--accent); }
   .hero-role{
     margin-top: var(--space-2);
     font-family: var(--font-body);
@@ -313,6 +313,7 @@
   .chip a{ text-decoration: none; color: inherit; }
   .chip a:hover{ color: var(--accent-strong); }
   a.chip{ text-decoration: none; }
+  a.chip:not(.chip--accent):hover{ color: var(--accent-strong); border-color: var(--accent); }
   .chip--accent{ border-color: var(--accent); color: var(--accent-strong); }
   .chip--accent:hover{
     background: var(--bg-elevated-2);
@@ -579,9 +580,9 @@
   }
   @media (max-width: 640px){
     .site-header{ flex-direction: column; align-items: flex-start; gap: 0.6rem; }
-    .hero-name{ font-size: 2rem; max-width: 60%; }
+    .hero-name{ font-size: 2rem; max-width: 62%; }
     .hero-watermark{
-      top: 0.3rem; right: -8%; width: 34vw; max-width: 145px;
+      top: 1.1rem; right: -10%; width: 42vw; max-width: 175px;
     }
     .lb-stage{ inset: 3.75rem 0 5rem; }
     .lb-prev, .lb-next{ top: auto; bottom: calc(0.9rem + env(safe-area-inset-bottom, 0px)); transform: none; }
@@ -697,7 +698,7 @@
 </script>
 
 <header class="site-header">
-  <span class="wordmark">Lucas <span>Amaral</span></span>
+  <span class="wordmark">Lucas Alves <span class="wordmark-accent">do Amaral</span></span>
   <nav class="site-nav" aria-label="Secções">
     <ul>
       <li><a href="#galeria">Galeria</a></li>
@@ -715,27 +716,27 @@
       </defs>
       <g class="fish-base">
         <path d="M40,100 C40,60 150,42 230,55 C218,75 218,125 230,145 C150,158 40,140 40,100 Z" fill="currentColor"/>
-        <path d="M230,55 L285,25 L262,80 Z" fill="currentColor"/>
-        <path d="M230,145 L285,175 L262,120 Z" fill="currentColor"/>
         <circle cx="76" cy="90" r="4.5" fill="var(--bg)"/>
       </g>
       <g class="fish-cut" clip-path="url(#fishSliceClip)">
         <path d="M40,100 C40,60 150,42 230,55 C218,75 218,125 230,145 C150,158 40,140 40,100 Z" fill="var(--accent)"/>
-        <path d="M230,55 L285,25 L262,80 Z" fill="var(--accent)"/>
-        <path d="M230,145 L285,175 L262,120 Z" fill="var(--accent)"/>
         <circle cx="76" cy="90" r="4.5" fill="var(--bg)"/>
+      </g>
+      <g class="fish-tail">
+        <path d="M230,55 L285,25 L262,80 Z" fill="currentColor"/>
+        <path d="M230,145 L285,175 L262,120 Z" fill="currentColor"/>
       </g>
       <line id="fishBladeLine" x1="0" y1="0" x2="0" y2="200" stroke="var(--accent-strong)" stroke-width="1.5"/>
     </svg>
     <div class="hero-inner">
-      <h1 class="hero-name">Lucas <span class="hero-name-accent">"Yoshiki"</span> Amaral</h1>
+      <h1 class="hero-name">Lucas Alves<br>do Amaral</h1>
       <p class="hero-role">Chef de cozinha e sushi chef</p>
       <p class="hero-tagline">Cozinho há 16 anos. Comecei em Curitiba, passei pela cozinha italiana e por um navio de cruzeiro, e há 6 anos estou à frente do Home Sushi, em Viseu.</p>
       <div class="badge-row">
         <a class="chip chip--accent" href="CV_Lucas_Amaral.pdf" target="_blank" rel="noopener"><svg><use href="#icon-download"/></svg>CV em PDF</a>
         <span class="chip"><svg><use href="#icon-pin"/></svg>Viseu, Portugal</span>
-        <span class="chip"><svg><use href="#icon-phone"/></svg><a href="tel:+351912071323">+351 912 071 323</a></span>
-        <span class="chip"><svg><use href="#icon-mail"/></svg><a href="mailto:aquariovicio@gmail.com">aquariovicio@gmail.com</a></span>
+        <a class="chip" href="tel:+351912071323"><svg><use href="#icon-phone"/></svg>+351 912 071 323</a>
+        <a class="chip" href="mailto:aquariovicio@gmail.com"><svg><use href="#icon-mail"/></svg>aquariovicio@gmail.com</a>
       </div>
     </div>
   </section>
@@ -856,7 +857,7 @@
       <div class="timeline-item">
         <div class="role-row">
           <span class="role-title">Professor</span>
-          <span class="role-place">Câmara Municipal de Praia Grande, Colégio Alexo Viazovski e Escola Estadual Laudelino Fernandes dos Santos — São Paulo, Brasil</span>
+          <span class="role-place">Colégio Alexo Viazovski e Escola Estadual Laudelino Fernandes dos Santos, via Câmara Municipal de Praia Grande — São Paulo, Brasil</span>
           <span class="role-dates">2012 — 2018</span>
         </div>
         <ul class="role-bullets">
