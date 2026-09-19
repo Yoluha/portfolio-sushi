@@ -5,6 +5,10 @@
 <meta property="og:title" content="Lucas Amaral — Chef de Cozinha">
 <meta property="og:description" content="Portfólio profissional de Lucas Amaral. 16 anos em restauração, especializado em sushi e cozinha asiática.">
 <meta property="og:url" content="https://yoluha.github.io/portfolio-sushi/">
+<meta property="og:image" content="https://yoluha.github.io/portfolio-sushi/galeria/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='80' font-family='serif'>🍣</text></svg>">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap">
@@ -103,6 +107,7 @@
   }
 
   *{ box-sizing: border-box; }
+  [hidden]{ display: none !important; }
   body{
     margin: 0;
     background: var(--bg);
@@ -260,7 +265,110 @@
   }
   .role-bullets li::before{ content: "—"; position: absolute; left: 0; color: var(--accent-deep); }
 
-  /* ---------- skills ---------- */
+  /* ---------- galeria ---------- */
+  .gallery{
+    display: grid; gap: 0.5rem;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-flow: dense;
+  }
+  .gallery--lead > :first-child{ grid-column: span 2; grid-row: span 2; }
+  .tile{
+    position: relative; display: block; width: 100%; aspect-ratio: 1;
+    padding: 0; border: 0; overflow: hidden; cursor: zoom-in;
+    background: var(--bg-elevated-2);
+  }
+  .tile img{ display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .tile:hover img, .tile:focus-visible img{ transform: scale(1.04); }
+  .tile-play{
+    position: absolute; left: 0.5rem; bottom: 0.5rem;
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    padding: 0.2rem 0.55rem 0.2rem 0.4rem; border-radius: 999px;
+    background: rgba(10,12,14,0.72); color: #f0e9d8;
+    font-family: var(--font-body); font-size: 0.72rem; letter-spacing: 0.02em;
+  }
+  .tile-play svg{ width: 0.9rem; height: 0.9rem; }
+  .gallery-more{
+    display: inline-flex; align-items: center; gap: 0.5em; margin-top: var(--space-3);
+    font: inherit; font-size: 0.85rem; cursor: pointer;
+    color: var(--accent-strong); background: var(--bg-elevated);
+    border: 1px solid var(--accent); border-radius: 999px; padding: 0.55rem 1.1rem;
+  }
+  .gallery-more:hover{ background: var(--bg-elevated-2); }
+  .gallery-subhead{
+    margin: var(--space-5) 0 var(--space-2);
+    font-family: var(--font-body); font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted);
+  }
+  .gallery--strip{ grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+
+  .albums{ display: grid; gap: 1.1rem; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+  .album-card{
+    display: flex; flex-direction: column; padding: 0; text-align: left; cursor: pointer;
+    font: inherit; color: inherit; background: var(--bg-elevated);
+    border: 1px solid var(--line); transition: border-color .2s ease;
+  }
+  .album-card:hover, .album-card:focus-visible{ border-color: var(--accent); }
+  .album-cover{
+    display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px;
+    aspect-ratio: 4 / 3; overflow: hidden; background: var(--bg-elevated-2);
+  }
+  .album-cover img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+  .album-cover img:first-child{ grid-row: span 2; }
+  .album-meta{ padding: 0.85rem 1rem 1rem; }
+  .album-title{ font-family: var(--font-display); font-size: 1.05rem; color: var(--ink); }
+  .album-sub{ margin-top: 0.15rem; font-size: 0.82rem; color: var(--ink-muted); }
+  .album-count{ margin-top: 0.5rem; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+
+  body:has(dialog[open]){ overflow: hidden; }
+  .album-dialog{
+    width: min(1120px, 100vw); max-width: 100vw; height: 100dvh; max-height: 100dvh;
+    margin: 0 auto; padding: 0; border: 0;
+    background: var(--bg); color: var(--ink);
+  }
+  .album-dialog::backdrop{ background: rgba(0,0,0,0.65); }
+  .album-bar{
+    position: sticky; top: 0; z-index: 1;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: calc(0.9rem + env(safe-area-inset-top, 0px)) clamp(1rem, 3vw, 1.75rem) 0.9rem;
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+  }
+  .album-bar h2{ font-size: clamp(1.2rem, 1vw + 1rem, 1.6rem); }
+  .album-bar p{ font-size: 0.82rem; color: var(--ink-muted); }
+  .album-body{ padding: 1rem clamp(1rem, 3vw, 1.75rem) calc(2rem + env(safe-area-inset-bottom, 0px)); }
+  .album-body .gallery{ grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+
+  .icon-btn{
+    flex: none; display: grid; place-items: center; width: 2.75rem; height: 2.75rem;
+    border-radius: 50%; cursor: pointer; color: inherit;
+    background: transparent; border: 1px solid var(--line-strong);
+  }
+  .icon-btn svg{ width: 1.1rem; height: 1.1rem; }
+
+  .lightbox{
+    width: 100vw; height: 100dvh; max-width: 100vw; max-height: 100dvh;
+    margin: 0; padding: 0; border: 0; overflow: hidden;
+    background: #080a0c; color: #f0e9d8;
+  }
+  .lightbox::backdrop{ background: rgba(0,0,0,0.85); }
+  .lb-top{
+    position: absolute; top: 0; left: 0; right: 0; z-index: 1;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: calc(0.75rem + env(safe-area-inset-top, 0px)) 1rem 0.75rem;
+    font-size: 0.82rem; color: #b3ab9a;
+  }
+  .lb-stage{
+    position: absolute; inset: 4rem 0 4rem;
+    display: flex; align-items: center; justify-content: center;
+    padding-inline: clamp(0.5rem, 6vw, 5rem);
+  }
+  .lb-stage img, .lb-stage video{ display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
+  .lightbox .icon-btn{ border-color: rgba(240,233,216,0.22); background: rgba(240,233,216,0.06); }
+  .lb-prev, .lb-next{ position: absolute; top: 50%; transform: translateY(-50%); z-index: 1; }
+  .lb-prev{ left: 0.75rem; }
+  .lb-next{ right: 0.75rem; }
+
+
   .skills-grid{ display: grid; gap: 1.4rem; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-top: var(--space-4); }
   .skill-group{ border: 1px solid var(--line); background: var(--bg-elevated); padding: 1.4rem; }
   .skill-group-head{ display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.9rem; color: var(--accent); }
@@ -292,8 +400,15 @@
   }
   footer .seal-line{ font-family: var(--font-display); color: var(--ink-muted); }
 
+  @media (max-width: 800px){
+    .gallery{ grid-template-columns: repeat(3, 1fr); gap: 0.35rem; }
+  }
   @media (max-width: 640px){
     .site-header{ flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+    .lb-stage{ inset: 3.75rem 0 5rem; }
+    .lb-prev, .lb-next{ top: auto; bottom: calc(0.9rem + env(safe-area-inset-bottom, 0px)); transform: none; }
+    .lb-prev{ left: calc(50% - 3.5rem); }
+    .lb-next{ right: calc(50% - 3.5rem); }
   }
 </style>
 
@@ -306,6 +421,15 @@
   </symbol>
   <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
     <rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/>
+  </symbol>
+  <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+    <path d="M6 6l12 12M18 6 6 18"/>
+  </symbol>
+  <symbol id="icon-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m15 5-7 7 7 7"/>
+  </symbol>
+  <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m9 5 7 7-7 7"/>
   </symbol>
   <symbol id="icon-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
     <path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/>
@@ -349,6 +473,7 @@
   <span class="wordmark">Lucas <span>Amaral</span></span>
   <nav class="site-nav" aria-label="Secções">
     <ul>
+      <li><a href="#galeria">Galeria</a></li>
       <li><a href="#percurso">Percurso</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
@@ -384,6 +509,19 @@
     </div>
     <p class="lede">No Home Sushi coordeno uma equipa de 6 — escalas, formação, stock e fornecedores. Formei-me em Chef de Cuisine e Restaurateur no Centro Europeu, em Curitiba, e já fui chefe de 4 restaurantes, incluindo a abertura de raiz do Nomiya Sushi &amp; Ramen, no Palácio do Gelo.</p>
     <p class="lede">A licenciatura em Ciências Biológicas trouxe para a bancada o domínio técnico do peixe — espécies, frescura, sazonalidade e parasitologia — aplicado todos os dias ao controlo de qualidade e ao HACCP. Lidero equipas multiculturais em inglês C2.</p>
+  </section>
+
+  <section id="galeria" class="section container container--wide">
+    <div class="section-head">
+      <span class="eyebrow">Galeria</span>
+      <h2>Sushi</h2>
+      <svg class="brush" viewBox="0 0 220 10" aria-hidden="true"><path d="M0,5 C40,1 80,9 110,5 C140,1 180,9 220,5"/></svg>
+    </div>
+    <div class="gallery gallery--lead" id="galeria-destaque"></div>
+    <button type="button" class="gallery-more" id="galeria-mais" hidden></button>
+    <div id="galeria-extra"></div>
+    <h3 class="gallery-subhead">Álbuns antigos</h3>
+    <div class="albums" id="galeria-antigos"></div>
   </section>
 
   <section id="percurso" class="section container">
@@ -605,3 +743,182 @@
 <footer class="container container--wide">
   <span>Lucas Alves do Amaral · Viseu, Portugal</span>
 </footer>
+
+<dialog class="album-dialog" id="album" aria-labelledby="album-titulo">
+  <div class="album-bar">
+    <div>
+      <h2 id="album-titulo"></h2>
+      <p id="album-sub"></p>
+    </div>
+    <button type="button" class="icon-btn" data-fechar aria-label="Fechar álbum"><svg><use href="#icon-close"/></svg></button>
+  </div>
+  <div class="album-body"><div class="gallery" id="album-grelha"></div></div>
+</dialog>
+
+<dialog class="lightbox" id="lightbox" aria-label="Visualizador de fotos">
+  <div class="lb-top">
+    <span id="lb-contador"></span>
+    <button type="button" class="icon-btn" data-fechar aria-label="Fechar"><svg><use href="#icon-close"/></svg></button>
+  </div>
+  <div class="lb-stage" id="lb-palco"></div>
+  <button type="button" class="icon-btn lb-prev" id="lb-ant" aria-label="Anterior"><svg><use href="#icon-chevron-left"/></svg></button>
+  <button type="button" class="icon-btn lb-next" id="lb-seg" aria-label="Seguinte"><svg><use href="#icon-chevron-right"/></svg></button>
+</dialog>
+
+<script src="galeria/galeria.js"></script>
+<script>
+(function(){
+  const albuns = window.GALERIA || [];
+  const $ = id => document.getElementById(id);
+  const ficheiro = (a, it) => `galeria/${a.slug}/${it.src}`;
+  const miniatura = (a, it) => `galeria/${a.slug}/${it.src.replace(/\.(jpg|mp4)$/, '_t.jpg')}`;
+  const duracao = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+  const PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>';
+  const DESTAQUE_VISIVEIS = 15;
+
+  function contagem(a){
+    const v = a.itens.filter(it => it.v).length, f = a.itens.length - v;
+    return [f && `${f} ${f === 1 ? 'foto' : 'fotos'}`, v && `${v} ${v === 1 ? 'vídeo' : 'vídeos'}`].filter(Boolean).join(' · ');
+  }
+
+  function mosaico(a, i, grande){
+    const it = a.itens[i];
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'tile';
+    b.setAttribute('aria-label', `${a.titulo}, ${it.v ? 'vídeo' : 'foto'} ${i + 1} de ${a.itens.length}`);
+    const img = new Image();
+    img.alt = '';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.src = grande && !it.v ? ficheiro(a, it) : miniatura(a, it);
+    b.append(img);
+    if (it.v) {
+      const p = document.createElement('span');
+      p.className = 'tile-play';
+      p.innerHTML = PLAY + duracao(it.d);
+      b.append(p);
+    }
+    b.addEventListener('click', () => abrirVisualizador(a, i));
+    return b;
+  }
+
+  // destaque: sushi em grelha grande, com o resto escondido atrás de um botão
+  const destaque = albuns.find(a => a.destaque);
+  if (destaque) {
+    const grelha = $('galeria-destaque');
+    destaque.itens.slice(0, DESTAQUE_VISIVEIS).forEach((_, i) => grelha.append(mosaico(destaque, i, i === 0)));
+    const resto = destaque.itens.length - DESTAQUE_VISIVEIS;
+    if (resto > 0) {
+      const mais = $('galeria-mais');
+      mais.textContent = `Ver todas (${contagem(destaque)})`;
+      mais.hidden = false;
+      mais.addEventListener('click', () => {
+        destaque.itens.slice(DESTAQUE_VISIVEIS).forEach((_, j) => grelha.append(mosaico(destaque, DESTAQUE_VISIVEIS + j)));
+        mais.hidden = true;
+      });
+    }
+  }
+
+  // álbuns recentes mais pequenos (ex.: workshop) mostrados logo por inteiro
+  albuns.filter(a => !a.destaque && !a.antigo).forEach(a => {
+    const h = document.createElement('h3');
+    h.className = 'gallery-subhead';
+    h.textContent = a.titulo;
+    const g = document.createElement('div');
+    g.className = 'gallery gallery--strip';
+    a.itens.forEach((_, i) => g.append(mosaico(a, i)));
+    $('galeria-extra').append(h, g);
+  });
+
+  // álbuns antigos: cartões que abrem o álbum completo
+  albuns.filter(a => a.antigo).forEach(a => {
+    const c = document.createElement('button');
+    c.type = 'button';
+    c.className = 'album-card';
+    const capa = document.createElement('div');
+    capa.className = 'album-cover';
+    a.itens.filter(it => !it.v).slice(0, 3).forEach(it => {
+      const img = new Image();
+      img.alt = '';
+      img.loading = 'lazy';
+      img.src = miniatura(a, it);
+      capa.append(img);
+    });
+    const meta = document.createElement('div');
+    meta.className = 'album-meta';
+    meta.innerHTML = '<div class="album-title"></div><div class="album-sub"></div><div class="album-count"></div>';
+    meta.children[0].textContent = a.titulo;
+    meta.children[1].textContent = a.sub || '';
+    meta.children[2].textContent = contagem(a);
+    c.append(capa, meta);
+    c.addEventListener('click', () => abrirAlbum(a));
+    $('galeria-antigos').append(c);
+  });
+
+  const album = $('album');
+  function abrirAlbum(a){
+    $('album-titulo').textContent = a.titulo;
+    $('album-sub').textContent = [a.sub, contagem(a)].filter(Boolean).join(' · ');
+    const g = $('album-grelha');
+    g.replaceChildren(...a.itens.map((_, i) => mosaico(a, i)));
+    album.showModal();
+    album.scrollTop = 0;
+  }
+
+  const lb = $('lightbox'), palco = $('lb-palco');
+  let atual = null, indice = 0;
+  function abrirVisualizador(a, i){
+    atual = a;
+    mostrar(i);
+    if (!lb.open) lb.showModal();
+  }
+  function mostrar(i){
+    const n = atual.itens.length;
+    indice = (i + n) % n;
+    const it = atual.itens[indice];
+    let el;
+    if (it.v) {
+      el = document.createElement('video');
+      el.src = ficheiro(atual, it);
+      el.poster = miniatura(atual, it);
+      el.controls = true;
+      el.autoplay = true;
+      el.playsInline = true;
+    } else {
+      el = new Image();
+      el.alt = `${atual.titulo}, foto ${indice + 1} de ${n}`;
+      el.src = ficheiro(atual, it);
+    }
+    palco.replaceChildren(el);
+    $('lb-contador').textContent = `${atual.titulo} · ${indice + 1} / ${n}`;
+    const multiplos = n > 1;
+    $('lb-ant').hidden = $('lb-seg').hidden = !multiplos;
+    [indice + 1, indice - 1].forEach(k => {
+      const viz = atual.itens[(k + n) % n];
+      if (!viz.v) new Image().src = ficheiro(atual, viz);
+    });
+  }
+  $('lb-ant').addEventListener('click', () => mostrar(indice - 1));
+  $('lb-seg').addEventListener('click', () => mostrar(indice + 1));
+  lb.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') mostrar(indice - 1);
+    if (e.key === 'ArrowRight') mostrar(indice + 1);
+  });
+  lb.addEventListener('close', () => palco.replaceChildren());
+  palco.addEventListener('click', e => { if (e.target === palco) lb.close(); });
+
+  let toqueX = null;
+  palco.addEventListener('touchstart', e => {
+    toqueX = e.target.tagName === 'VIDEO' ? null : e.touches[0].clientX;
+  }, { passive: true });
+  palco.addEventListener('touchend', e => {
+    if (toqueX === null) return;
+    const dx = e.changedTouches[0].clientX - toqueX;
+    if (Math.abs(dx) > 50) mostrar(indice + (dx < 0 ? 1 : -1));
+    toqueX = null;
+  });
+
+  document.querySelectorAll('[data-fechar]').forEach(b => b.addEventListener('click', () => b.closest('dialog').close()));
+})();
+</script>
