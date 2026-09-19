@@ -563,6 +563,7 @@
   }
   @media (max-width: 640px){
     .site-header{ flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+    .hero-watermark{ top: auto; bottom: 2%; right: -12%; width: 40vw; }
     .lb-stage{ inset: 3.75rem 0 5rem; }
     .lb-prev, .lb-next{ top: auto; bottom: calc(0.9rem + env(safe-area-inset-bottom, 0px)); transform: none; }
     .lb-prev{ left: calc(50% - 3.5rem); }
@@ -708,7 +709,7 @@
     <div class="hero-inner">
       <h1 class="hero-name">Lucas Alves<br>do Amaral</h1>
       <p class="hero-role">Chef de cozinha e sushi chef</p>
-      <p class="hero-tagline">Cozinho há 16 anos. Comecei em Curitiba, passei pela cozinha italiana e por um navio de cruzeiro, e há seis anos estou à frente da cozinha e do sushi bar do Home Sushi, em Viseu.</p>
+      <p class="hero-tagline">Cozinho há 16 anos. Comecei em Curitiba, passei pela cozinha italiana e por um navio de cruzeiro, e há 6 anos estou à frente do Home Sushi, em Viseu.</p>
       <div class="badge-row">
         <a class="chip chip--accent" href="CV_Lucas_Amaral.pdf" target="_blank" rel="noopener"><svg><use href="#icon-download"/></svg>CV em PDF</a>
         <span class="chip"><svg><use href="#icon-pin"/></svg>Viseu, Portugal</span>
@@ -726,7 +727,7 @@
     </div>
     <p class="lede">No Home Sushi coordeno uma equipa de 6 — escalas, formação, stock e fornecedores. Formei-me em Chef de Cuisine e Restaurateur no Centro Europeu, em Curitiba, e já fui chefe de 4 restaurantes, incluindo a abertura de raiz do Nomiya Sushi &amp; Ramen, no Palácio do Gelo.</p>
     <p class="lede">A licenciatura em Ciências Biológicas trouxe para a bancada o domínio técnico do peixe — espécies, frescura, sazonalidade e parasitologia — aplicado todos os dias ao controlo de qualidade e ao HACCP. Lidero equipas multiculturais em inglês, que falo, leio e escrevo fluentemente.</p>
-    <p class="lede">Uma curiosidade: o nome que uso no dia a dia é Yoshiki — no trabalho tratam-me por Yoshi, para encurtar. "Lucas" é o que ficou no registo: o meu avô, de família portuguesa, foi registar-me e, arrisco dizer, não quis um nome esquisito japonês no neto — acabei com o nome do hospital onde nasci. Falo português como língua materna; o nome é a única coisa japonesa que trago.</p>
+    <p class="lede">Uma curiosidade: o nome que uso no dia a dia é Yoshiki — no trabalho tratam-me por Yoshi, para encurtar. "Lucas" é o que ficou no registo: o meu avô, de família portuguesa, foi registar-me e, arrisco dizer, não quis um nome esquisito japonês no neto — acabei com o nome do hospital onde nasci, o São Lucas. Mesmo assim, continuo a apresentar-me com o meu nome japonês. Falo português como língua materna, mas a cultura, o trabalho e a ideologia que trago são japoneses.</p>
   </section>
 
   <section id="galeria" class="section container container--wide">
@@ -1140,32 +1141,53 @@
   document.querySelectorAll('[data-fechar]').forEach(b => b.addEventListener('click', () => b.closest('dialog').close()));
 })();
 
-// ---------- Hero fish: sliced open left-to-right, like sashimi under the knife ----------
+// ---------- Hero fish: a sequence of decisive knife strokes, like slicing sashimi ----------
 (function(){
-  const HERO_FISH = { cutSeconds: 3.2, holdSeconds: 1.6 };
-  HERO_FISH.cycle = HERO_FISH.cutSeconds + HERO_FISH.holdSeconds;
-
   const svg = document.getElementById('heroFishScene');
   if (!svg || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const rect = document.getElementById('fishSliceRect');
   const blade = document.getElementById('fishBladeLine');
-  const WIDTH = 400;
+
+  // Each cut lands at one of these x positions (head to tail); a quick downward
+  // stroke reveals the slice, then the blade lifts and pauses before the next one.
+  const CUTS = [70, 140, 210, 280, 400];
+  const STROKE_SECONDS = 0.16;
+  const LIFT_SECONDS = 0.34;
+  const HOLD_SECONDS = 1.3;
+  const SEGMENT = STROKE_SECONDS + LIFT_SECONDS;
+  const CYCLE = CUTS.length * SEGMENT + HOLD_SECONDS;
+
   const startTime = performance.now();
 
   function tick(now){
     requestAnimationFrame(tick);
     const elapsed = (now - startTime) / 1000;
-    const cyclePos = elapsed % HERO_FISH.cycle;
-    const cutting = cyclePos < HERO_FISH.cutSeconds;
-    const linearT = cyclePos / HERO_FISH.cutSeconds;
-    const easedT = cutting ? 1 - Math.pow(1 - linearT, 2) : 1;
-    const x = cutting ? easedT * WIDTH : WIDTH;
+    const t = elapsed % CYCLE;
 
-    rect.setAttribute('width', x);
-    blade.setAttribute('x1', x);
-    blade.setAttribute('x2', x);
-    blade.style.display = cutting ? '' : 'none';
+    if (t >= CUTS.length * SEGMENT) {
+      rect.setAttribute('width', 400);
+      blade.style.display = 'none';
+      return;
+    }
+
+    const index = Math.floor(t / SEGMENT);
+    const localT = t - index * SEGMENT;
+    const toX = CUTS[index];
+
+    if (localT < STROKE_SECONDS) {
+      // decisive stroke: the flesh parts immediately, the blade's downward
+      // drop is just the visual follow-through of the cut already made
+      const strokeT = localT / STROKE_SECONDS;
+      blade.style.display = '';
+      blade.setAttribute('x1', toX);
+      blade.setAttribute('x2', toX);
+      blade.setAttribute('y2', strokeT * 200);
+      rect.setAttribute('width', toX);
+    } else {
+      blade.style.display = 'none';
+      rect.setAttribute('width', toX);
+    }
   }
   requestAnimationFrame(tick);
 })();
