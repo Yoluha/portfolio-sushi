@@ -1273,6 +1273,17 @@
   fadeEls.forEach(el => el.classList.add('reveal-fade'));
   headEls.forEach(el => el.classList.add('reveal-head'));
 
+  const allTargets = [...riseEls, ...fadeEls, ...headEls];
+
+  // Arriving with a #hash already in the URL (a shared link, a bookmark) can
+  // jump straight past this content before the observer ever sees it
+  // intersect — show everything immediately in that case instead of leaving
+  // it stuck invisible above the landing point.
+  if (location.hash) {
+    allTargets.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -1281,7 +1292,7 @@
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
 
-  [...riseEls, ...fadeEls, ...headEls].forEach(el => io.observe(el));
+  allTargets.forEach(el => io.observe(el));
 })();
 </script>
 
