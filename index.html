@@ -258,6 +258,11 @@
     transition: color .2s ease, border-color .2s ease;
   }
   .site-nav a:hover, .site-nav a:focus-visible{ color: var(--accent); border-color: var(--accent); }
+  .lang-select{
+    background: var(--bg-elevated); color: var(--ink); border: 1px solid var(--line-strong); border-radius: 7px;
+    padding: 0.4rem 0.6rem; font-family: var(--font-body); font-size: 0.72rem; cursor: pointer;
+  }
+  .lang-select:focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; }
 
   /* ---------- hero ---------- */
   .hero{
@@ -701,11 +706,12 @@
   <span class="wordmark">Lucas Alves <span class="wordmark-accent">do Amaral</span></span>
   <nav class="site-nav" aria-label="Secções">
     <ul>
-      <li><a href="#galeria">Galeria</a></li>
-      <li><a href="#percurso">Percurso</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#galeria" data-i18n="nav.galeria">Galeria</a></li>
+      <li><a href="#percurso" data-i18n="nav.percurso">Percurso</a></li>
+      <li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li>
     </ul>
   </nav>
+  <select id="langSelect" class="lang-select" onchange="setLanguage(this.value)" aria-label="Idioma"></select>
 </header>
 
 <main>
@@ -730,10 +736,10 @@
     </svg>
     <div class="hero-inner">
       <h1 class="hero-name">Lucas Alves<br>do Amaral</h1>
-      <p class="hero-role">Chef de cozinha e sushi chef</p>
-      <p class="hero-tagline">Cozinho há 16 anos. Comecei em Curitiba, passei pela cozinha italiana e por um navio de cruzeiro, e há 6 anos estou à frente do Home Sushi, em Viseu.</p>
+      <p class="hero-role" data-i18n="hero.role">Chef de cozinha e sushi chef</p>
+      <p class="hero-tagline" data-i18n="hero.tagline">Cozinho há 16 anos. Comecei em Curitiba, passei pela cozinha italiana e por um navio de cruzeiro, e há 6 anos estou à frente do Home Sushi, em Viseu.</p>
       <div class="badge-row">
-        <a class="chip chip--accent" href="CV_Lucas_Amaral.pdf" target="_blank" rel="noopener"><svg><use href="#icon-download"/></svg>CV em PDF</a>
+        <a class="chip chip--accent" href="CV_Lucas_Amaral.pdf" target="_blank" rel="noopener"><svg><use href="#icon-download"/></svg><span data-i18n="hero.cv">CV em PDF</span></a>
         <span class="chip"><svg><use href="#icon-pin"/></svg>Viseu, Portugal</span>
         <a class="chip" href="tel:+351912071323"><svg><use href="#icon-phone"/></svg>+351 912 071 323</a>
         <a class="chip" href="mailto:aquariovicio@gmail.com"><svg><use href="#icon-mail"/></svg>aquariovicio@gmail.com</a>
@@ -743,75 +749,75 @@
 
   <section id="perfil" class="section container">
     <div class="section-head">
-      <span class="eyebrow">Perfil</span>
-      <h2>Sobre mim</h2>
+      <span class="eyebrow" data-i18n="perfil.eyebrow">Perfil</span>
+      <h2 data-i18n="perfil.h2">Sobre mim</h2>
       <svg class="brush" viewBox="0 0 220 10" aria-hidden="true"><path d="M0,5 C40,1 80,9 110,5 C140,1 180,9 220,5"/></svg>
     </div>
-    <p class="lede">No Home Sushi coordeno uma equipa de 6 — escalas, formação, stock e fornecedores. Formei-me em Chef de Cuisine e Restaurateur no Centro Europeu, em Curitiba, e já fui chefe de 4 restaurantes, incluindo a abertura de raiz do Nomiya Sushi &amp; Ramen, no Palácio do Gelo.</p>
-    <p class="lede">A licenciatura em Ciências Biológicas trouxe para a bancada o domínio técnico do peixe — espécies, frescura, sazonalidade e parasitologia — aplicado todos os dias ao controlo de qualidade e ao HACCP. Lidero equipas multiculturais em inglês, que falo, leio e escrevo fluentemente.</p>
-    <p class="lede">Uma curiosidade: o nome que uso no dia a dia é Yoshiki — no trabalho tratam-me por Yoshi, para encurtar. "Lucas" é o que ficou no registo: o meu avô, de família portuguesa, foi registar-me e, arrisco dizer, não quis um nome esquisito japonês no neto — acabei com o nome do hospital onde nasci, o São Lucas. Mesmo assim, continuo a apresentar-me com o meu nome japonês. Falo português como língua materna, mas a cultura, o trabalho e a ideologia que trago são também japoneses.</p>
+    <p class="lede" data-i18n="perfil.p1">No Home Sushi coordeno uma equipa de 6 — escalas, formação, stock e fornecedores. Formei-me em Chef de Cuisine e Restaurateur no Centro Europeu, em Curitiba, e já fui chefe de 4 restaurantes, incluindo a abertura de raiz do Nomiya Sushi &amp; Ramen, no Palácio do Gelo.</p>
+    <p class="lede" data-i18n="perfil.p2">A licenciatura em Ciências Biológicas trouxe para a bancada o domínio técnico do peixe — espécies, frescura, sazonalidade e parasitologia — aplicado todos os dias ao controlo de qualidade e ao HACCP. Lidero equipas multiculturais em inglês, que falo, leio e escrevo fluentemente.</p>
+    <p class="lede" data-i18n="perfil.p3">Uma curiosidade: o nome que uso no dia a dia é Yoshiki — no trabalho tratam-me por Yoshi, para encurtar. "Lucas" é o que ficou no registo: o meu avô, de família portuguesa, foi registar-me e, arrisco dizer, não quis um nome esquisito japonês no neto — acabei com o nome do hospital onde nasci, o São Lucas. Mesmo assim, continuo a apresentar-me com o meu nome japonês. Falo português como língua materna, mas a cultura, o trabalho e a ideologia que trago são também japoneses.</p>
   </section>
 
   <section id="galeria" class="section container container--wide">
     <div class="section-head">
-      <span class="eyebrow">Galeria</span>
-      <h2>Sushi</h2>
+      <span class="eyebrow" data-i18n="galeria.eyebrow">Galeria</span>
+      <h2 data-i18n="galeria.h2">Sushi</h2>
       <svg class="brush" viewBox="0 0 220 10" aria-hidden="true"><path d="M0,5 C40,1 80,9 110,5 C140,1 180,9 220,5"/></svg>
     </div>
     <div class="gallery gallery--lead" id="galeria-destaque"></div>
     <button type="button" class="gallery-more" id="galeria-mais" hidden></button>
     <div id="galeria-extra"></div>
-    <h3 class="gallery-subhead">Álbuns antigos</h3>
+    <h3 class="gallery-subhead" data-i18n="galeria.antigos">Álbuns antigos</h3>
     <div class="albums" id="galeria-antigos"></div>
   </section>
 
   <section id="percurso" class="section container">
     <div class="section-head">
-      <span class="eyebrow">Percurso</span>
-      <h2>Uma cozinha de cada vez</h2>
+      <span class="eyebrow" data-i18n="percurso.eyebrow">Percurso</span>
+      <h2 data-i18n="percurso.h2">Uma cozinha de cada vez</h2>
       <svg class="brush" viewBox="0 0 220 10" aria-hidden="true"><path d="M0,5 C40,1 80,9 110,5 C140,1 180,9 220,5"/></svg>
     </div>
 
-    <h3 class="timeline-subhead">Cozinha</h3>
+    <h3 class="timeline-subhead" data-i18n="percurso.sub1">Cozinha</h3>
     <div class="timeline">
       <div class="timeline-item is-current">
         <div class="role-row">
-          <span class="role-title">Chef de Cozinha / Responsável de Sushi Bar</span>
+          <span class="role-title" data-i18n="role1.title">Chef de Cozinha / Responsável de Sushi Bar</span>
           <span class="role-place">Home Sushi, Viseu</span>
-          <span class="role-dates">set. 2020 — atual</span>
+          <span class="role-dates" data-i18n="role1.dates">set. 2020 — atual</span>
         </div>
         <ul class="role-bullets">
-          <li>Coordenação de equipa de 6: escalas, formação e distribuição de tarefas</li>
-          <li>Gestão de stock, receção e conferência de mercadorias, controlo de fornecedores</li>
-          <li>Receção, limpeza, corte e maturação de peixe, com avaliação de frescura e qualidade</li>
-          <li>Criação e confeção de sushi e de pratos de cozinha asiática; definição de mise en place</li>
-          <li>Aplicação e verificação diária das normas HACCP em toda a operação</li>
+          <li data-i18n="role1.b1">Coordenação de equipa de 6: escalas, formação e distribuição de tarefas</li>
+          <li data-i18n="role1.b2">Gestão de stock, receção e conferência de mercadorias, controlo de fornecedores</li>
+          <li data-i18n="role1.b3">Receção, limpeza, corte e maturação de peixe, com avaliação de frescura e qualidade</li>
+          <li data-i18n="role1.b4">Criação e confeção de sushi e de pratos de cozinha asiática; definição de mise en place</li>
+          <li data-i18n="role1.b5">Aplicação e verificação diária das normas HACCP em toda a operação</li>
         </ul>
       </div>
 
       <div class="timeline-item">
         <div class="role-row">
-          <span class="role-title">Chef de Cozinha</span>
+          <span class="role-title" data-i18n="role2.title">Chef de Cozinha</span>
           <span class="role-place">Nomiya Sushi Bar, Viseu</span>
-          <span class="role-dates">nov. 2019 — set. 2020</span>
+          <span class="role-dates" data-i18n="role2.dates">nov. 2019 — set. 2020</span>
         </div>
         <ul class="role-bullets">
-          <li>Chefia da cozinha de duas unidades em simultâneo</li>
-          <li>Abertura do Nomiya Sushi &amp; Ramen, no Palácio do Gelo: montagem de cozinha, criação de carta e formação da equipa de raiz</li>
-          <li>Gestão de pessoal e de stock</li>
+          <li data-i18n="role2.b1">Chefia da cozinha de duas unidades em simultâneo</li>
+          <li data-i18n="role2.b2">Abertura do Nomiya Sushi &amp; Ramen, no Palácio do Gelo: montagem de cozinha, criação de carta e formação da equipa de raiz</li>
+          <li data-i18n="role2.b3">Gestão de pessoal e de stock</li>
         </ul>
       </div>
 
       <div class="timeline-item">
         <div class="role-row">
-          <span class="role-title">Cozinheiro</span>
+          <span class="role-title" data-i18n="role3.title">Cozinheiro</span>
           <span class="role-place">Hotel Montebelo, Viseu</span>
-          <span class="role-dates">nov. 2018 — out. 2019</span>
+          <span class="role-dates" data-i18n="role3.dates">nov. 2018 — out. 2019</span>
         </div>
         <ul class="role-bullets">
-          <li>Mise en place, confeção e empratamento de quentes e frios de cozinha portuguesa</li>
-          <li>Serviço de hotelaria de volume elevado, horários rotativos, incluindo trabalho noturno</li>
-          <li>Apoio pontual a outras unidades do grupo Visabeira</li>
+          <li data-i18n="role3.b1">Mise en place, confeção e empratamento de quentes e frios de cozinha portuguesa</li>
+          <li data-i18n="role3.b2">Serviço de hotelaria de volume elevado, horários rotativos, incluindo trabalho noturno</li>
+          <li data-i18n="role3.b3">Apoio pontual a outras unidades do grupo Visabeira</li>
         </ul>
       </div>
 
@@ -819,64 +825,64 @@
         <div class="role-row">
           <span class="role-title">3rd Cook</span>
           <span class="role-place">Costa Cruzeiros — navio Costa Fortuna</span>
-          <span class="role-dates">2011</span>
+          <span class="role-dates" data-i18n="role4.dates">2011</span>
         </div>
         <ul class="role-bullets">
-          <li>Pantry station e preparação de buffet para serviço internacional de grande volume</li>
-          <li>Operação sob normas de sanidade USPHS, com auditorias regulares</li>
+          <li data-i18n="role4.b1">Pantry station e preparação de buffet para serviço internacional de grande volume</li>
+          <li data-i18n="role4.b2">Operação sob normas de sanidade USPHS, com auditorias regulares</li>
         </ul>
       </div>
 
       <div class="timeline-item">
         <div class="role-row">
-          <span class="role-title">Capo Chef</span>
+          <span class="role-title" data-i18n="role5.title">Capo Chef</span>
           <span class="role-place">Restaurante Trovatta Risoteria, Curitiba, Brasil</span>
           <span class="role-dates">2009 — 2011</span>
         </div>
         <ul class="role-bullets">
-          <li>Chefia de equipa de 6 por turno, num quadro total de 12: instrução, treino e fiscalização de preparos e higiene</li>
-          <li>Cozinha italiana e francesa à la carte: risotti, pasta, garde manger, charbroiler, rotisserie e pâtisserie</li>
-          <li>Controlo de comandas, compras e gestão de stock</li>
+          <li data-i18n="role5.b1">Chefia de equipa de 6 por turno, num quadro total de 12: instrução, treino e fiscalização de preparos e higiene</li>
+          <li data-i18n="role5.b2">Cozinha italiana e francesa à la carte: risotti, pasta, garde manger, charbroiler, rotisserie e pâtisserie</li>
+          <li data-i18n="role5.b3">Controlo de comandas, compras e gestão de stock</li>
         </ul>
       </div>
 
       <div class="timeline-item">
         <div class="role-row">
-          <span class="role-title">Início de carreira</span>
+          <span class="role-title" data-i18n="role6.title">Início de carreira</span>
           <span class="role-place">Porcini Trattoria, Grimpa Steakhouse e Ki Lanches, Curitiba, Brasil</span>
           <span class="role-dates">2003 — 2009</span>
         </div>
         <ul class="role-bullets">
-          <li>Cozinha italiana à la carte, churrasco e barbecue, e serviço rápido de alto volume</li>
+          <li data-i18n="role6.b1">Cozinha italiana à la carte, churrasco e barbecue, e serviço rápido de alto volume</li>
         </ul>
       </div>
     </div>
 
-    <h3 class="timeline-subhead">Segunda carreira — ensino</h3>
+    <h3 class="timeline-subhead" data-i18n="percurso.sub2">Segunda carreira — ensino</h3>
     <div class="timeline">
       <div class="timeline-item">
         <div class="role-row">
-          <span class="role-title">Professor</span>
-          <span class="role-place">Colégio Alexo Viazovski e Escola Estadual Laudelino Fernandes dos Santos, via Câmara Municipal de Praia Grande — São Paulo, Brasil</span>
+          <span class="role-title" data-i18n="role7.title">Professor</span>
+          <span class="role-place" data-i18n="role7.place">Colégio Alexo Viazovski e Escola Estadual Laudelino Fernandes dos Santos, via Câmara Municipal de Praia Grande — São Paulo, Brasil</span>
           <span class="role-dates">2012 — 2018</span>
         </div>
         <ul class="role-bullets">
-          <li>Geografia, Ciências, Inglês e Informática no 3.º ciclo e no secundário, com apoio a Física e Química</li>
-          <li>Inglês e Informática aprendidos de forma autodidata, sem curso ou formação formal nessas áreas</li>
-          <li>Projeto “Mais Educação”: criação e manutenção da horta escolar com os alunos</li>
+          <li data-i18n="role7.b1">Geografia, Ciências, Inglês e Informática no 3.º ciclo e no secundário, com apoio a Física e Química</li>
+          <li data-i18n="role7.b2">Inglês e Informática aprendidos de forma autodidata, sem curso ou formação formal nessas áreas</li>
+          <li data-i18n="role7.b3">Projeto “Mais Educação”: criação e manutenção da horta escolar com os alunos</li>
         </ul>
       </div>
 
       <div class="timeline-item">
         <div class="role-row">
-          <span class="role-title">Monitor-chefe e estagiário</span>
+          <span class="role-title" data-i18n="role8.title">Monitor-chefe e estagiário</span>
           <span class="role-place">Museu de Ciências Naturais Joias da Natureza, São Vicente, Brasil</span>
           <span class="role-dates">2012 — 2014</span>
         </div>
         <ul class="role-bullets">
-          <li>Visitas guiadas a turistas e a turmas escolares, técnicas e universitárias, nos três turnos</li>
-          <li>Montagem e manutenção dos recintos animais e dos aquários da nova sede</li>
-          <li>Formação dos novos estagiários para monitoria e manutenção</li>
+          <li data-i18n="role8.b1">Visitas guiadas a turistas e a turmas escolares, técnicas e universitárias, nos três turnos</li>
+          <li data-i18n="role8.b2">Montagem e manutenção dos recintos animais e dos aquários da nova sede</li>
+          <li data-i18n="role8.b3">Formação dos novos estagiários para monitoria e manutenção</li>
         </ul>
       </div>
     </div>
@@ -884,39 +890,39 @@
 
   <section id="competencias" class="section container container--wide">
     <div class="section-head">
-      <span class="eyebrow">Competências</span>
-      <h2>Ferramentas de cozinha e de gestão</h2>
+      <span class="eyebrow" data-i18n="comp.eyebrow">Competências</span>
+      <h2 data-i18n="comp.h2">Ferramentas de cozinha e de gestão</h2>
       <svg class="brush" viewBox="0 0 220 10" aria-hidden="true"><path d="M0,5 C40,1 80,9 110,5 C140,1 180,9 220,5"/></svg>
     </div>
     <div class="skills-grid">
       <div class="skill-group">
-        <div class="skill-group-head"><svg><use href="#icon-clipboard"/></svg><h3>Gestão</h3></div>
+        <div class="skill-group-head"><svg><use href="#icon-clipboard"/></svg><h3 data-i18n="comp.g1">Gestão</h3></div>
         <div class="tag-row">
-          <span class="tag">Liderança de equipas</span><span class="tag">Formação</span><span class="tag">Escalas</span>
-          <span class="tag">Gestão de stock</span><span class="tag">Compras</span><span class="tag">Food cost</span>
-          <span class="tag">Controlo de qualidade</span>
+          <span class="tag" data-i18n="comp.g1t1">Liderança de equipas</span><span class="tag" data-i18n="comp.g1t2">Formação</span><span class="tag" data-i18n="comp.g1t3">Escalas</span>
+          <span class="tag" data-i18n="comp.g1t4">Gestão de stock</span><span class="tag" data-i18n="comp.g1t5">Compras</span><span class="tag">Food cost</span>
+          <span class="tag" data-i18n="comp.g1t7">Controlo de qualidade</span>
         </div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-head"><svg><use href="#icon-shield"/></svg><h3>Segurança alimentar</h3></div>
+        <div class="skill-group-head"><svg><use href="#icon-shield"/></svg><h3 data-i18n="comp.g2">Segurança alimentar</h3></div>
         <div class="tag-row">
-          <span class="tag">HACCP</span><span class="tag">Cadeia de frio</span><span class="tag">Rastreabilidade</span>
-          <span class="tag">Parasitologia do pescado</span><span class="tag">Conservação</span>
+          <span class="tag">HACCP</span><span class="tag" data-i18n="comp.g2t2">Cadeia de frio</span><span class="tag" data-i18n="comp.g2t3">Rastreabilidade</span>
+          <span class="tag" data-i18n="comp.g2t4">Parasitologia do pescado</span><span class="tag" data-i18n="comp.g2t5">Conservação</span>
         </div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-head"><svg><use href="#icon-knife"/></svg><h3>Técnica</h3></div>
+        <div class="skill-group-head"><svg><use href="#icon-knife"/></svg><h3 data-i18n="comp.g3">Técnica</h3></div>
         <div class="tag-row">
-          <span class="tag">Sushi &amp; cozinha japonesa</span><span class="tag">Limpeza e corte de peixe</span>
-          <span class="tag">Cozinha italiana</span><span class="tag">Cozinha francesa</span>
-          <span class="tag">Eventos</span><span class="tag">Show cooking</span><span class="tag">Buffets de casamento</span>
+          <span class="tag" data-i18n="comp.g3t1">Sushi &amp; cozinha japonesa</span><span class="tag" data-i18n="comp.g3t2">Limpeza e corte de peixe</span>
+          <span class="tag" data-i18n="comp.g3t3">Cozinha italiana</span><span class="tag" data-i18n="comp.g3t4">Cozinha francesa</span>
+          <span class="tag" data-i18n="comp.g3t5">Eventos</span><span class="tag">Show cooking</span><span class="tag" data-i18n="comp.g3t7">Buffets de casamento</span>
         </div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-head"><svg><use href="#icon-globe"/></svg><h3>Idiomas</h3></div>
+        <div class="skill-group-head"><svg><use href="#icon-globe"/></svg><h3 data-i18n="comp.g4">Idiomas</h3></div>
         <div class="tag-row">
-          <span class="tag">Português — nativo</span><span class="tag">Inglês — fluente</span>
-          <span class="tag">Espanhol — noções</span><span class="tag">Italiano — noções</span>
+          <span class="tag" data-i18n="comp.g4t1">Português — nativo</span><span class="tag" data-i18n="comp.g4t2">Inglês — fluente</span>
+          <span class="tag" data-i18n="comp.g4t3">Espanhol — noções</span><span class="tag" data-i18n="comp.g4t4">Italiano — noções</span>
         </div>
       </div>
     </div>
@@ -924,43 +930,43 @@
 
   <section id="formacao" class="section container container--wide">
     <div class="section-head">
-      <span class="eyebrow">Formação</span>
-      <h2>Formação &amp; certificações</h2>
+      <span class="eyebrow" data-i18n="form.eyebrow">Formação</span>
+      <h2 data-i18n="form.h2">Formação &amp; certificações</h2>
       <svg class="brush" viewBox="0 0 220 10" aria-hidden="true"><path d="M0,5 C40,1 80,9 110,5 C140,1 180,9 220,5"/></svg>
     </div>
     <div class="creds-grid">
       <div>
-        <div class="creds-head"><svg><use href="#icon-cap"/></svg><h3>Académica</h3></div>
+        <div class="creds-head"><svg><use href="#icon-cap"/></svg><h3 data-i18n="form.academica">Académica</h3></div>
         <div class="cred-item">
-          <p class="cred-title">Chef de Cuisine e Restaurateur</p>
+          <p class="cred-title" data-i18n="cred1.title">Chef de Cuisine e Restaurateur</p>
           <p class="cred-meta">Centro Europeu, Curitiba · mar. – dez. 2009</p>
-          <p class="cred-desc">Administração de pessoal, controladoria, custos e formação de preços, técnicas de compras, formação e fortalecimento de equipas, marketing em restaurantes, planeamento físico de cozinhas, planeamento nutricional de ementas, conhecimento de mercadorias, higiene e saúde, bases de cozinha, cozinha clássica, contemporânea, criativa e italiana, molhos clássicos, técnicas de garde manger, técnicas de mise en place, técnicas de serviços, pâtisserie, sobremesas brasileiras e enogastronomia.</p>
+          <p class="cred-desc" data-i18n="cred1.desc">Administração de pessoal, controladoria, custos e formação de preços, técnicas de compras, formação e fortalecimento de equipas, marketing em restaurantes, planeamento físico de cozinhas, planeamento nutricional de ementas, conhecimento de mercadorias, higiene e saúde, bases de cozinha, cozinha clássica, contemporânea, criativa e italiana, molhos clássicos, técnicas de garde manger, técnicas de mise en place, técnicas de serviços, pâtisserie, sobremesas brasileiras e enogastronomia.</p>
         </div>
         <div class="cred-item">
-          <p class="cred-title">Licenciatura em Ciências Biológicas</p>
+          <p class="cred-title" data-i18n="cred2.title">Licenciatura em Ciências Biológicas</p>
           <p class="cred-meta">Universidade Metropolitana de Santos (UNIMES) · 2012 – 2016</p>
-          <p class="cred-desc">Apoio laboratorial na Universidade Católica de Santos: preparação de meios de cultura para ensaios de medicamentos da Farmácia e colaboração com o laboratório de Ecotoxicologia, em parceria com o Museu de Ciências Naturais. Assepsia, controlo microbiológico e registo de procedimentos.</p>
+          <p class="cred-desc" data-i18n="cred2.desc">Apoio laboratorial na Universidade Católica de Santos: preparação de meios de cultura para ensaios de medicamentos da Farmácia e colaboração com o laboratório de Ecotoxicologia, em parceria com o Museu de Ciências Naturais. Assepsia, controlo microbiológico e registo de procedimentos.</p>
         </div>
         <div class="cred-item">
-          <p class="cred-title">Licenciatura em Geografia</p>
+          <p class="cred-title" data-i18n="cred3.title">Licenciatura em Geografia</p>
           <p class="cred-meta">Universidade Metropolitana de Santos (UNIMES) · 2012 – 2015</p>
-          <p class="cred-desc">Cursada em simultâneo com Ciências Biológicas, 2840 horas cada, a par do trabalho nas escolas. Trabalho final sobre horticultura nas escolas.</p>
+          <p class="cred-desc" data-i18n="cred3.desc">Cursada em simultâneo com Ciências Biológicas, 2840 horas cada, a par do trabalho nas escolas. Trabalho final sobre horticultura nas escolas.</p>
         </div>
       </div>
       <div>
-        <div class="creds-head"><svg><use href="#icon-ribbon"/></svg><h3>Certificações</h3></div>
+        <div class="creds-head"><svg><use href="#icon-ribbon"/></svg><h3 data-i18n="form.certs">Certificações</h3></div>
         <div class="cred-item">
           <p class="cred-title">HACCP — Vessel Sanitation (USPHS)</p>
-          <p class="cred-meta">Marinha do Brasil · 2011</p>
+          <p class="cred-meta" data-i18n="cred4.meta">Marinha do Brasil · 2011</p>
         </div>
         <div class="cred-item">
           <p class="cred-title">Quality Standards Compliance and Auditing</p>
           <p class="cred-meta">Costa Crociere · 2011</p>
         </div>
         <div class="cred-item">
-          <p class="cred-title">Curso Básico de Segurança de Navio (CBSN / STCW)</p>
-          <p class="cred-meta">Credenciado pela DPC — Marinha do Brasil · 2011</p>
-          <p class="cred-desc">Prevenção e combate a incêndio, primeiros socorros, técnicas de sobrevivência pessoal, procedimentos de emergência, segurança pessoal e responsabilidade social.</p>
+          <p class="cred-title" data-i18n="cred6.title">Curso Básico de Segurança de Navio (CBSN / STCW)</p>
+          <p class="cred-meta" data-i18n="cred6.meta">Credenciado pela DPC — Marinha do Brasil · 2011</p>
+          <p class="cred-desc" data-i18n="cred6.desc">Prevenção e combate a incêndio, primeiros socorros, técnicas de sobrevivência pessoal, procedimentos de emergência, segurança pessoal e responsabilidade social.</p>
         </div>
       </div>
     </div>
@@ -968,16 +974,16 @@
 
   <section id="contacto" class="section container container--wide">
     <div class="section-head">
-      <span class="eyebrow">Contacto</span>
-      <h2>Vamos falar</h2>
+      <span class="eyebrow" data-i18n="contacto.eyebrow">Contacto</span>
+      <h2 data-i18n="contacto.h2">Vamos falar</h2>
       <svg class="brush" viewBox="0 0 220 10" aria-hidden="true"><path d="M0,5 C40,1 80,9 110,5 C140,1 180,9 220,5"/></svg>
     </div>
     <div class="badge-row">
-      <a class="chip chip--accent" href="CV_Lucas_Amaral.pdf" target="_blank" rel="noopener"><svg><use href="#icon-download"/></svg>CV em PDF</a>
+      <a class="chip chip--accent" href="CV_Lucas_Amaral.pdf" target="_blank" rel="noopener"><svg><use href="#icon-download"/></svg><span data-i18n="hero.cv">CV em PDF</span></a>
       <span class="chip"><svg><use href="#icon-pin"/></svg>Viseu, Portugal</span>
       <a class="chip" href="tel:+351912071323"><svg><use href="#icon-phone"/></svg>+351 912 071 323</a>
       <a class="chip" href="mailto:aquariovicio@gmail.com"><svg><use href="#icon-mail"/></svg>aquariovicio@gmail.com</a>
-      <span class="chip"><svg><use href="#icon-shield"/></svg>Residência permanente em Portugal</span>
+      <span class="chip"><svg><use href="#icon-shield"/></svg><span data-i18n="contacto.residencia">Residência permanente em Portugal</span></span>
     </div>
   </section>
 </main>
@@ -1007,6 +1013,31 @@
   <button type="button" class="icon-btn lb-next" id="lb-seg" aria-label="Seguinte"><svg><use href="#icon-chevron-right"/></svg></button>
 </dialog>
 
+<script>
+  window.LANG_ORDER = ['pt','en','es','fr','de','it','pl','ja','nl','cs','zh','ru','ko','ne'];
+  (function(){
+    var saved = null;
+    try { saved = localStorage.getItem('sushi-lang'); } catch (e) {}
+    var browserLang = (navigator.language || 'pt').slice(0, 2);
+    window.currentLang = saved || (window.LANG_ORDER.indexOf(browserLang) > -1 ? browserLang : 'pt');
+  })();
+  window.GALLERY_WORDS = {
+    pt: { foto:'foto', fotos:'fotos', video:'vídeo', videos:'vídeos', verTodas:'Ver todas', de:'de' },
+    en: { foto:'photo', fotos:'photos', video:'video', videos:'videos', verTodas:'See all', de:'of' },
+    es: { foto:'foto', fotos:'fotos', video:'vídeo', videos:'vídeos', verTodas:'Ver todas', de:'de' },
+    fr: { foto:'photo', fotos:'photos', video:'vidéo', videos:'vidéos', verTodas:'Tout voir', de:'de' },
+    de: { foto:'Foto', fotos:'Fotos', video:'Video', videos:'Videos', verTodas:'Alle anzeigen', de:'von' },
+    it: { foto:'foto', fotos:'foto', video:'video', videos:'video', verTodas:'Vedi tutte', de:'di' },
+    pl: { foto:'zdjęcie', fotos:'zdjęć', video:'wideo', videos:'wideo', verTodas:'Zobacz wszystkie', de:'z' },
+    ja: { foto:'枚の写真', fotos:'枚の写真', video:'本の動画', videos:'本の動画', verTodas:'すべて見る', de:'/' },
+    nl: { foto:'foto', fotos:'foto\'s', video:'video', videos:'video\'s', verTodas:'Alles bekijken', de:'van' },
+    cs: { foto:'fotka', fotos:'fotek', video:'video', videos:'videí', verTodas:'Zobrazit vše', de:'z' },
+    zh: { foto:'张照片', fotos:'张照片', video:'个视频', videos:'个视频', verTodas:'查看全部', de:'/' },
+    ru: { foto:'фото', fotos:'фото', video:'видео', videos:'видео', verTodas:'Смотреть все', de:'из' },
+    ko: { foto:'장의 사진', fotos:'장의 사진', video:'개의 동영상', videos:'개의 동영상', verTodas:'전체 보기', de:'/' },
+    ne: { foto:'फोटो', fotos:'फोटो', video:'भिडियो', videos:'भिडियो', verTodas:'सबै हेर्नुहोस्', de:'को' },
+  };
+</script>
 <script src="galeria/galeria.js"></script>
 <script>
 (function(){
@@ -1019,8 +1050,9 @@
   const DESTAQUE_VISIVEIS = 15;
 
   function contagem(a){
+    const w = window.GALLERY_WORDS[window.currentLang] || window.GALLERY_WORDS.pt;
     const v = a.itens.filter(it => it.v).length, f = a.itens.length - v;
-    return [f && `${f} ${f === 1 ? 'foto' : 'fotos'}`, v && `${v} ${v === 1 ? 'vídeo' : 'vídeos'}`].filter(Boolean).join(' · ');
+    return [f && `${f} ${f === 1 ? w.foto : w.fotos}`, v && `${v} ${v === 1 ? w.video : w.videos}`].filter(Boolean).join(' · ');
   }
 
   function mosaico(a, i, grande){
@@ -1028,7 +1060,8 @@
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'tile';
-    b.setAttribute('aria-label', `${a.titulo}, ${it.v ? 'vídeo' : 'foto'} ${i + 1} de ${a.itens.length}`);
+    { const w = window.GALLERY_WORDS[window.currentLang] || window.GALLERY_WORDS.pt;
+      b.setAttribute('aria-label', `${a.titulo}, ${it.v ? w.video : w.foto} ${i + 1} ${w.de} ${a.itens.length}`); }
     const img = new Image();
     img.alt = '';
     img.loading = 'lazy';
@@ -1053,7 +1086,7 @@
     const resto = destaque.itens.length - DESTAQUE_VISIVEIS;
     if (resto > 0) {
       const mais = $('galeria-mais');
-      mais.textContent = `Ver todas (${contagem(destaque)})`;
+      mais.textContent = `${(window.GALLERY_WORDS[window.currentLang] || window.GALLERY_WORDS.pt).verTodas} (${contagem(destaque)})`;
       mais.hidden = false;
       mais.addEventListener('click', () => {
         destaque.itens.slice(DESTAQUE_VISIVEIS).forEach((_, j) => grelha.append(mosaico(destaque, DESTAQUE_VISIVEIS + j)));
@@ -1129,7 +1162,8 @@
       el.playsInline = true;
     } else {
       el = new Image();
-      el.alt = `${atual.titulo}, foto ${indice + 1} de ${n}`;
+      { const w = window.GALLERY_WORDS[window.currentLang] || window.GALLERY_WORDS.pt;
+        el.alt = `${atual.titulo}, ${w.foto} ${indice + 1} ${w.de} ${n}`; }
       el.src = ficheiro(atual, it);
     }
     palco.replaceChildren(el);
@@ -1294,6 +1328,973 @@
   }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
 
   allTargets.forEach(el => io.observe(el));
+})();
+</script>
+
+<script>
+(function(){
+  var T = {
+    pt: {
+      "nav.galeria":"Galeria","nav.percurso":"Percurso","nav.contacto":"Contacto",
+      "hero.role":"Chef de cozinha e sushi chef",
+      "hero.tagline":"Cozinho há 16 anos. Comecei em Curitiba, passei pela cozinha italiana e por um navio de cruzeiro, e há 6 anos estou à frente do Home Sushi, em Viseu.",
+      "hero.cv":"CV em PDF",
+      "perfil.eyebrow":"Perfil","perfil.h2":"Sobre mim",
+      "perfil.p1":"No Home Sushi coordeno uma equipa de 6 — escalas, formação, stock e fornecedores. Formei-me em Chef de Cuisine e Restaurateur no Centro Europeu, em Curitiba, e já fui chefe de 4 restaurantes, incluindo a abertura de raiz do Nomiya Sushi &amp; Ramen, no Palácio do Gelo.",
+      "perfil.p2":"A licenciatura em Ciências Biológicas trouxe para a bancada o domínio técnico do peixe — espécies, frescura, sazonalidade e parasitologia — aplicado todos os dias ao controlo de qualidade e ao HACCP. Lidero equipas multiculturais em inglês, que falo, leio e escrevo fluentemente.",
+      "perfil.p3":"Uma curiosidade: o nome que uso no dia a dia é Yoshiki — no trabalho tratam-me por Yoshi, para encurtar. \"Lucas\" é o que ficou no registo: o meu avô, de família portuguesa, foi registar-me e, arrisco dizer, não quis um nome esquisito japonês no neto — acabei com o nome do hospital onde nasci, o São Lucas. Mesmo assim, continuo a apresentar-me com o meu nome japonês. Falo português como língua materna, mas a cultura, o trabalho e a ideologia que trago são também japoneses.",
+      "galeria.eyebrow":"Galeria","galeria.h2":"Sushi","galeria.antigos":"Álbuns antigos",
+      "percurso.eyebrow":"Percurso","percurso.h2":"Uma cozinha de cada vez",
+      "percurso.sub1":"Cozinha","percurso.sub2":"Segunda carreira — ensino",
+      "role1.title":"Chef de Cozinha / Responsável de Sushi Bar","role1.dates":"set. 2020 — atual",
+      "role1.b1":"Coordenação de equipa de 6: escalas, formação e distribuição de tarefas",
+      "role1.b2":"Gestão de stock, receção e conferência de mercadorias, controlo de fornecedores",
+      "role1.b3":"Receção, limpeza, corte e maturação de peixe, com avaliação de frescura e qualidade",
+      "role1.b4":"Criação e confeção de sushi e de pratos de cozinha asiática; definição de mise en place",
+      "role1.b5":"Aplicação e verificação diária das normas HACCP em toda a operação",
+      "role2.title":"Chef de Cozinha","role2.dates":"nov. 2019 — set. 2020",
+      "role2.b1":"Chefia da cozinha de duas unidades em simultâneo",
+      "role2.b2":"Abertura do Nomiya Sushi &amp; Ramen, no Palácio do Gelo: montagem de cozinha, criação de carta e formação da equipa de raiz",
+      "role2.b3":"Gestão de pessoal e de stock",
+      "role3.title":"Cozinheiro","role3.dates":"nov. 2018 — out. 2019",
+      "role3.b1":"Mise en place, confeção e empratamento de quentes e frios de cozinha portuguesa",
+      "role3.b2":"Serviço de hotelaria de volume elevado, horários rotativos, incluindo trabalho noturno",
+      "role3.b3":"Apoio pontual a outras unidades do grupo Visabeira",
+      "role4.b1":"Pantry station e preparação de buffet para serviço internacional de grande volume",
+      "role4.b2":"Operação sob normas de sanidade USPHS, com auditorias regulares",
+      "role5.title":"Capo Chef",
+      "role5.b1":"Chefia de equipa de 6 por turno, num quadro total de 12: instrução, treino e fiscalização de preparos e higiene",
+      "role5.b2":"Cozinha italiana e francesa à la carte: risotti, pasta, garde manger, charbroiler, rotisserie e pâtisserie",
+      "role5.b3":"Controlo de comandas, compras e gestão de stock",
+      "role6.title":"Início de carreira",
+      "role6.b1":"Cozinha italiana à la carte, churrasco e barbecue, e serviço rápido de alto volume",
+      "role7.title":"Professor",
+      "role7.place":"Colégio Alexo Viazovski e Escola Estadual Laudelino Fernandes dos Santos, via Câmara Municipal de Praia Grande — São Paulo, Brasil",
+      "role7.b1":"Geografia, Ciências, Inglês e Informática no 3.º ciclo e no secundário, com apoio a Física e Química",
+      "role7.b2":"Inglês e Informática aprendidos de forma autodidata, sem curso ou formação formal nessas áreas",
+      "role7.b3":"Projeto “Mais Educação”: criação e manutenção da horta escolar com os alunos",
+      "role8.title":"Monitor-chefe e estagiário",
+      "role8.b1":"Visitas guiadas a turistas e a turmas escolares, técnicas e universitárias, nos três turnos",
+      "role8.b2":"Montagem e manutenção dos recintos animais e dos aquários da nova sede",
+      "role8.b3":"Formação dos novos estagiários para monitoria e manutenção",
+      "comp.eyebrow":"Competências","comp.h2":"Ferramentas de cozinha e de gestão",
+      "comp.g1":"Gestão","comp.g1t1":"Liderança de equipas","comp.g1t2":"Formação","comp.g1t3":"Escalas",
+      "comp.g1t4":"Gestão de stock","comp.g1t5":"Compras","comp.g1t7":"Controlo de qualidade",
+      "comp.g2":"Segurança alimentar","comp.g2t2":"Cadeia de frio","comp.g2t3":"Rastreabilidade",
+      "comp.g2t4":"Parasitologia do pescado","comp.g2t5":"Conservação",
+      "comp.g3":"Técnica","comp.g3t1":"Sushi &amp; cozinha japonesa","comp.g3t2":"Limpeza e corte de peixe",
+      "comp.g3t3":"Cozinha italiana","comp.g3t4":"Cozinha francesa","comp.g3t5":"Eventos","comp.g3t7":"Buffets de casamento",
+      "comp.g4":"Idiomas","comp.g4t1":"Português — nativo","comp.g4t2":"Inglês — fluente",
+      "comp.g4t3":"Espanhol — noções","comp.g4t4":"Italiano — noções",
+      "form.eyebrow":"Formação","form.h2":"Formação &amp; certificações",
+      "form.academica":"Académica","form.certs":"Certificações",
+      "cred1.title":"Chef de Cuisine e Restaurateur",
+      "cred1.desc":"Administração de pessoal, controladoria, custos e formação de preços, técnicas de compras, formação e fortalecimento de equipas, marketing em restaurantes, planeamento físico de cozinhas, planeamento nutricional de ementas, conhecimento de mercadorias, higiene e saúde, bases de cozinha, cozinha clássica, contemporânea, criativa e italiana, molhos clássicos, técnicas de garde manger, técnicas de mise en place, técnicas de serviços, pâtisserie, sobremesas brasileiras e enogastronomia.",
+      "cred2.title":"Licenciatura em Ciências Biológicas",
+      "cred2.desc":"Apoio laboratorial na Universidade Católica de Santos: preparação de meios de cultura para ensaios de medicamentos da Farmácia e colaboração com o laboratório de Ecotoxicologia, em parceria com o Museu de Ciências Naturais. Assepsia, controlo microbiológico e registo de procedimentos.",
+      "cred3.title":"Licenciatura em Geografia",
+      "cred3.desc":"Cursada em simultâneo com Ciências Biológicas, 2840 horas cada, a par do trabalho nas escolas. Trabalho final sobre horticultura nas escolas.",
+      "cred4.meta":"Marinha do Brasil · 2011",
+      "cred6.title":"Curso Básico de Segurança de Navio (CBSN / STCW)",
+      "cred6.meta":"Credenciado pela DPC — Marinha do Brasil · 2011",
+      "cred6.desc":"Prevenção e combate a incêndio, primeiros socorros, técnicas de sobrevivência pessoal, procedimentos de emergência, segurança pessoal e responsabilidade social.",
+      "contacto.eyebrow":"Contacto","contacto.h2":"Vamos falar",
+      "contacto.residencia":"Residência permanente em Portugal"
+    },
+    en: {
+      "nav.galeria":"Gallery","nav.percurso":"Journey","nav.contacto":"Contact",
+      "hero.role":"Head chef and sushi chef",
+      "hero.tagline":"I've been cooking for 16 years. I started in Curitiba, worked in Italian cuisine and on a cruise ship, and for the past 6 years I've led Home Sushi, in Viseu.",
+      "hero.cv":"CV (PDF)",
+      "perfil.eyebrow":"Profile","perfil.h2":"About me",
+      "perfil.p1":"At Home Sushi I run a team of 6 — schedules, training, stock and suppliers. I trained as a Chef de Cuisine and Restaurateur at Centro Europeu, in Curitiba, and have led 4 restaurants, including opening Nomiya Sushi &amp; Ramen from scratch, at Palácio do Gelo.",
+      "perfil.p2":"My degree in Biological Sciences brought technical mastery of fish to the counter — species, freshness, seasonality and parasitology — applied daily to quality control and HACCP. I lead multicultural teams in English, which I speak, read and write fluently.",
+      "perfil.p3":"A bit of trivia: the name I go by day to day is Yoshiki — at work they call me Yoshi, for short. \"Lucas\" is what ended up on my birth record: my grandfather, from a Portuguese family, went to register me and, I'd guess, didn't want an odd Japanese name for his grandson — I ended up with the name of the hospital where I was born, São Lucas. Even so, I still introduce myself by my Japanese name. Portuguese is my native language, but the culture, the work and the outlook I carry are Japanese too.",
+      "galeria.eyebrow":"Gallery","galeria.h2":"Sushi","galeria.antigos":"Older albums",
+      "percurso.eyebrow":"Journey","percurso.h2":"One kitchen at a time",
+      "percurso.sub1":"Kitchen","percurso.sub2":"Second career — teaching",
+      "role1.title":"Head Chef / Sushi Bar Manager","role1.dates":"Sep 2020 — present",
+      "role1.b1":"Leading a team of 6: schedules, training and task distribution",
+      "role1.b2":"Stock management, goods receiving and checking, supplier control",
+      "role1.b3":"Receiving, cleaning, cutting and maturing fish, assessing freshness and quality",
+      "role1.b4":"Creating and preparing sushi and Asian dishes; defining mise en place",
+      "role1.b5":"Daily application and verification of HACCP standards across the operation",
+      "role2.title":"Head Chef","role2.dates":"Nov 2019 — Sep 2020",
+      "role2.b1":"Ran the kitchens of two units at the same time",
+      "role2.b2":"Opened Nomiya Sushi &amp; Ramen, at Palácio do Gelo: kitchen setup, menu creation and building the team from scratch",
+      "role2.b3":"Staff and stock management",
+      "role3.title":"Cook","role3.dates":"Nov 2018 — Oct 2019",
+      "role3.b1":"Mise en place, cooking and plating hot and cold Portuguese dishes",
+      "role3.b2":"High-volume hotel service, rotating shifts, including night work",
+      "role3.b3":"Occasional support to other Visabeira group units",
+      "role4.b1":"Pantry station and buffet prep for high-volume international service",
+      "role4.b2":"Operated under USPHS sanitation standards, with regular audits",
+      "role5.title":"Head Chef",
+      "role5.b1":"Ran a team of 6 per shift, 12 total: instruction, training and oversight of prep and hygiene",
+      "role5.b2":"À la carte Italian and French cuisine: risotti, pasta, garde manger, charbroiler, rotisserie and pâtisserie",
+      "role5.b3":"Order, purchasing and stock control",
+      "role6.title":"Early career",
+      "role6.b1":"À la carte Italian cuisine, grill and barbecue, and high-volume fast service",
+      "role7.title":"Teacher",
+      "role7.place":"Colégio Alexo Viazovski and Escola Estadual Laudelino Fernandes dos Santos, via the Praia Grande municipal council — São Paulo, Brazil",
+      "role7.b1":"Geography, Science, English and IT at lower and upper secondary level, with support in Physics and Chemistry",
+      "role7.b2":"English and IT self-taught, with no formal course or training in either",
+      "role7.b3":"\"Mais Educação\" project: creating and maintaining the school garden with students",
+      "role8.title":"Lead guide and trainee",
+      "role8.b1":"Guided tours for tourists and school, technical and university groups, across all three shifts",
+      "role8.b2":"Set up and maintained the animal enclosures and aquariums at the new site",
+      "role8.b3":"Trained new trainees for guiding and maintenance duties",
+      "comp.eyebrow":"Skills","comp.h2":"Kitchen and management toolkit",
+      "comp.g1":"Management","comp.g1t1":"Team leadership","comp.g1t2":"Training","comp.g1t3":"Scheduling",
+      "comp.g1t4":"Stock management","comp.g1t5":"Purchasing","comp.g1t7":"Quality control",
+      "comp.g2":"Food safety","comp.g2t2":"Cold chain","comp.g2t3":"Traceability",
+      "comp.g2t4":"Seafood parasitology","comp.g2t5":"Preservation",
+      "comp.g3":"Technique","comp.g3t1":"Sushi &amp; Japanese cuisine","comp.g3t2":"Fish cleaning and cutting",
+      "comp.g3t3":"Italian cuisine","comp.g3t4":"French cuisine","comp.g3t5":"Events","comp.g3t7":"Wedding buffets",
+      "comp.g4":"Languages","comp.g4t1":"Portuguese — native","comp.g4t2":"English — fluent",
+      "comp.g4t3":"Spanish — basic","comp.g4t4":"Italian — basic",
+      "form.eyebrow":"Education","form.h2":"Education &amp; certifications",
+      "form.academica":"Academic","form.certs":"Certifications",
+      "cred1.title":"Chef de Cuisine and Restaurateur",
+      "cred1.desc":"Personnel administration, cost control and pricing, purchasing techniques, team training and building, restaurant marketing, kitchen layout planning, menu nutrition planning, goods knowledge, hygiene and health, kitchen fundamentals, classic, contemporary, creative and Italian cuisine, classic sauces, garde manger techniques, mise en place techniques, service techniques, pâtisserie, Brazilian desserts and wine &amp; food pairing.",
+      "cred2.title":"Degree in Biological Sciences",
+      "cred2.desc":"Lab support at Universidade Católica de Santos: preparing culture media for Pharmacy drug trials, and collaborating with the Ecotoxicology lab in partnership with the Museum of Natural Sciences. Asepsis, microbiological control and procedure logging.",
+      "cred3.title":"Degree in Geography",
+      "cred3.desc":"Studied alongside Biological Sciences, 2,840 hours each, on top of work at schools. Final project on school horticulture.",
+      "cred4.meta":"Brazilian Navy · 2011",
+      "cred6.title":"Basic Vessel Security Course (CBSN / STCW)",
+      "cred6.meta":"Accredited by the DPC — Brazilian Navy · 2011",
+      "cred6.desc":"Fire prevention and firefighting, first aid, personal survival techniques, emergency procedures, personal safety and social responsibility.",
+      "contacto.eyebrow":"Contact","contacto.h2":"Let's talk",
+      "contacto.residencia":"Permanent residency in Portugal"
+    },
+    es: {
+      "nav.galeria":"Galería","nav.percurso":"Trayectoria","nav.contacto":"Contacto",
+      "hero.role":"Chef de cocina y sushi chef",
+      "hero.tagline":"Cocino desde hace 16 años. Empecé en Curitiba, pasé por la cocina italiana y por un crucero, y desde hace 6 años dirijo el Home Sushi, en Viseu.",
+      "hero.cv":"CV en PDF",
+      "perfil.eyebrow":"Perfil","perfil.h2":"Sobre mí",
+      "perfil.p1":"En Home Sushi coordino un equipo de 6 — turnos, formación, stock y proveedores. Me formé como Chef de Cuisine y Restaurateur en el Centro Europeu, en Curitiba, y ya he sido chef de 4 restaurantes, incluyendo la apertura desde cero del Nomiya Sushi &amp; Ramen, en el Palácio do Gelo.",
+      "perfil.p2":"La licenciatura en Ciencias Biológicas trajo a la barra el dominio técnico del pescado — especies, frescura, estacionalidad y parasitología — aplicado a diario al control de calidad y al HACCP. Dirijo equipos multiculturales en inglés, que hablo, leo y escribo con fluidez.",
+      "perfil.p3":"Una curiosidad: el nombre que uso en el día a día es Yoshiki — en el trabajo me llaman Yoshi, para abreviar. \"Lucas\" es lo que quedó en el registro: mi abuelo, de familia portuguesa, fue a inscribirme y, me atrevo a decir, no quiso un nombre japonés raro para su nieto — acabé con el nombre del hospital donde nací, el São Lucas. Aun así, sigo presentándome con mi nombre japonés. Hablo portugués como lengua materna, pero la cultura, el trabajo y la forma de pensar que llevo también son japoneses.",
+      "galeria.eyebrow":"Galería","galeria.h2":"Sushi","galeria.antigos":"Álbumes antiguos",
+      "percurso.eyebrow":"Trayectoria","percurso.h2":"Una cocina a la vez",
+      "percurso.sub1":"Cocina","percurso.sub2":"Segunda carrera — docencia",
+      "role1.title":"Chef de Cocina / Responsable de Sushi Bar","role1.dates":"sep. 2020 — actual",
+      "role1.b1":"Coordinación de un equipo de 6: turnos, formación y reparto de tareas",
+      "role1.b2":"Gestión de stock, recepción y verificación de mercancías, control de proveedores",
+      "role1.b3":"Recepción, limpieza, corte y maduración de pescado, con evaluación de frescura y calidad",
+      "role1.b4":"Creación y elaboración de sushi y platos de cocina asiática; definición de mise en place",
+      "role1.b5":"Aplicación y verificación diaria de las normas HACCP en toda la operación",
+      "role2.title":"Chef de Cocina","role2.dates":"nov. 2019 — sep. 2020",
+      "role2.b1":"Dirección de la cocina de dos unidades al mismo tiempo",
+      "role2.b2":"Apertura del Nomiya Sushi &amp; Ramen, en el Palácio do Gelo: montaje de cocina, creación de carta y formación del equipo desde cero",
+      "role2.b3":"Gestión de personal y de stock",
+      "role3.title":"Cocinero","role3.dates":"nov. 2018 — oct. 2019",
+      "role3.b1":"Mise en place, elaboración y emplatado de platos calientes y fríos de cocina portuguesa",
+      "role3.b2":"Servicio hotelero de gran volumen, horarios rotativos, incluyendo trabajo nocturno",
+      "role3.b3":"Apoyo puntual a otras unidades del grupo Visabeira",
+      "role4.b1":"Pantry station y preparación de buffet para servicio internacional de gran volumen",
+      "role4.b2":"Operación bajo normas de sanidad USPHS, con auditorías periódicas",
+      "role5.title":"Capo Chef",
+      "role5.b1":"Dirección de un equipo de 6 por turno, con una plantilla total de 12: instrucción, formación y supervisión de preparaciones e higiene",
+      "role5.b2":"Cocina italiana y francesa a la carta: risotti, pasta, garde manger, charbroiler, rotisserie y pâtisserie",
+      "role5.b3":"Control de comandas, compras y gestión de stock",
+      "role6.title":"Inicio de carrera",
+      "role6.b1":"Cocina italiana a la carte, parrilla y barbacoa, y servicio rápido de alto volumen",
+      "role7.title":"Profesor",
+      "role7.place":"Colégio Alexo Viazovski y Escola Estadual Laudelino Fernandes dos Santos, a través del ayuntamiento de Praia Grande — São Paulo, Brasil",
+      "role7.b1":"Geografía, Ciencias, Inglés e Informática en secundaria, con apoyo en Física y Química",
+      "role7.b2":"Inglés e Informática aprendidos de forma autodidacta, sin curso ni formación formal en esas áreas",
+      "role7.b3":"Proyecto “Mais Educação”: creación y mantenimiento del huerto escolar con los alumnos",
+      "role8.title":"Monitor jefe y becario",
+      "role8.b1":"Visitas guiadas a turistas y a grupos escolares, técnicos y universitarios, en los tres turnos",
+      "role8.b2":"Montaje y mantenimiento de los recintos de animales y de los acuarios de la nueva sede",
+      "role8.b3":"Formación de los nuevos becarios para monitoría y mantenimiento",
+      "comp.eyebrow":"Competencias","comp.h2":"Herramientas de cocina y de gestión",
+      "comp.g1":"Gestión","comp.g1t1":"Liderazgo de equipos","comp.g1t2":"Formación","comp.g1t3":"Turnos",
+      "comp.g1t4":"Gestión de stock","comp.g1t5":"Compras","comp.g1t7":"Control de calidad",
+      "comp.g2":"Seguridad alimentaria","comp.g2t2":"Cadena de frío","comp.g2t3":"Trazabilidad",
+      "comp.g2t4":"Parasitología del pescado","comp.g2t5":"Conservación",
+      "comp.g3":"Técnica","comp.g3t1":"Sushi &amp; cocina japonesa","comp.g3t2":"Limpieza y corte de pescado",
+      "comp.g3t3":"Cocina italiana","comp.g3t4":"Cocina francesa","comp.g3t5":"Eventos","comp.g3t7":"Buffets de boda",
+      "comp.g4":"Idiomas","comp.g4t1":"Portugués — nativo","comp.g4t2":"Inglés — fluido",
+      "comp.g4t3":"Español — básico","comp.g4t4":"Italiano — básico",
+      "form.eyebrow":"Formación","form.h2":"Formación &amp; certificaciones",
+      "form.academica":"Académica","form.certs":"Certificaciones",
+      "cred1.title":"Chef de Cuisine y Restaurateur",
+      "cred1.desc":"Administración de personal, controladoría, costos y fijación de precios, técnicas de compra, formación y fortalecimiento de equipos, marketing en restaurantes, planificación física de cocinas, planificación nutricional de menús, conocimiento de mercancías, higiene y salud, bases de cocina, cocina clásica, contemporánea, creativa e italiana, salsas clásicas, técnicas de garde manger, técnicas de mise en place, técnicas de servicio, pâtisserie, postres brasileños y enogastronomía.",
+      "cred2.title":"Licenciatura en Ciencias Biológicas",
+      "cred2.desc":"Apoyo de laboratorio en la Universidade Católica de Santos: preparación de medios de cultivo para ensayos de medicamentos de Farmacia y colaboración con el laboratorio de Ecotoxicología, en asociación con el Museo de Ciencias Naturales. Asepsia, control microbiológico y registro de procedimientos.",
+      "cred3.title":"Licenciatura en Geografía",
+      "cred3.desc":"Cursada al mismo tiempo que Ciencias Biológicas, 2840 horas cada una, junto con el trabajo en las escuelas. Trabajo final sobre horticultura escolar.",
+      "cred4.meta":"Marina de Brasil · 2011",
+      "cred6.title":"Curso Básico de Seguridad de Buque (CBSN / STCW)",
+      "cred6.meta":"Acreditado por la DPC — Marina de Brasil · 2011",
+      "cred6.desc":"Prevención y combate de incendios, primeros auxilios, técnicas de supervivencia personal, procedimientos de emergencia, seguridad personal y responsabilidad social.",
+      "contacto.eyebrow":"Contacto","contacto.h2":"Hablemos",
+      "contacto.residencia":"Residencia permanente en Portugal"
+    },
+    fr: {
+      "nav.galeria":"Galerie","nav.percurso":"Parcours","nav.contacto":"Contact",
+      "hero.role":"Chef cuisinier et chef sushi",
+      "hero.tagline":"Je cuisine depuis 16 ans. J'ai commencé à Curitiba, je suis passé par la cuisine italienne et par un bateau de croisière, et depuis 6 ans je dirige le Home Sushi, à Viseu.",
+      "hero.cv":"CV en PDF",
+      "perfil.eyebrow":"Profil","perfil.h2":"À propos de moi",
+      "perfil.p1":"Au Home Sushi, je coordonne une équipe de 6 — plannings, formation, stock et fournisseurs. J'ai été formé Chef de Cuisine et Restaurateur au Centro Europeu, à Curitiba, et j'ai déjà été chef de 4 restaurants, dont l'ouverture depuis zéro du Nomiya Sushi &amp; Ramen, au Palácio do Gelo.",
+      "perfil.p2":"La licence en Sciences Biologiques a apporté à l'établi la maîtrise technique du poisson — espèces, fraîcheur, saisonnalité et parasitologie — appliquée chaque jour au contrôle qualité et à l'HACCP. Je dirige des équipes multiculturelles en anglais, que je parle, lis et écris couramment.",
+      "perfil.p3":"Une anecdote : le prénom que j'utilise au quotidien est Yoshiki — au travail on m'appelle Yoshi, en plus court. « Lucas » est ce qui est resté sur mon acte de naissance : mon grand-père, d'une famille portugaise, est allé me déclarer et, j'imagine, n'a pas voulu d'un prénom japonais bizarre pour son petit-fils — j'ai hérité du nom de l'hôpital où je suis né, le São Lucas. Malgré cela, je continue à me présenter avec mon prénom japonais. Le portugais est ma langue maternelle, mais la culture, le travail et l'état d'esprit que je porte sont eux aussi japonais.",
+      "galeria.eyebrow":"Galerie","galeria.h2":"Sushi","galeria.antigos":"Anciens albums",
+      "percurso.eyebrow":"Parcours","percurso.h2":"Une cuisine à la fois",
+      "percurso.sub1":"Cuisine","percurso.sub2":"Seconde carrière — enseignement",
+      "role1.title":"Chef Cuisinier / Responsable du Sushi Bar","role1.dates":"sept. 2020 — actuel",
+      "role1.b1":"Encadrement d'une équipe de 6 : plannings, formation et répartition des tâches",
+      "role1.b2":"Gestion des stocks, réception et vérification des marchandises, contrôle des fournisseurs",
+      "role1.b3":"Réception, nettoyage, découpe et maturation du poisson, évaluation de la fraîcheur et de la qualité",
+      "role1.b4":"Création et préparation de sushis et de plats de cuisine asiatique ; définition du mise en place",
+      "role1.b5":"Application et vérification quotidienne des normes HACCP sur toute l'activité",
+      "role2.title":"Chef Cuisinier","role2.dates":"nov. 2019 — sept. 2020",
+      "role2.b1":"Direction de la cuisine de deux établissements simultanément",
+      "role2.b2":"Ouverture du Nomiya Sushi &amp; Ramen, au Palácio do Gelo : montage de la cuisine, création de la carte et formation de l'équipe depuis zéro",
+      "role2.b3":"Gestion du personnel et des stocks",
+      "role3.title":"Cuisinier","role3.dates":"nov. 2018 — oct. 2019",
+      "role3.b1":"Mise en place, préparation et dressage de plats chauds et froids de cuisine portugaise",
+      "role3.b2":"Service hôtelier à fort volume, horaires tournants, y compris travail de nuit",
+      "role3.b3":"Soutien ponctuel à d'autres unités du groupe Visabeira",
+      "role4.b1":"Pantry station et préparation de buffet pour un service international à fort volume",
+      "role4.b2":"Activité selon les normes sanitaires USPHS, avec audits réguliers",
+      "role5.title":"Capo Chef",
+      "role5.b1":"Direction d'une équipe de 6 par service, 12 au total : instruction, formation et contrôle des préparations et de l'hygiène",
+      "role5.b2":"Cuisine italienne et française à la carte : risotti, pâtes, garde-manger, charbroiler, rôtisserie et pâtisserie",
+      "role5.b3":"Contrôle des commandes, des achats et de la gestion des stocks",
+      "role6.title":"Début de carrière",
+      "role6.b1":"Cuisine italienne à la carte, grill et barbecue, et service rapide à fort volume",
+      "role7.title":"Professeur",
+      "role7.place":"Colégio Alexo Viazovski et Escola Estadual Laudelino Fernandes dos Santos, via la mairie de Praia Grande — São Paulo, Brésil",
+      "role7.b1":"Géographie, Sciences, Anglais et Informatique au collège et au lycée, avec soutien en Physique et Chimie",
+      "role7.b2":"Anglais et Informatique appris en autodidacte, sans cours ni formation officielle dans ces domaines",
+      "role7.b3":"Projet « Mais Educação » : création et entretien du potager scolaire avec les élèves",
+      "role8.title":"Guide en chef et stagiaire",
+      "role8.b1":"Visites guidées pour touristes et groupes scolaires, techniques et universitaires, sur les trois roulements",
+      "role8.b2":"Montage et entretien des enclos et des aquariums du nouveau site",
+      "role8.b3":"Formation des nouveaux stagiaires aux visites guidées et à l'entretien",
+      "comp.eyebrow":"Compétences","comp.h2":"Outils de cuisine et de gestion",
+      "comp.g1":"Gestion","comp.g1t1":"Encadrement d'équipes","comp.g1t2":"Formation","comp.g1t3":"Plannings",
+      "comp.g1t4":"Gestion des stocks","comp.g1t5":"Achats","comp.g1t7":"Contrôle qualité",
+      "comp.g2":"Sécurité alimentaire","comp.g2t2":"Chaîne du froid","comp.g2t3":"Traçabilité",
+      "comp.g2t4":"Parasitologie du poisson","comp.g2t5":"Conservation",
+      "comp.g3":"Technique","comp.g3t1":"Sushi &amp; cuisine japonaise","comp.g3t2":"Nettoyage et découpe du poisson",
+      "comp.g3t3":"Cuisine italienne","comp.g3t4":"Cuisine française","comp.g3t5":"Événements","comp.g3t7":"Buffets de mariage",
+      "comp.g4":"Langues","comp.g4t1":"Portugais — natif","comp.g4t2":"Anglais — courant",
+      "comp.g4t3":"Espagnol — notions","comp.g4t4":"Italien — notions",
+      "form.eyebrow":"Formation","form.h2":"Formation &amp; certifications",
+      "form.academica":"Académique","form.certs":"Certifications",
+      "cred1.title":"Chef de Cuisine et Restaurateur",
+      "cred1.desc":"Administration du personnel, contrôle de gestion, coûts et fixation des prix, techniques d'achat, formation et renforcement des équipes, marketing en restauration, aménagement physique des cuisines, planification nutritionnelle des menus, connaissance des marchandises, hygiène et santé, bases de cuisine, cuisine classique, contemporaine, créative et italienne, sauces classiques, techniques de garde-manger, techniques de mise en place, techniques de service, pâtisserie, desserts brésiliens et œnogastronomie.",
+      "cred2.title":"Licence en Sciences Biologiques",
+      "cred2.desc":"Soutien de laboratoire à l'Universidade Católica de Santos : préparation de milieux de culture pour les essais pharmaceutiques et collaboration avec le laboratoire d'écotoxicologie, en partenariat avec le Musée des Sciences Naturelles. Asepsie, contrôle microbiologique et enregistrement des procédures.",
+      "cred3.title":"Licence en Géographie",
+      "cred3.desc":"Suivie en parallèle avec Sciences Biologiques, 2840 heures chacune, en plus du travail dans les écoles. Mémoire final sur l'horticulture scolaire.",
+      "cred4.meta":"Marine brésilienne · 2011",
+      "cred6.title":"Cours de Base de Sécurité Navire (CBSN / STCW)",
+      "cred6.meta":"Accrédité par la DPC — Marine brésilienne · 2011",
+      "cred6.desc":"Prévention et lutte contre l'incendie, premiers secours, techniques de survie personnelle, procédures d'urgence, sécurité personnelle et responsabilité sociale.",
+      "contacto.eyebrow":"Contact","contacto.h2":"Parlons-en",
+      "contacto.residencia":"Résidence permanente au Portugal"
+    },
+    de: {
+      "nav.galeria":"Galerie","nav.percurso":"Werdegang","nav.contacto":"Kontakt",
+      "hero.role":"Küchenchef und Sushi-Meister",
+      "hero.tagline":"Ich koche seit 16 Jahren. Ich habe in Curitiba angefangen, war in der italienischen Küche und auf einem Kreuzfahrtschiff tätig und leite seit 6 Jahren das Home Sushi in Viseu.",
+      "hero.cv":"Lebenslauf (PDF)",
+      "perfil.eyebrow":"Profil","perfil.h2":"Über mich",
+      "perfil.p1":"Im Home Sushi leite ich ein Team von 6 Personen — Dienstpläne, Schulung, Bestand und Lieferanten. Ich habe mich zum Chef de Cuisine und Restaurateur am Centro Europeu in Curitiba ausbilden lassen und war bereits Küchenchef von 4 Restaurants, darunter die Neueröffnung des Nomiya Sushi &amp; Ramen im Palácio do Gelo.",
+      "perfil.p2":"Das Studium der Biologischen Wissenschaften brachte technisches Fachwissen über Fisch an die Theke — Arten, Frische, Saisonalität und Parasitologie —, das ich täglich für Qualitätskontrolle und HACCP anwende. Ich leite multikulturelle Teams auf Englisch, das ich fließend spreche, lese und schreibe.",
+      "perfil.p3":"Eine Anekdote: Der Name, den ich im Alltag trage, ist Yoshiki — bei der Arbeit nennt man mich kurz Yoshi. „Lucas“ blieb im Geburtsregister stehen: Mein Großvater, aus einer portugiesischen Familie, meldete mich an und wollte, so vermute ich, keinen seltsamen japanischen Namen für seinen Enkel — ich bekam den Namen des Krankenhauses, in dem ich geboren wurde, São Lucas. Trotzdem stelle ich mich weiterhin mit meinem japanischen Namen vor. Portugiesisch ist meine Muttersprache, aber die Kultur, die Arbeit und die Denkweise, die ich mitbringe, sind ebenfalls japanisch.",
+      "galeria.eyebrow":"Galerie","galeria.h2":"Sushi","galeria.antigos":"Ältere Alben",
+      "percurso.eyebrow":"Werdegang","percurso.h2":"Eine Küche nach der anderen",
+      "percurso.sub1":"Küche","percurso.sub2":"Zweite Laufbahn — Unterricht",
+      "role1.title":"Küchenchef / Sushi-Bar-Leiter","role1.dates":"Sep. 2020 — heute",
+      "role1.b1":"Leitung eines Teams von 6: Dienstpläne, Schulung und Aufgabenverteilung",
+      "role1.b2":"Bestandsmanagement, Warenannahme und -kontrolle, Lieferantensteuerung",
+      "role1.b3":"Annahme, Reinigung, Zerlegung und Reifung von Fisch, Beurteilung von Frische und Qualität",
+      "role1.b4":"Kreation und Zubereitung von Sushi und asiatischen Gerichten; Festlegung des Mise en Place",
+      "role1.b5":"Tägliche Anwendung und Überprüfung der HACCP-Standards im gesamten Betrieb",
+      "role2.title":"Küchenchef","role2.dates":"Nov. 2019 — Sep. 2020",
+      "role2.b1":"Leitung der Küchen zweier Standorte gleichzeitig",
+      "role2.b2":"Neueröffnung des Nomiya Sushi &amp; Ramen im Palácio do Gelo: Küchenaufbau, Speisekartenentwicklung und Teamaufbau von Grund auf",
+      "role2.b3":"Personal- und Bestandsmanagement",
+      "role3.title":"Koch","role3.dates":"Nov. 2018 — Okt. 2019",
+      "role3.b1":"Mise en Place, Zubereitung und Anrichten warmer und kalter portugiesischer Gerichte",
+      "role3.b2":"Hotelservice mit hohem Volumen, Wechselschichten, einschließlich Nachtarbeit",
+      "role3.b3":"Gelegentliche Unterstützung anderer Einheiten der Visabeira-Gruppe",
+      "role4.b1":"Pantry Station und Buffetvorbereitung für internationalen Service mit hohem Volumen",
+      "role4.b2":"Betrieb nach USPHS-Hygienestandards, mit regelmäßigen Audits",
+      "role5.title":"Capo Chef",
+      "role5.b1":"Leitung eines Teams von 6 pro Schicht, insgesamt 12: Anleitung, Schulung und Aufsicht über Zubereitung und Hygiene",
+      "role5.b2":"Italienische und französische Küche à la carte: Risotti, Pasta, Garde Manger, Charbroiler, Rotisserie und Pâtisserie",
+      "role5.b3":"Kontrolle von Bestellungen, Einkauf und Bestandsmanagement",
+      "role6.title":"Berufseinstieg",
+      "role6.b1":"Italienische Küche à la carte, Grill und Barbecue sowie schneller Service mit hohem Volumen",
+      "role7.title":"Lehrer",
+      "role7.place":"Colégio Alexo Viazovski und Escola Estadual Laudelino Fernandes dos Santos, über die Stadtverwaltung Praia Grande — São Paulo, Brasilien",
+      "role7.b1":"Geografie, Naturwissenschaften, Englisch und Informatik in Sekundarstufe I und II, mit Unterstützung in Physik und Chemie",
+      "role7.b2":"Englisch und Informatik autodidaktisch erlernt, ohne formalen Kurs oder Ausbildung in diesen Bereichen",
+      "role7.b3":"Projekt „Mais Educação“: Anlage und Pflege des Schulgartens mit den Schülern",
+      "role8.title":"Leitender Guide und Praktikant",
+      "role8.b1":"Führungen für Touristen sowie Schul-, Fach- und Universitätsgruppen, in allen drei Schichten",
+      "role8.b2":"Aufbau und Pflege der Tiergehege und Aquarien am neuen Standort",
+      "role8.b3":"Ausbildung neuer Praktikanten für Führungen und Instandhaltung",
+      "comp.eyebrow":"Kompetenzen","comp.h2":"Küchen- und Managementwerkzeuge",
+      "comp.g1":"Management","comp.g1t1":"Teamführung","comp.g1t2":"Schulung","comp.g1t3":"Dienstpläne",
+      "comp.g1t4":"Bestandsmanagement","comp.g1t5":"Einkauf","comp.g1t7":"Qualitätskontrolle",
+      "comp.g2":"Lebensmittelsicherheit","comp.g2t2":"Kühlkette","comp.g2t3":"Rückverfolgbarkeit",
+      "comp.g2t4":"Fischparasitologie","comp.g2t5":"Konservierung",
+      "comp.g3":"Technik","comp.g3t1":"Sushi &amp; japanische Küche","comp.g3t2":"Fischreinigung und -zerlegung",
+      "comp.g3t3":"Italienische Küche","comp.g3t4":"Französische Küche","comp.g3t5":"Veranstaltungen","comp.g3t7":"Hochzeitsbuffets",
+      "comp.g4":"Sprachen","comp.g4t1":"Portugiesisch — Muttersprache","comp.g4t2":"Englisch — fließend",
+      "comp.g4t3":"Spanisch — Grundkenntnisse","comp.g4t4":"Italienisch — Grundkenntnisse",
+      "form.eyebrow":"Ausbildung","form.h2":"Ausbildung &amp; Zertifizierungen",
+      "form.academica":"Akademisch","form.certs":"Zertifizierungen",
+      "cred1.title":"Chef de Cuisine und Restaurateur",
+      "cred1.desc":"Personalverwaltung, Controlling, Kosten- und Preisgestaltung, Einkaufstechniken, Teamschulung und -stärkung, Restaurantmarketing, physische Küchenplanung, ernährungsbezogene Menüplanung, Warenkunde, Hygiene und Gesundheit, Küchengrundlagen, klassische, zeitgenössische, kreative und italienische Küche, klassische Saucen, Garde-Manger-Techniken, Mise-en-Place-Techniken, Servicetechniken, Pâtisserie, brasilianische Desserts und Önogastronomie.",
+      "cred2.title":"Studium der Biologischen Wissenschaften",
+      "cred2.desc":"Laborunterstützung an der Universidade Católica de Santos: Vorbereitung von Nährmedien für pharmazeutische Arzneimittelversuche und Zusammenarbeit mit dem Ökotoxikologie-Labor in Partnerschaft mit dem Naturkundemuseum. Asepsis, mikrobiologische Kontrolle und Verfahrensdokumentation.",
+      "cred3.title":"Studium der Geografie",
+      "cred3.desc":"Parallel zu Biologischen Wissenschaften studiert, je 2840 Stunden, zusätzlich zur Arbeit an Schulen. Abschlussarbeit über Schulgartenbau.",
+      "cred4.meta":"Brasilianische Marine · 2011",
+      "cred6.title":"Grundkurs Schiffssicherheit (CBSN / STCW)",
+      "cred6.meta":"Akkreditiert durch die DPC — Brasilianische Marine · 2011",
+      "cred6.desc":"Brandverhütung und -bekämpfung, Erste Hilfe, persönliche Überlebenstechniken, Notfallverfahren, persönliche Sicherheit und soziale Verantwortung.",
+      "contacto.eyebrow":"Kontakt","contacto.h2":"Lass uns reden",
+      "contacto.residencia":"Daueraufenthalt in Portugal"
+    },
+    it: {
+      "nav.galeria":"Galleria","nav.percurso":"Percorso","nav.contacto":"Contatto",
+      "hero.role":"Chef di cucina e sushi chef",
+      "hero.tagline":"Cucino da 16 anni. Ho iniziato a Curitiba, sono passato per la cucina italiana e per una nave da crociera, e da 6 anni guido l'Home Sushi, a Viseu.",
+      "hero.cv":"CV in PDF",
+      "perfil.eyebrow":"Profilo","perfil.h2":"Su di me",
+      "perfil.p1":"All'Home Sushi coordino un team di 6 persone — turni, formazione, magazzino e fornitori. Mi sono formato come Chef de Cuisine e Restaurateur al Centro Europeu, a Curitiba, e sono già stato chef di 4 ristoranti, compresa l'apertura da zero del Nomiya Sushi &amp; Ramen, al Palácio do Gelo.",
+      "perfil.p2":"La laurea in Scienze Biologiche ha portato al banco la padronanza tecnica del pesce — specie, freschezza, stagionalità e parassitologia — applicata ogni giorno al controllo qualità e all'HACCP. Guido team multiculturali in inglese, che parlo, leggo e scrivo correntemente.",
+      "perfil.p3":"Una curiosità: il nome che uso ogni giorno è Yoshiki — al lavoro mi chiamano Yoshi, per abbreviare. \"Lucas\" è quello rimasto all'anagrafe: mio nonno, di famiglia portoghese, andò a registrarmi e, immagino, non volle un nome giapponese strano per il nipote — sono finito con il nome dell'ospedale dove sono nato, il São Lucas. Ciò nonostante, continuo a presentarmi con il mio nome giapponese. Parlo portoghese come lingua madre, ma la cultura, il lavoro e la mentalità che porto sono anch'essi giapponesi.",
+      "galeria.eyebrow":"Galleria","galeria.h2":"Sushi","galeria.antigos":"Album più vecchi",
+      "percurso.eyebrow":"Percorso","percurso.h2":"Una cucina alla volta",
+      "percurso.sub1":"Cucina","percurso.sub2":"Seconda carriera — insegnamento",
+      "role1.title":"Chef di Cucina / Responsabile Sushi Bar","role1.dates":"set. 2020 — attuale",
+      "role1.b1":"Coordinamento di un team di 6: turni, formazione e distribuzione dei compiti",
+      "role1.b2":"Gestione del magazzino, ricezione e verifica delle merci, controllo dei fornitori",
+      "role1.b3":"Ricezione, pulizia, taglio e maturazione del pesce, con valutazione di freschezza e qualità",
+      "role1.b4":"Creazione e preparazione di sushi e piatti di cucina asiatica; definizione del mise en place",
+      "role1.b5":"Applicazione e verifica quotidiana degli standard HACCP in tutta l'operatività",
+      "role2.title":"Chef di Cucina","role2.dates":"nov. 2019 — set. 2020",
+      "role2.b1":"Direzione della cucina di due unità contemporaneamente",
+      "role2.b2":"Apertura del Nomiya Sushi &amp; Ramen, al Palácio do Gelo: allestimento cucina, creazione del menu e formazione del team da zero",
+      "role2.b3":"Gestione del personale e del magazzino",
+      "role3.title":"Cuoco","role3.dates":"nov. 2018 — ott. 2019",
+      "role3.b1":"Mise en place, preparazione e impiattamento di piatti caldi e freddi di cucina portoghese",
+      "role3.b2":"Servizio alberghiero ad alto volume, turni rotativi, incluso lavoro notturno",
+      "role3.b3":"Supporto occasionale ad altre unità del gruppo Visabeira",
+      "role4.b1":"Pantry station e preparazione buffet per servizio internazionale ad alto volume",
+      "role4.b2":"Operatività secondo gli standard sanitari USPHS, con audit regolari",
+      "role5.title":"Capo Chef",
+      "role5.b1":"Direzione di un team di 6 per turno, 12 in totale: istruzione, formazione e controllo delle preparazioni e dell'igiene",
+      "role5.b2":"Cucina italiana e francese alla carta: risotti, pasta, garde manger, charbroiler, rosticceria e pâtisserie",
+      "role5.b3":"Controllo di comande, acquisti e gestione del magazzino",
+      "role6.title":"Inizio carriera",
+      "role6.b1":"Cucina italiana alla carta, grill e barbecue, e servizio rapido ad alto volume",
+      "role7.title":"Insegnante",
+      "role7.place":"Colégio Alexo Viazovski e Escola Estadual Laudelino Fernandes dos Santos, tramite il comune di Praia Grande — San Paolo, Brasile",
+      "role7.b1":"Geografia, Scienze, Inglese e Informatica nella scuola secondaria, con supporto in Fisica e Chimica",
+      "role7.b2":"Inglese e Informatica appresi da autodidatta, senza corsi o formazione formale in queste aree",
+      "role7.b3":"Progetto “Mais Educação”: creazione e cura dell'orto scolastico con gli studenti",
+      "role8.title":"Monitore capo e tirocinante",
+      "role8.b1":"Visite guidate per turisti e gruppi scolastici, tecnici e universitari, su tutti e tre i turni",
+      "role8.b2":"Allestimento e manutenzione dei recinti degli animali e degli acquari della nuova sede",
+      "role8.b3":"Formazione dei nuovi tirocinanti per attività di monitoraggio e manutenzione",
+      "comp.eyebrow":"Competenze","comp.h2":"Strumenti di cucina e gestione",
+      "comp.g1":"Gestione","comp.g1t1":"Leadership di team","comp.g1t2":"Formazione","comp.g1t3":"Turni",
+      "comp.g1t4":"Gestione del magazzino","comp.g1t5":"Acquisti","comp.g1t7":"Controllo qualità",
+      "comp.g2":"Sicurezza alimentare","comp.g2t2":"Catena del freddo","comp.g2t3":"Tracciabilità",
+      "comp.g2t4":"Parassitologia del pesce","comp.g2t5":"Conservazione",
+      "comp.g3":"Tecnica","comp.g3t1":"Sushi &amp; cucina giapponese","comp.g3t2":"Pulizia e taglio del pesce",
+      "comp.g3t3":"Cucina italiana","comp.g3t4":"Cucina francese","comp.g3t5":"Eventi","comp.g3t7":"Buffet per matrimoni",
+      "comp.g4":"Lingue","comp.g4t1":"Portoghese — madrelingua","comp.g4t2":"Inglese — fluente",
+      "comp.g4t3":"Spagnolo — base","comp.g4t4":"Italiano — base",
+      "form.eyebrow":"Formazione","form.h2":"Formazione &amp; certificazioni",
+      "form.academica":"Accademica","form.certs":"Certificazioni",
+      "cred1.title":"Chef de Cuisine e Restaurateur",
+      "cred1.desc":"Amministrazione del personale, controllo di gestione, costi e determinazione dei prezzi, tecniche di acquisto, formazione e rafforzamento dei team, marketing per ristoranti, pianificazione fisica delle cucine, pianificazione nutrizionale dei menu, conoscenza delle merci, igiene e salute, basi di cucina, cucina classica, contemporanea, creativa e italiana, salse classiche, tecniche di garde manger, tecniche di mise en place, tecniche di servizio, pâtisserie, dolci brasiliani ed enogastronomia.",
+      "cred2.title":"Laurea in Scienze Biologiche",
+      "cred2.desc":"Supporto di laboratorio all'Universidade Católica de Santos: preparazione di terreni di coltura per test farmaceutici e collaborazione con il laboratorio di Ecotossicologia, in collaborazione con il Museo di Scienze Naturali. Asepsi, controllo microbiologico e registrazione delle procedure.",
+      "cred3.title":"Laurea in Geografia",
+      "cred3.desc":"Frequentata in contemporanea con Scienze Biologiche, 2840 ore ciascuna, oltre al lavoro nelle scuole. Tesi finale sull'orticoltura scolastica.",
+      "cred4.meta":"Marina brasiliana · 2011",
+      "cred6.title":"Corso Base di Sicurezza della Nave (CBSN / STCW)",
+      "cred6.meta":"Accreditato dalla DPC — Marina brasiliana · 2011",
+      "cred6.desc":"Prevenzione e lotta antincendio, primo soccorso, tecniche di sopravvivenza personale, procedure di emergenza, sicurezza personale e responsabilità sociale.",
+      "contacto.eyebrow":"Contatto","contacto.h2":"Parliamone",
+      "contacto.residencia":"Residenza permanente in Portogallo"
+    },
+    pl: {
+      "nav.galeria":"Galeria","nav.percurso":"Ścieżka kariery","nav.contacto":"Kontakt",
+      "hero.role":"Szef kuchni i mistrz sushi",
+      "hero.tagline":"Gotuję od 16 lat. Zacząłem w Curitibie, pracowałem w kuchni włoskiej i na statku wycieczkowym, a od 6 lat prowadzę Home Sushi w Viseu.",
+      "hero.cv":"CV w PDF",
+      "perfil.eyebrow":"Profil","perfil.h2":"O mnie",
+      "perfil.p1":"W Home Sushi koordynuję zespół 6 osób — grafiki, szkolenia, magazyn i dostawców. Wykształciłem się jako Chef de Cuisine i Restaurateur w Centro Europeu w Curitibie i byłem już szefem kuchni w 4 restauracjach, w tym otworzyłem od podstaw Nomiya Sushi &amp; Ramen w Palácio do Gelo.",
+      "perfil.p2":"Studia z Nauk Biologicznych wniosły do warsztatu techniczną znajomość ryb — gatunki, świeżość, sezonowość i parazytologię — stosowaną codziennie w kontroli jakości i HACCP. Kieruję wielokulturowymi zespołami po angielsku, którym posługuję się biegle w mowie, czytaniu i piśmie.",
+      "perfil.p3":"Ciekawostka: imię, którego używam na co dzień, to Yoshiki — w pracy mówią na mnie Yoshi, w skrócie. „Lucas” to imię, które zostało wpisane w akcie urodzenia: mój dziadek, z portugalskiej rodziny, poszedł mnie zarejestrować i, jak przypuszczam, nie chciał dziwnego japońskiego imienia dla wnuka — dostałem imię szpitala, w którym się urodziłem, São Lucas. Mimo to nadal przedstawiam się swoim japońskim imieniem. Portugalski jest moim językiem ojczystym, ale kultura, praca i sposób myślenia, które noszę w sobie, również są japońskie.",
+      "galeria.eyebrow":"Galeria","galeria.h2":"Sushi","galeria.antigos":"Starsze albumy",
+      "percurso.eyebrow":"Ścieżka kariery","percurso.h2":"Jedna kuchnia na raz",
+      "percurso.sub1":"Kuchnia","percurso.sub2":"Druga kariera — nauczanie",
+      "role1.title":"Szef Kuchni / Kierownik Sushi Baru","role1.dates":"wrz. 2020 — obecnie",
+      "role1.b1":"Kierowanie zespołem 6 osób: grafiki, szkolenia i podział zadań",
+      "role1.b2":"Zarządzanie magazynem, przyjmowanie i kontrola towarów, nadzór nad dostawcami",
+      "role1.b3":"Przyjmowanie, czyszczenie, krojenie i dojrzewanie ryb, ocena świeżości i jakości",
+      "role1.b4":"Tworzenie i przygotowywanie sushi oraz dań kuchni azjatyckiej; ustalanie mise en place",
+      "role1.b5":"Codzienne stosowanie i weryfikacja norm HACCP w całej działalności",
+      "role2.title":"Szef Kuchni","role2.dates":"lis. 2019 — wrz. 2020",
+      "role2.b1":"Kierowanie kuchnią dwóch lokali jednocześnie",
+      "role2.b2":"Otwarcie Nomiya Sushi &amp; Ramen w Palácio do Gelo: organizacja kuchni, stworzenie menu i budowa zespołu od podstaw",
+      "role2.b3":"Zarządzanie personelem i magazynem",
+      "role3.title":"Kucharz","role3.dates":"lis. 2018 — paź. 2019",
+      "role3.b1":"Mise en place, przygotowywanie i podawanie ciepłych i zimnych dań kuchni portugalskiej",
+      "role3.b2":"Obsługa hotelowa o dużym natężeniu, zmiany rotacyjne, w tym praca nocna",
+      "role3.b3":"Doraźne wsparcie dla innych jednostek grupy Visabeira",
+      "role4.b1":"Stanowisko spiżarni i przygotowanie bufetu dla obsługi międzynarodowej o dużym natężeniu",
+      "role4.b2":"Praca zgodnie z normami sanitarnymi USPHS, z regularnymi audytami",
+      "role5.title":"Capo Chef",
+      "role5.b1":"Kierowanie zespołem 6 osób na zmianę, 12 osób łącznie: instruktaż, szkolenie i nadzór nad przygotowaniem i higieną",
+      "role5.b2":"Kuchnia włoska i francuska à la carte: risotti, makarony, garde manger, charbroiler, rożen i pâtisserie",
+      "role5.b3":"Kontrola zamówień, zakupów i zarządzania magazynem",
+      "role6.title":"Początek kariery",
+      "role6.b1":"Kuchnia włoska à la carte, grill i barbecue oraz szybka obsługa o dużym natężeniu",
+      "role7.title":"Nauczyciel",
+      "role7.place":"Colégio Alexo Viazovski i Escola Estadual Laudelino Fernandes dos Santos, za pośrednictwem urzędu miasta Praia Grande — São Paulo, Brazylia",
+      "role7.b1":"Geografia, Nauki Przyrodnicze, Angielski i Informatyka w gimnazjum i liceum, ze wsparciem z Fizyki i Chemii",
+      "role7.b2":"Angielski i Informatyka opanowane samodzielnie, bez formalnego kursu ani szkolenia w tych dziedzinach",
+      "role7.b3":"Projekt „Mais Educação”: założenie i utrzymanie ogrodu szkolnego z uczniami",
+      "role8.title":"Kierownik opiekunów i stażysta",
+      "role8.b1":"Oprowadzanie turystów oraz grup szkolnych, technicznych i uniwersyteckich, we wszystkich trzech zmianach",
+      "role8.b2":"Budowa i utrzymanie wybiegów dla zwierząt oraz akwariów w nowej siedzibie",
+      "role8.b3":"Szkolenie nowych stażystów w zakresie oprowadzania i utrzymania",
+      "comp.eyebrow":"Umiejętności","comp.h2":"Narzędzia kuchenne i zarządzania",
+      "comp.g1":"Zarządzanie","comp.g1t1":"Przywództwo zespołowe","comp.g1t2":"Szkolenia","comp.g1t3":"Grafiki",
+      "comp.g1t4":"Zarządzanie magazynem","comp.g1t5":"Zakupy","comp.g1t7":"Kontrola jakości",
+      "comp.g2":"Bezpieczeństwo żywności","comp.g2t2":"Łańcuch chłodniczy","comp.g2t3":"Identyfikowalność",
+      "comp.g2t4":"Parazytologia ryb","comp.g2t5":"Konserwacja",
+      "comp.g3":"Technika","comp.g3t1":"Sushi &amp; kuchnia japońska","comp.g3t2":"Czyszczenie i krojenie ryb",
+      "comp.g3t3":"Kuchnia włoska","comp.g3t4":"Kuchnia francuska","comp.g3t5":"Wydarzenia","comp.g3t7":"Bufety weselne",
+      "comp.g4":"Języki","comp.g4t1":"Portugalski — ojczysty","comp.g4t2":"Angielski — biegły",
+      "comp.g4t3":"Hiszpański — podstawowy","comp.g4t4":"Włoski — podstawowy",
+      "form.eyebrow":"Wykształcenie","form.h2":"Wykształcenie &amp; certyfikaty",
+      "form.academica":"Akademickie","form.certs":"Certyfikaty",
+      "cred1.title":"Chef de Cuisine i Restaurateur",
+      "cred1.desc":"Administracja personelem, kontroling, koszty i ustalanie cen, techniki zakupowe, szkolenie i wzmacnianie zespołów, marketing restauracyjny, planowanie fizyczne kuchni, planowanie żywieniowe menu, znajomość towarów, higiena i zdrowie, podstawy kuchni, kuchnia klasyczna, współczesna, kreatywna i włoska, sosy klasyczne, techniki garde manger, techniki mise en place, techniki obsługi, pâtisserie, desery brazylijskie i enogastronomia.",
+      "cred2.title":"Studia z Nauk Biologicznych",
+      "cred2.desc":"Wsparcie laboratoryjne na Universidade Católica de Santos: przygotowywanie podłoży hodowlanych do badań farmaceutycznych oraz współpraca z laboratorium ekotoksykologii we współpracy z Muzeum Nauk Przyrodniczych. Aseptyka, kontrola mikrobiologiczna i rejestracja procedur.",
+      "cred3.title":"Studia z Geografii",
+      "cred3.desc":"Studiowane równolegle z Naukami Biologicznymi, po 2840 godzin każde, oprócz pracy w szkołach. Praca końcowa o ogrodnictwie szkolnym.",
+      "cred4.meta":"Marynarka Brazylii · 2011",
+      "cred6.title":"Podstawowy Kurs Bezpieczeństwa Statku (CBSN / STCW)",
+      "cred6.meta":"Akredytowany przez DPC — Marynarkę Brazylii · 2011",
+      "cred6.desc":"Zapobieganie pożarom i ich zwalczanie, pierwsza pomoc, techniki przetrwania osobistego, procedury awaryjne, bezpieczeństwo osobiste i odpowiedzialność społeczna.",
+      "contacto.eyebrow":"Kontakt","contacto.h2":"Porozmawiajmy",
+      "contacto.residencia":"Stały pobyt w Portugalii"
+    },
+    nl: {
+      "nav.galeria":"Galerij","nav.percurso":"Traject","nav.contacto":"Contact",
+      "hero.role":"Chef-kok en sushichef",
+      "hero.tagline":"Ik kook al 16 jaar. Ik begon in Curitiba, werkte in de Italiaanse keuken en op een cruiseschip, en leid al 6 jaar Home Sushi, in Viseu.",
+      "hero.cv":"CV in PDF",
+      "perfil.eyebrow":"Profiel","perfil.h2":"Over mij",
+      "perfil.p1":"Bij Home Sushi coördineer ik een team van 6 — roosters, training, voorraad en leveranciers. Ik ben opgeleid tot Chef de Cuisine en Restaurateur bij Centro Europeu, in Curitiba, en was al chef-kok van 4 restaurants, waaronder de opening vanaf nul van Nomiya Sushi &amp; Ramen, in Palácio do Gelo.",
+      "perfil.p2":"De opleiding Biologische Wetenschappen bracht technische kennis van vis naar de toonbank — soorten, versheid, seizoensgebondenheid en parasitologie — dagelijks toegepast op kwaliteitscontrole en HACCP. Ik leid multiculturele teams in het Engels, dat ik vloeiend spreek, lees en schrijf.",
+      "perfil.p3":"Een leuk weetje: de naam die ik dagelijks gebruik is Yoshiki — op het werk noemen ze me Yoshi, kortweg. \"Lucas\" is wat er op mijn geboorteakte kwam te staan: mijn grootvader, uit een Portugese familie, ging me aangeven en wilde, naar ik vermoed, geen vreemde Japanse naam voor zijn kleinzoon — ik kreeg de naam van het ziekenhuis waar ik geboren ben, São Lucas. Toch stel ik mezelf nog steeds voor met mijn Japanse naam. Portugees is mijn moedertaal, maar de cultuur, het werk en de instelling die ik meedraag zijn ook Japans.",
+      "galeria.eyebrow":"Galerij","galeria.h2":"Sushi","galeria.antigos":"Oudere albums",
+      "percurso.eyebrow":"Traject","percurso.h2":"Eén keuken tegelijk",
+      "percurso.sub1":"Keuken","percurso.sub2":"Tweede carrière — lesgeven",
+      "role1.title":"Chef-kok / Sushibar Manager","role1.dates":"sep. 2020 — heden",
+      "role1.b1":"Leiding geven aan een team van 6: roosters, training en taakverdeling",
+      "role1.b2":"Voorraadbeheer, ontvangst en controle van goederen, leveranciersbeheer",
+      "role1.b3":"Ontvangst, reiniging, snijden en rijping van vis, beoordeling van versheid en kwaliteit",
+      "role1.b4":"Creëren en bereiden van sushi en Aziatische gerechten; vaststellen van mise en place",
+      "role1.b5":"Dagelijkse toepassing en controle van HACCP-normen in de hele operatie",
+      "role2.title":"Chef-kok","role2.dates":"nov. 2019 — sep. 2020",
+      "role2.b1":"Leiding over de keukens van twee vestigingen tegelijk",
+      "role2.b2":"Opening van Nomiya Sushi &amp; Ramen, in Palácio do Gelo: inrichting van de keuken, menuontwikkeling en team vanaf nul opbouwen",
+      "role2.b3":"Personeels- en voorraadbeheer",
+      "role3.title":"Kok","role3.dates":"nov. 2018 — okt. 2019",
+      "role3.b1":"Mise en place, bereiding en opmaak van warme en koude Portugese gerechten",
+      "role3.b2":"Hotelservice met hoog volume, wisselende diensten, inclusief nachtwerk",
+      "role3.b3":"Incidentele ondersteuning aan andere eenheden van de Visabeira-groep",
+      "role4.b1":"Pantry station en buffetvoorbereiding voor internationale service met hoog volume",
+      "role4.b2":"Werken volgens USPHS-hygiënenormen, met regelmatige audits",
+      "role5.title":"Capo Chef",
+      "role5.b1":"Leiding over een team van 6 per dienst, 12 in totaal: instructie, training en toezicht op bereiding en hygiëne",
+      "role5.b2":"Italiaanse en Franse keuken à la carte: risotti, pasta, garde manger, charbroiler, rotisserie en pâtisserie",
+      "role5.b3":"Controle van bestellingen, inkoop en voorraadbeheer",
+      "role6.title":"Begin van carrière",
+      "role6.b1":"Italiaanse keuken à la carte, grill en barbecue, en snelle service met hoog volume",
+      "role7.title":"Leraar",
+      "role7.place":"Colégio Alexo Viazovski en Escola Estadual Laudelino Fernandes dos Santos, via de gemeente Praia Grande — São Paulo, Brazilië",
+      "role7.b1":"Aardrijkskunde, Wetenschappen, Engels en Informatica in de onder- en bovenbouw, met ondersteuning in Natuurkunde en Scheikunde",
+      "role7.b2":"Engels en Informatica zelfstandig geleerd, zonder formele cursus of opleiding op die gebieden",
+      "role7.b3":"Project \"Mais Educação\": aanleg en onderhoud van de schooltuin met de leerlingen",
+      "role8.title":"Hoofdgids en stagiair",
+      "role8.b1":"Rondleidingen voor toeristen en school-, technische en universiteitsgroepen, in alle drie de diensten",
+      "role8.b2":"Inrichting en onderhoud van de dierenverblijven en aquaria van de nieuwe locatie",
+      "role8.b3":"Opleiding van nieuwe stagiairs voor rondleidingen en onderhoud",
+      "comp.eyebrow":"Vaardigheden","comp.h2":"Keuken- en managementinstrumenten",
+      "comp.g1":"Management","comp.g1t1":"Teamleiderschap","comp.g1t2":"Training","comp.g1t3":"Roosters",
+      "comp.g1t4":"Voorraadbeheer","comp.g1t5":"Inkoop","comp.g1t7":"Kwaliteitscontrole",
+      "comp.g2":"Voedselveiligheid","comp.g2t2":"Koudeketen","comp.g2t3":"Traceerbaarheid",
+      "comp.g2t4":"Visparasitologie","comp.g2t5":"Conservering",
+      "comp.g3":"Techniek","comp.g3t1":"Sushi &amp; Japanse keuken","comp.g3t2":"Vis schoonmaken en snijden",
+      "comp.g3t3":"Italiaanse keuken","comp.g3t4":"Franse keuken","comp.g3t5":"Evenementen","comp.g3t7":"Trouwbuffetten",
+      "comp.g4":"Talen","comp.g4t1":"Portugees — moedertaal","comp.g4t2":"Engels — vloeiend",
+      "comp.g4t3":"Spaans — basis","comp.g4t4":"Italiaans — basis",
+      "form.eyebrow":"Opleiding","form.h2":"Opleiding &amp; certificeringen",
+      "form.academica":"Academisch","form.certs":"Certificeringen",
+      "cred1.title":"Chef de Cuisine en Restaurateur",
+      "cred1.desc":"Personeelsbeheer, controlling, kosten en prijsbepaling, inkooptechnieken, teamtraining en -versterking, restaurantmarketing, fysieke keukenplanning, voedingsplanning van menu's, warenkennis, hygiëne en gezondheid, keukenbasis, klassieke, hedendaagse, creatieve en Italiaanse keuken, klassieke sauzen, garde-manger-technieken, mise-en-place-technieken, serveertechnieken, pâtisserie, Braziliaanse desserts en wijn- en spijscombinaties.",
+      "cred2.title":"Opleiding Biologische Wetenschappen",
+      "cred2.desc":"Laboratoriumondersteuning aan de Universidade Católica de Santos: voorbereiding van kweekmedia voor farmaceutische proeven en samenwerking met het ecotoxicologielab, in samenwerking met het Natuurhistorisch Museum. Asepsis, microbiologische controle en procedureregistratie.",
+      "cred3.title":"Opleiding Aardrijkskunde",
+      "cred3.desc":"Gevolgd tegelijk met Biologische Wetenschappen, elk 2840 uur, naast het werk op scholen. Afstudeerproject over schooltuinbouw.",
+      "cred4.meta":"Braziliaanse Marine · 2011",
+      "cred6.title":"Basiscursus Scheepsveiligheid (CBSN / STCW)",
+      "cred6.meta":"Geaccrediteerd door de DPC — Braziliaanse Marine · 2011",
+      "cred6.desc":"Brandpreventie en -bestrijding, eerste hulp, persoonlijke overlevingstechnieken, noodprocedures, persoonlijke veiligheid en sociale verantwoordelijkheid.",
+      "contacto.eyebrow":"Contact","contacto.h2":"Laten we praten",
+      "contacto.residencia":"Permanent verblijf in Portugal"
+    },
+    cs: {
+      "nav.galeria":"Galerie","nav.percurso":"Kariéra","nav.contacto":"Kontakt",
+      "hero.role":"Šéfkuchař a sushi mistr",
+      "hero.tagline":"Vařím už 16 let. Začal jsem v Curitibě, prošel jsem italskou kuchyní a výletní lodí a už 6 let vedu Home Sushi ve Viseu.",
+      "hero.cv":"CV v PDF",
+      "perfil.eyebrow":"Profil","perfil.h2":"O mně",
+      "perfil.p1":"V Home Sushi koordinuji tým 6 lidí — rozpisy, školení, sklad a dodavatele. Vyučil jsem se jako Chef de Cuisine a Restaurateur v Centro Europeu v Curitibě a byl jsem už šéfkuchařem 4 restaurací, včetně otevření Nomiya Sushi &amp; Ramen od základu v Palácio do Gelo.",
+      "perfil.p2":"Bakalářské studium biologických věd přineslo k pultu technickou znalost ryb — druhy, čerstvost, sezónnost a parazitologii — denně uplatňovanou při kontrole kvality a HACCP. Vedu multikulturní týmy v angličtině, kterou plynně mluvím, čtu a píšu.",
+      "perfil.p3":"Zajímavost: jméno, které používám v běžném životě, je Yoshiki — v práci mi zkráceně říkají Yoshi. „Lucas“ zůstalo v matrice: můj dědeček z portugalské rodiny mě šel zapsat a, odhaduji, nechtěl vnukovi divné japonské jméno — skončil jsem se jménem nemocnice, kde jsem se narodil, São Lucas. Přesto se stále představuji svým japonským jménem. Portugalština je můj rodný jazyk, ale kultura, práce a smýšlení, které si nesu, jsou také japonské.",
+      "galeria.eyebrow":"Galerie","galeria.h2":"Sushi","galeria.antigos":"Starší alba",
+      "percurso.eyebrow":"Kariéra","percurso.h2":"Jedna kuchyně po druhé",
+      "percurso.sub1":"Kuchyně","percurso.sub2":"Druhá kariéra — výuka",
+      "role1.title":"Šéfkuchař / Vedoucí Sushi Baru","role1.dates":"zář. 2020 — nyní",
+      "role1.b1":"Vedení týmu 6 lidí: rozpisy, školení a rozdělení úkolů",
+      "role1.b2":"Správa skladu, příjem a kontrola zboží, kontrola dodavatelů",
+      "role1.b3":"Příjem, čištění, krájení a zrání ryb, hodnocení čerstvosti a kvality",
+      "role1.b4":"Tvorba a příprava sushi a asijských pokrmů; stanovení mise en place",
+      "role1.b5":"Denní uplatňování a kontrola norem HACCP v celém provozu",
+      "role2.title":"Šéfkuchař","role2.dates":"lis. 2019 — zář. 2020",
+      "role2.b1":"Řízení kuchyně dvou provozoven současně",
+      "role2.b2":"Otevření Nomiya Sushi &amp; Ramen v Palácio do Gelo: vybudování kuchyně, tvorba menu a sestavení týmu od základu",
+      "role2.b3":"Řízení personálu a skladu",
+      "role3.title":"Kuchař","role3.dates":"lis. 2018 — říj. 2019",
+      "role3.b1":"Mise en place, příprava a servírování teplých a studených jídel portugalské kuchyně",
+      "role3.b2":"Hotelový provoz s vysokým objemem, střídavé směny včetně noční práce",
+      "role3.b3":"Občasná podpora dalších jednotek skupiny Visabeira",
+      "role4.b1":"Pantry station a příprava bufetu pro mezinárodní provoz s vysokým objemem",
+      "role4.b2":"Provoz podle hygienických norem USPHS, s pravidelnými audity",
+      "role5.title":"Capo Chef",
+      "role5.b1":"Vedení týmu 6 lidí na směnu, 12 celkem: instruktáž, školení a dohled nad přípravou a hygienou",
+      "role5.b2":"Italská a francouzská kuchyně à la carte: risotta, těstoviny, garde manger, charbroiler, rožeň a pâtisserie",
+      "role5.b3":"Kontrola objednávek, nákupu a řízení skladu",
+      "role6.title":"Začátek kariéry",
+      "role6.b1":"Italská kuchyně à la carte, gril a barbecue a rychlý provoz s vysokým objemem",
+      "role7.title":"Učitel",
+      "role7.place":"Colégio Alexo Viazovski a Escola Estadual Laudelino Fernandes dos Santos, prostřednictvím městského úřadu Praia Grande — São Paulo, Brazílie",
+      "role7.b1":"Zeměpis, přírodní vědy, angličtina a informatika na druhém stupni a střední škole, s podporou fyziky a chemie",
+      "role7.b2":"Angličtinu a informatiku jsem se naučil sám, bez formálního kurzu či školení v těchto oblastech",
+      "role7.b3":"Projekt „Mais Educação“: založení a údržba školní zahrady se žáky",
+      "role8.title":"Vedoucí průvodce a stážista",
+      "role8.b1":"Prohlídky s průvodcem pro turisty a školní, odborné a univerzitní skupiny, ve všech třech směnách",
+      "role8.b2":"Vybudování a údržba výběhů pro zvířata a akvárií nového sídla",
+      "role8.b3":"Školení nových stážistů pro průvodcovskou činnost a údržbu",
+      "comp.eyebrow":"Dovednosti","comp.h2":"Kuchyňské a manažerské nástroje",
+      "comp.g1":"Management","comp.g1t1":"Vedení týmu","comp.g1t2":"Školení","comp.g1t3":"Rozpisy směn",
+      "comp.g1t4":"Správa skladu","comp.g1t5":"Nákup","comp.g1t7":"Kontrola kvality",
+      "comp.g2":"Bezpečnost potravin","comp.g2t2":"Chladicí řetězec","comp.g2t3":"Sledovatelnost",
+      "comp.g2t4":"Parazitologie ryb","comp.g2t5":"Konzervace",
+      "comp.g3":"Technika","comp.g3t1":"Sushi &amp; japonská kuchyně","comp.g3t2":"Čištění a krájení ryb",
+      "comp.g3t3":"Italská kuchyně","comp.g3t4":"Francouzská kuchyně","comp.g3t5":"Akce","comp.g3t7":"Svatební bufety",
+      "comp.g4":"Jazyky","comp.g4t1":"Portugalština — rodilý mluvčí","comp.g4t2":"Angličtina — plynule",
+      "comp.g4t3":"Španělština — základy","comp.g4t4":"Italština — základy",
+      "form.eyebrow":"Vzdělání","form.h2":"Vzdělání &amp; certifikace",
+      "form.academica":"Akademické","form.certs":"Certifikace",
+      "cred1.title":"Chef de Cuisine a Restaurateur",
+      "cred1.desc":"Personální administrativa, controlling, náklady a tvorba cen, nákupní techniky, školení a posilování týmů, restaurační marketing, fyzické plánování kuchyní, nutriční plánování menu, znalost zboží, hygiena a zdraví, základy kuchyně, klasická, moderní, kreativní a italská kuchyně, klasické omáčky, techniky garde manger, techniky mise en place, techniky obsluhy, pâtisserie, brazilské dezerty a enogastronomie.",
+      "cred2.title":"Bakalářské studium biologických věd",
+      "cred2.desc":"Laboratorní podpora na Universidade Católica de Santos: příprava kultivačních médií pro farmaceutické testy léků a spolupráce s laboratoří ekotoxikologie ve spolupráci s Muzeem přírodních věd. Asepse, mikrobiologická kontrola a evidence postupů.",
+      "cred3.title":"Bakalářské studium geografie",
+      "cred3.desc":"Studováno souběžně s biologickými vědami, po 2840 hodinách, navíc k práci ve školách. Závěrečná práce o školní zahradní kultuře.",
+      "cred4.meta":"Brazilské námořnictvo · 2011",
+      "cred6.title":"Základní kurz bezpečnosti lodi (CBSN / STCW)",
+      "cred6.meta":"Akreditováno DPC — Brazilské námořnictvo · 2011",
+      "cred6.desc":"Prevence a hašení požárů, první pomoc, techniky osobního přežití, nouzové postupy, osobní bezpečnost a společenská odpovědnost.",
+      "contacto.eyebrow":"Kontakt","contacto.h2":"Pojďme si promluvit",
+      "contacto.residencia":"Trvalý pobyt v Portugalsku"
+    },
+    ja: {
+      "nav.galeria":"ギャラリー","nav.percurso":"経歴","nav.contacto":"連絡先",
+      "hero.role":"料理長・寿司職人",
+      "hero.tagline":"料理歴16年。クリチーバで始め、イタリア料理とクルーズ船を経て、6年前からヴィゼウのHome Sushiを率いています。",
+      "hero.cv":"履歴書（PDF）",
+      "perfil.eyebrow":"プロフィール","perfil.h2":"自己紹介",
+      "perfil.p1":"Home Sushiでは6人のチームを統括しています — シフト、研修、在庫、仕入先。クリチーバのCentro Europeuでシェフ・ド・キュイジーヌ兼レストラトゥールとして学び、すでに4つのレストランのシェフを務め、Palácio do GeloのNomiya Sushi &amp; Ramenをゼロから開業しました。",
+      "perfil.p2":"生物科学の学位により、魚の技術的な知識 — 種類、鮮度、季節性、寄生虫学 — を現場に持ち込み、品質管理とHACCPに日々活かしています。流暢に話し、読み、書ける英語で多文化チームを率いています。",
+      "perfil.p3":"ちょっとした話ですが、普段使っている名前はヨシキです — 職場では短くヨシと呼ばれています。「ルーカス」は戸籍に残った名前です。ポルトガル系の祖父が出生届を出しに行き、孫に変わった日本名を付けたくなかったのだろうと思います — 結局、生まれた病院の名前サン・ルーカスになりました。それでも、今も日本の名前で自己紹介しています。母語はポルトガル語ですが、私が持つ文化、仕事、考え方も日本のものです。",
+      "galeria.eyebrow":"ギャラリー","galeria.h2":"寿司","galeria.antigos":"過去のアルバム",
+      "percurso.eyebrow":"経歴","percurso.h2":"一つずつの厨房",
+      "percurso.sub1":"厨房","percurso.sub2":"第二のキャリア — 教育",
+      "role1.title":"料理長 / 寿司バー責任者","role1.dates":"2020年9月 — 現在",
+      "role1.b1":"6人チームの統括：シフト、研修、業務分担",
+      "role1.b2":"在庫管理、商品の受け入れと検品、仕入先の管理",
+      "role1.b3":"魚の受け入れ、洗浄、カット、熟成、鮮度と品質の評価",
+      "role1.b4":"寿司とアジア料理の考案・調理、下ごしらえの計画",
+      "role1.b5":"HACCP基準の日々の適用と確認を全業務にわたって実施",
+      "role2.title":"料理長","role2.dates":"2019年11月 — 2020年9月",
+      "role2.b1":"2店舗の厨房を同時に統括",
+      "role2.b2":"Palácio do GeloのNomiya Sushi &amp; Ramenを開業：厨房設営、メニュー考案、チームをゼロから育成",
+      "role2.b3":"人員と在庫の管理",
+      "role3.title":"調理師","role3.dates":"2018年11月 — 2019年10月",
+      "role3.b1":"ポルトガル料理の温かい料理と冷たい料理の下ごしらえ・調理・盛り付け",
+      "role3.b2":"大規模なホテルサービス、夜間勤務を含むローテーション勤務",
+      "role3.b3":"Visabeiraグループの他部門への随時サポート",
+      "role4.b1":"大規模な国際サービスのためのパントリー業務とビュッフェ準備",
+      "role4.b2":"USPHS衛生基準に基づく運営、定期監査を実施",
+      "role5.title":"カポ・シェフ",
+      "role5.b1":"1シフト6人、計12人のチームを統括：指導、研修、仕込みと衛生の監督",
+      "role5.b2":"イタリア・フランス料理のアラカルト：リゾット、パスタ、ガルドマンジェ、炭火焼き、ロティサリー、パティスリー",
+      "role5.b3":"注文、仕入れ、在庫管理の統制",
+      "role6.title":"キャリアの始まり",
+      "role6.b1":"イタリア料理のアラカルト、グリルとバーベキュー、大規模なファストサービス",
+      "role7.title":"教師",
+      "role7.place":"Colégio Alexo ViazovskiおよびEscola Estadual Laudelino Fernandes dos Santos、プライア・グランデ市役所を通じて — サンパウロ、ブラジル",
+      "role7.b1":"中学・高校で地理、理科、英語、情報を担当、物理・化学のサポートも",
+      "role7.b2":"英語と情報は独学で習得、正式なコースや研修は受けていない",
+      "role7.b3":"「Mais Educação」プロジェクト：生徒たちと学校菜園を作り維持",
+      "role8.title":"主任案内員・研修生",
+      "role8.b1":"観光客、学校・専門・大学のグループへのガイド付きツアーを3交代制で実施",
+      "role8.b2":"新施設の動物飼育スペースと水槽の設営・維持管理",
+      "role8.b3":"新しい研修生への案内・維持管理の指導",
+      "comp.eyebrow":"スキル","comp.h2":"厨房とマネジメントのツール",
+      "comp.g1":"マネジメント","comp.g1t1":"チームリーダーシップ","comp.g1t2":"研修","comp.g1t3":"シフト管理",
+      "comp.g1t4":"在庫管理","comp.g1t5":"仕入れ","comp.g1t7":"品質管理",
+      "comp.g2":"食品安全","comp.g2t2":"コールドチェーン","comp.g2t3":"トレーサビリティ",
+      "comp.g2t4":"魚介類の寄生虫学","comp.g2t5":"保存",
+      "comp.g3":"技術","comp.g3t1":"寿司・日本料理","comp.g3t2":"魚の洗浄と切り分け",
+      "comp.g3t3":"イタリア料理","comp.g3t4":"フランス料理","comp.g3t5":"イベント","comp.g3t7":"結婚式ビュッフェ",
+      "comp.g4":"言語","comp.g4t1":"ポルトガル語 — 母語","comp.g4t2":"英語 — 流暢",
+      "comp.g4t3":"スペイン語 — 基礎","comp.g4t4":"イタリア語 — 基礎",
+      "form.eyebrow":"学歴","form.h2":"学歴・資格",
+      "form.academica":"学歴","form.certs":"資格",
+      "cred1.title":"シェフ・ド・キュイジーヌ／レストラトゥール",
+      "cred1.desc":"人事管理、経営管理、コストと価格設定、仕入れ技術、チーム研修と強化、レストランマーケティング、厨房の物理的計画、メニューの栄養計画、商品知識、衛生と健康、厨房の基礎、クラシック・現代・創作・イタリア料理、クラシックソース、ガルドマンジェ技術、下ごしらえ技術、サービス技術、パティスリー、ブラジルのデザート、ワインと料理のペアリング。",
+      "cred2.title":"生物科学学士",
+      "cred2.desc":"Universidade Católica de Santosでの実験室サポート：ファーマシーの薬剤試験用培地の調製、自然科学博物館と提携したエコトキシコロジー研究室との協力。無菌操作、微生物管理、手順の記録。",
+      "cred3.title":"地理学学士",
+      "cred3.desc":"生物科学と並行して受講、それぞれ2840時間、学校での勤務と並行。卒業論文は学校の園芸について。",
+      "cred4.meta":"ブラジル海軍 · 2011年",
+      "cred6.title":"船舶基礎安全講習（CBSN / STCW）",
+      "cred6.meta":"DPC認定 — ブラジル海軍 · 2011年",
+      "cred6.desc":"防火・消火、応急処置、個人の生存技術、緊急手順、個人の安全、社会的責任。",
+      "contacto.eyebrow":"連絡先","contacto.h2":"お話ししましょう",
+      "contacto.residencia":"ポルトガルの永住権"
+    },
+    zh: {
+      "nav.galeria":"画廊","nav.percurso":"历程","nav.contacto":"联系方式",
+      "hero.role":"主厨兼寿司师傅",
+      "hero.tagline":"我从事烹饪16年了。我从库里蒂巴开始，做过意大利菜，也在游轮上工作过，6年来一直执掌维塞乌的Home Sushi。",
+      "hero.cv":"PDF简历",
+      "perfil.eyebrow":"简介","perfil.h2":"关于我",
+      "perfil.p1":"在Home Sushi，我负责协调一个6人团队——排班、培训、库存和供应商。我在库里蒂巴的Centro Europeu接受了主厨兼餐厅经营者培训，曾担任过4家餐厅的主厨，包括从零开始开设Palácio do Gelo的Nomiya Sushi &amp; Ramen。",
+      "perfil.p2":"生物科学学位为我带来了鱼类的专业知识——品种、新鲜度、季节性和寄生虫学——每天应用于质量控制和HACCP。我用流利的英语（能说、能读、能写）领导多元文化团队。",
+      "perfil.p3":"一个小趣闻：我日常使用的名字是Yoshiki——在工作中大家简称我Yoshi。「Lucas」是登记在案的名字：我那葡萄牙裔的祖父去为我登记出生，我猜他不想给孙子取一个奇怪的日本名字——结果我用了我出生医院的名字，São Lucas。尽管如此，我仍然以我的日本名字自我介绍。葡萄牙语是我的母语，但我所承载的文化、工作方式和理念同样也是日本的。",
+      "galeria.eyebrow":"画廊","galeria.h2":"寿司","galeria.antigos":"往期相册",
+      "percurso.eyebrow":"历程","percurso.h2":"一间厨房接一间厨房",
+      "percurso.sub1":"厨房","percurso.sub2":"第二职业——教学",
+      "role1.title":"主厨／寿司吧负责人","role1.dates":"2020年9月 — 至今",
+      "role1.b1":"统领6人团队：排班、培训与任务分配",
+      "role1.b2":"库存管理、收货与验货、供应商管控",
+      "role1.b3":"鱼类的接收、清洗、切割与熟成，评估新鲜度与品质",
+      "role1.b4":"寿司及亚洲菜品的创作与制作；确定备料流程",
+      "role1.b5":"每日在全流程中执行并核查HACCP标准",
+      "role2.title":"主厨","role2.dates":"2019年11月 — 2020年9月",
+      "role2.b1":"同时统领两家门店的厨房",
+      "role2.b2":"在Palácio do Gelo从零开设Nomiya Sushi &amp; Ramen：厨房搭建、菜单设计及团队组建",
+      "role2.b3":"人员与库存管理",
+      "role3.title":"厨师","role3.dates":"2018年11月 — 2019年10月",
+      "role3.b1":"葡萄牙菜热菜与冷盘的备料、烹饪与摆盘",
+      "role3.b2":"大容量酒店服务，轮班制，包括夜班",
+      "role3.b3":"偶尔支援Visabeira集团其他门店",
+      "role4.b1":"为大容量国际航线服务承担储藏室及自助餐准备工作",
+      "role4.b2":"按USPHS卫生标准运作，定期接受审计",
+      "role5.title":"主厨长",
+      "role5.b1":"统领每班6人、共12人的团队：指导、培训并监督备料与卫生",
+      "role5.b2":"意大利与法国单点菜肴：烩饭、意面、冷盘拼配、炭烤、烤肉及糕点",
+      "role5.b3":"管控点单、采购与库存",
+      "role6.title":"职业生涯起点",
+      "role6.b1":"意大利单点菜肴、烧烤，以及大容量快速服务",
+      "role7.title":"教师",
+      "role7.place":"Colégio Alexo Viazovski及Escola Estadual Laudelino Fernandes dos Santos，隶属Praia Grande市政厅——巴西圣保罗",
+      "role7.b1":"在初中和高中教授地理、科学、英语及信息技术，并协助物理与化学教学",
+      "role7.b2":"英语与信息技术为自学，未接受过正式课程或培训",
+      "role7.b3":"「Mais Educação」项目：与学生一起建立并维护校园菜园",
+      "role8.title":"首席讲解员兼实习生",
+      "role8.b1":"为游客及学校、技术院校和大学团体提供三班制讲解导览",
+      "role8.b2":"新馆动物围栏及水族箱的搭建与维护",
+      "role8.b3":"培训新实习生的讲解与维护工作",
+      "comp.eyebrow":"技能","comp.h2":"厨房与管理工具",
+      "comp.g1":"管理","comp.g1t1":"团队领导","comp.g1t2":"培训","comp.g1t3":"排班",
+      "comp.g1t4":"库存管理","comp.g1t5":"采购","comp.g1t7":"质量控制",
+      "comp.g2":"食品安全","comp.g2t2":"冷链","comp.g2t3":"可追溯性",
+      "comp.g2t4":"水产寄生虫学","comp.g2t5":"保鲜",
+      "comp.g3":"技术","comp.g3t1":"寿司与日本料理","comp.g3t2":"鱼类清洗与切割",
+      "comp.g3t3":"意大利菜","comp.g3t4":"法国菜","comp.g3t5":"活动","comp.g3t7":"婚宴自助餐",
+      "comp.g4":"语言","comp.g4t1":"葡萄牙语 — 母语","comp.g4t2":"英语 — 流利",
+      "comp.g4t3":"西班牙语 — 基础","comp.g4t4":"意大利语 — 基础",
+      "form.eyebrow":"教育背景","form.h2":"教育背景与认证",
+      "form.academica":"学历","form.certs":"认证",
+      "cred1.title":"主厨兼餐厅经营者",
+      "cred1.desc":"人事管理、财务控制、成本与定价、采购技巧、团队培训与建设、餐厅营销、厨房布局规划、菜单营养规划、商品知识、卫生与健康、厨房基础、经典/现代/创意及意大利菜肴、经典酱汁、冷盘拼配技巧、备料技巧、服务技巧、糕点制作、巴西甜品及美酒美食搭配。",
+      "cred2.title":"生物科学学位",
+      "cred2.desc":"在Universidade Católica de Santos提供实验室支持：为药学药物试验准备培养基，并与生态毒理学实验室合作，该实验室与自然科学博物馆合作。无菌操作、微生物控制及流程记录。",
+      "cred3.title":"地理学学位",
+      "cred3.desc":"与生物科学同期修读，各2840学时，同时兼顾学校工作。毕业论文研究校园园艺。",
+      "cred4.meta":"巴西海军 · 2011年",
+      "cred6.title":"船舶基础安全课程（CBSN / STCW）",
+      "cred6.meta":"由DPC认证——巴西海军 · 2011年",
+      "cred6.desc":"防火与灭火、急救、个人生存技巧、应急程序、个人安全与社会责任。",
+      "contacto.eyebrow":"联系方式","contacto.h2":"让我们聊聊",
+      "contacto.residencia":"葡萄牙永久居留权"
+    },
+    ru: {
+      "nav.galeria":"Галерея","nav.percurso":"Путь","nav.contacto":"Контакты",
+      "hero.role":"Шеф-повар и суши-шеф",
+      "hero.tagline":"Готовлю уже 16 лет. Начинал в Куритибе, работал в итальянской кухне и на круизном лайнере, а последние 6 лет возглавляю Home Sushi в Визеу.",
+      "hero.cv":"Резюме (PDF)",
+      "perfil.eyebrow":"Профиль","perfil.h2":"Обо мне",
+      "perfil.p1":"В Home Sushi я руковожу командой из 6 человек — графики, обучение, склад и поставщики. Я обучался на Chef de Cuisine и Restaurateur в Centro Europeu, в Куритибе, и уже был шеф-поваром 4 ресторанов, включая открытие с нуля Nomiya Sushi &amp; Ramen в Palácio do Gelo.",
+      "perfil.p2":"Степень по биологическим наукам принесла на прилавок техническое знание рыбы — виды, свежесть, сезонность и паразитологию — применяемое ежедневно для контроля качества и HACCP. Я руковожу мультикультурными командами на английском языке, на котором свободно говорю, читаю и пишу.",
+      "perfil.p3":"Забавный факт: имя, которым я пользуюсь в повседневной жизни, — Ёсики, на работе меня зовут сокращённо Ёши. «Лукас» — это то, что осталось в свидетельстве о рождении: мой дедушка, из португальской семьи, пошёл меня регистрировать и, полагаю, не захотел странного японского имени для внука — в итоге мне досталось имя больницы, где я родился, Сан-Лукас. Тем не менее я по-прежнему представляюсь своим японским именем. Португальский — мой родной язык, но культура, работа и мировоззрение, которые я несу, тоже японские.",
+      "galeria.eyebrow":"Галерея","galeria.h2":"Суши","galeria.antigos":"Старые альбомы",
+      "percurso.eyebrow":"Путь","percurso.h2":"Одна кухня за раз",
+      "percurso.sub1":"Кухня","percurso.sub2":"Вторая карьера — преподавание",
+      "role1.title":"Шеф-повар / Управляющий суши-баром","role1.dates":"сен. 2020 — наст. время",
+      "role1.b1":"Руководство командой из 6 человек: графики, обучение и распределение задач",
+      "role1.b2":"Управление складом, приёмка и проверка товаров, контроль поставщиков",
+      "role1.b3":"Приёмка, очистка, разделка и созревание рыбы, оценка свежести и качества",
+      "role1.b4":"Создание и приготовление суши и блюд азиатской кухни; определение мизанплас",
+      "role1.b5":"Ежедневное применение и проверка стандартов HACCP во всей работе",
+      "role2.title":"Шеф-повар","role2.dates":"ноя. 2019 — сен. 2020",
+      "role2.b1":"Руководство кухнями двух заведений одновременно",
+      "role2.b2":"Открытие Nomiya Sushi &amp; Ramen в Palácio do Gelo: обустройство кухни, создание меню и формирование команды с нуля",
+      "role2.b3":"Управление персоналом и складом",
+      "role3.title":"Повар","role3.dates":"ноя. 2018 — окт. 2019",
+      "role3.b1":"Мизанплас, приготовление и подача горячих и холодных блюд португальской кухни",
+      "role3.b2":"Гостиничное обслуживание с большим объёмом, сменный график, включая ночную работу",
+      "role3.b3":"Периодическая поддержка других подразделений группы Visabeira",
+      "role4.b1":"Работа на раздаче и подготовка фуршета для международного обслуживания большого объёма",
+      "role4.b2":"Работа по санитарным нормам USPHS с регулярными аудитами",
+      "role5.title":"Капо-шеф",
+      "role5.b1":"Руководство командой из 6 человек в смену, 12 всего: инструктаж, обучение и контроль приготовления и гигиены",
+      "role5.b2":"Итальянская и французская кухня à la carte: ризотто, паста, гарде-манже, гриль, ростиссери и патисри",
+      "role5.b3":"Контроль заказов, закупок и управления складом",
+      "role6.title":"Начало карьеры",
+      "role6.b1":"Итальянская кухня à la carte, гриль и барбекю, быстрое обслуживание большого объёма",
+      "role7.title":"Учитель",
+      "role7.place":"Colégio Alexo Viazovski и Escola Estadual Laudelino Fernandes dos Santos, при муниципалитете Прая-Гранде — Сан-Паулу, Бразилия",
+      "role7.b1":"География, естествознание, английский и информатика в средней и старшей школе, с поддержкой по физике и химии",
+      "role7.b2":"Английский и информатику освоил самостоятельно, без формального курса или обучения в этих областях",
+      "role7.b3":"Проект «Mais Educação»: создание и уход за школьным садом вместе с учениками",
+      "role8.title":"Старший экскурсовод и стажёр",
+      "role8.b1":"Экскурсии для туристов и школьных, технических и университетских групп во всех трёх сменах",
+      "role8.b2":"Обустройство и обслуживание вольеров для животных и аквариумов нового здания",
+      "role8.b3":"Обучение новых стажёров проведению экскурсий и обслуживанию",
+      "comp.eyebrow":"Навыки","comp.h2":"Инструменты кухни и управления",
+      "comp.g1":"Управление","comp.g1t1":"Руководство командой","comp.g1t2":"Обучение","comp.g1t3":"Графики",
+      "comp.g1t4":"Управление складом","comp.g1t5":"Закупки","comp.g1t7":"Контроль качества",
+      "comp.g2":"Пищевая безопасность","comp.g2t2":"Холодовая цепь","comp.g2t3":"Прослеживаемость",
+      "comp.g2t4":"Паразитология морепродуктов","comp.g2t5":"Консервация",
+      "comp.g3":"Техника","comp.g3t1":"Суши и японская кухня","comp.g3t2":"Очистка и разделка рыбы",
+      "comp.g3t3":"Итальянская кухня","comp.g3t4":"Французская кухня","comp.g3t5":"Мероприятия","comp.g3t7":"Свадебные фуршеты",
+      "comp.g4":"Языки","comp.g4t1":"Португальский — родной","comp.g4t2":"Английский — свободно",
+      "comp.g4t3":"Испанский — базовый","comp.g4t4":"Итальянский — базовый",
+      "form.eyebrow":"Образование","form.h2":"Образование и сертификаты",
+      "form.academica":"Академическое","form.certs":"Сертификаты",
+      "cred1.title":"Chef de Cuisine и Restaurateur",
+      "cred1.desc":"Управление персоналом, контроллинг, издержки и ценообразование, техники закупок, обучение и укрепление команд, ресторанный маркетинг, физическое планирование кухонь, планирование питательности меню, товароведение, гигиена и здоровье, основы кухни, классическая, современная, авторская и итальянская кухня, классические соусы, техники гарде-манже, техники мизанплас, техники обслуживания, патисри, бразильские десерты и эногастрономия.",
+      "cred2.title":"Степень по биологическим наукам",
+      "cred2.desc":"Лабораторная поддержка в Universidade Católica de Santos: подготовка питательных сред для фармацевтических испытаний лекарств и сотрудничество с лабораторией экотоксикологии совместно с Музеем естественных наук. Асептика, микробиологический контроль и учёт процедур.",
+      "cred3.title":"Степень по географии",
+      "cred3.desc":"Изучалась одновременно с биологическими науками, по 2840 часов каждая, наряду с работой в школах. Дипломная работа по школьному садоводству.",
+      "cred4.meta":"ВМФ Бразилии · 2011",
+      "cred6.title":"Базовый курс безопасности судна (CBSN / STCW)",
+      "cred6.meta":"Аккредитовано DPC — ВМФ Бразилии · 2011",
+      "cred6.desc":"Предотвращение и тушение пожаров, первая помощь, техники личного выживания, порядок действий в чрезвычайных ситуациях, личная безопасность и социальная ответственность.",
+      "contacto.eyebrow":"Контакты","contacto.h2":"Давайте поговорим",
+      "contacto.residencia":"Постоянное проживание в Португалии"
+    },
+    ko: {
+      "nav.galeria":"갤러리","nav.percurso":"경력","nav.contacto":"연락처",
+      "hero.role":"총주방장 겸 스시 셰프",
+      "hero.tagline":"요리 경력 16년입니다. 쿠리치바에서 시작해 이탈리아 요리와 크루즈선을 거쳐, 6년째 비제우의 Home Sushi를 이끌고 있습니다.",
+      "hero.cv":"이력서(PDF)",
+      "perfil.eyebrow":"프로필","perfil.h2":"소개",
+      "perfil.p1":"Home Sushi에서는 6명으로 구성된 팀을 관리합니다 — 근무표, 교육, 재고, 공급업체. 쿠리치바의 Centro Europeu에서 셰프 드 퀴진 겸 레스토랑 경영자로 교육받았으며, Palácio do Gelo의 Nomiya Sushi &amp; Ramen을 처음부터 개점하는 등 4개 레스토랑의 셰프를 역임했습니다.",
+      "perfil.p2":"생물과학 학위 덕분에 생선에 대한 기술적 지식 — 어종, 신선도, 계절성, 기생충학 — 을 현장에 접목해 매일 품질 관리와 HACCP에 적용하고 있습니다. 유창하게 말하고 읽고 쓰는 영어로 다문화 팀을 이끌고 있습니다.",
+      "perfil.p3":"재미있는 사실 하나: 제가 일상적으로 쓰는 이름은 요시키입니다 — 직장에서는 줄여서 요시라고 부릅니다. \"루카스\"는 출생증명서에 남은 이름입니다. 포르투갈계 가문 출신인 할아버지가 저를 등록하러 가셨는데, 손자에게 이상한 일본 이름을 지어주고 싶지 않으셨던 것 같습니다 — 결국 제가 태어난 병원의 이름인 상 루카스가 되었습니다. 그럼에도 저는 여전히 제 일본 이름으로 자신을 소개합니다. 포르투갈어가 모국어이지만, 제가 지닌 문화와 일, 사고방식은 일본적인 것입니다.",
+      "galeria.eyebrow":"갤러리","galeria.h2":"스시","galeria.antigos":"이전 앨범",
+      "percurso.eyebrow":"경력","percurso.h2":"한 번에 하나의 주방",
+      "percurso.sub1":"주방","percurso.sub2":"두 번째 경력 — 교육",
+      "role1.title":"총주방장 / 스시바 매니저","role1.dates":"2020년 9월 — 현재",
+      "role1.b1":"6명 팀 관리: 근무표, 교육 및 업무 분배",
+      "role1.b2":"재고 관리, 물품 입고 및 검수, 공급업체 관리",
+      "role1.b3":"생선의 입고, 세척, 손질 및 숙성, 신선도와 품질 평가",
+      "role1.b4":"스시 및 아시아 요리 개발과 조리; 미장플라스 설정",
+      "role1.b5":"전 운영 과정에서 HACCP 기준의 일일 적용 및 점검",
+      "role2.title":"총주방장","role2.dates":"2019년 11월 — 2020년 9월",
+      "role2.b1":"두 개 매장의 주방을 동시에 운영",
+      "role2.b2":"Palácio do Gelo에서 Nomiya Sushi &amp; Ramen 개점: 주방 구축, 메뉴 개발 및 팀 구성",
+      "role2.b3":"인력 및 재고 관리",
+      "role3.title":"요리사","role3.dates":"2018년 11월 — 2019년 10월",
+      "role3.b1":"포르투갈 요리의 온·냉 요리 미장플라스, 조리 및 플레이팅",
+      "role3.b2":"야간 근무를 포함한 교대 근무의 대규모 호텔 서비스",
+      "role3.b3":"Visabeira 그룹 내 다른 부서에 대한 수시 지원",
+      "role4.b1":"대규모 국제 서비스를 위한 팬트리 업무 및 뷔페 준비",
+      "role4.b2":"USPHS 위생 기준에 따른 운영, 정기 감사 실시",
+      "role5.title":"카포 셰프",
+      "role5.b1":"교대당 6명, 총 12명 팀 관리: 지도, 교육 및 준비·위생 감독",
+      "role5.b2":"이탈리아·프랑스 알라카르트 요리: 리조또, 파스타, 가르드 망제, 숯불구이, 로티세리, 파티스리",
+      "role5.b3":"주문, 구매 및 재고 관리 통제",
+      "role6.title":"경력 초기",
+      "role6.b1":"이탈리아 알라카르트 요리, 그릴 및 바비큐, 대규모 신속 서비스",
+      "role7.title":"교사",
+      "role7.place":"Colégio Alexo Viazovski 및 Escola Estadual Laudelino Fernandes dos Santos, Praia Grande 시청을 통해 — 브라질 상파울루",
+      "role7.b1":"중·고등학교에서 지리, 과학, 영어, 정보학 지도, 물리·화학 보조",
+      "role7.b2":"영어와 정보학은 독학으로 습득, 해당 분야의 정규 과정이나 교육 이수 없음",
+      "role7.b3":"\"Mais Educação\" 프로젝트: 학생들과 함께 학교 텃밭 조성 및 관리",
+      "role8.title":"수석 가이드 겸 실습생",
+      "role8.b1":"관광객 및 학교·전문·대학 단체를 위한 3교대 가이드 투어 진행",
+      "role8.b2":"신규 시설의 동물 사육장 및 수족관 설치와 유지 관리",
+      "role8.b3":"신규 실습생 대상 안내 및 유지 관리 교육",
+      "comp.eyebrow":"역량","comp.h2":"주방 및 관리 역량",
+      "comp.g1":"관리","comp.g1t1":"팀 리더십","comp.g1t2":"교육","comp.g1t3":"근무표 관리",
+      "comp.g1t4":"재고 관리","comp.g1t5":"구매","comp.g1t7":"품질 관리",
+      "comp.g2":"식품 안전","comp.g2t2":"콜드체인","comp.g2t3":"추적 가능성",
+      "comp.g2t4":"수산물 기생충학","comp.g2t5":"보존",
+      "comp.g3":"기술","comp.g3t1":"스시 및 일식","comp.g3t2":"생선 세척 및 손질",
+      "comp.g3t3":"이탈리아 요리","comp.g3t4":"프랑스 요리","comp.g3t5":"이벤트","comp.g3t7":"웨딩 뷔페",
+      "comp.g4":"언어","comp.g4t1":"포르투갈어 — 모국어","comp.g4t2":"영어 — 유창",
+      "comp.g4t3":"스페인어 — 기초","comp.g4t4":"이탈리아어 — 기초",
+      "form.eyebrow":"학력","form.h2":"학력 및 자격증",
+      "form.academica":"학력","form.certs":"자격증",
+      "cred1.title":"셰프 드 퀴진 겸 레스토랑 경영자",
+      "cred1.desc":"인사 관리, 경영 관리, 원가 및 가격 책정, 구매 기법, 팀 교육 및 강화, 레스토랑 마케팅, 주방 물리적 설계, 메뉴 영양 설계, 상품 지식, 위생 및 건강, 주방 기초, 클래식·현대·창작·이탈리아 요리, 클래식 소스, 가르드 망제 기법, 미장플라스 기법, 서비스 기법, 파티스리, 브라질 디저트 및 와인 페어링.",
+      "cred2.title":"생물과학 학위",
+      "cred2.desc":"Universidade Católica de Santos에서의 실험실 지원: 약학 약물 시험용 배지 준비 및 자연과학박물관과 협력하는 생태독성학 연구실과의 협업. 무균 처리, 미생물 관리 및 절차 기록.",
+      "cred3.title":"지리학 학위",
+      "cred3.desc":"생물과학과 병행 이수, 각 2840시간, 학교 근무와 병행. 졸업 논문 주제는 학교 원예.",
+      "cred4.meta":"브라질 해군 · 2011",
+      "cred6.title":"선박 기초 안전 교육과정(CBSN / STCW)",
+      "cred6.meta":"DPC 인증 — 브라질 해군 · 2011",
+      "cred6.desc":"화재 예방 및 진화, 응급처치, 개인 생존 기술, 비상 절차, 개인 안전 및 사회적 책임.",
+      "contacto.eyebrow":"연락처","contacto.h2":"연락해 주세요",
+      "contacto.residencia":"포르투갈 영주권"
+    },
+    ne: {
+      "nav.galeria":"ग्यालरी","nav.percurso":"यात्रा","nav.contacto":"सम्पर्क",
+      "hero.role":"प्रधान सेफ र सुशी सेफ",
+      "hero.tagline":"मैले १६ वर्षदेखि खाना पकाइरहेको छु। कुरितिबामा सुरु गरेँ, इटालियन भान्सा र क्रुज जहाजमा काम गरेँ, र ६ वर्षदेखि भिजेउको Home Sushi को नेतृत्व गरिरहेको छु।",
+      "hero.cv":"CV (PDF)",
+      "perfil.eyebrow":"प्रोफाइल","perfil.h2":"मेरो बारेमा",
+      "perfil.p1":"Home Sushi मा म ६ जनाको टिम समन्वय गर्छु — तालिका, तालिम, स्टक र आपूर्तिकर्ता। मैले कुरितिबाको Centro Europeu मा Chef de Cuisine र Restaurateur को तालिम लिएँ, र पहिले नै ४ रेस्टुरेन्टका सेफ भइसकेको छु, जसमा Palácio do Gelo मा Nomiya Sushi &amp; Ramen शून्यबाट खोल्नु पनि समावेश छ।",
+      "perfil.p2":"जैविक विज्ञानको डिग्रीले माछाको प्राविधिक ज्ञान — प्रजाति, ताजापन, मौसमीता र परजीवीविज्ञान — काउन्टरमा ल्यायो, जुन हरेक दिन गुणस्तर नियन्त्रण र HACCP मा लागू गरिन्छ। म अंग्रेजीमा बहुसांस्कृतिक टिमहरूको नेतृत्व गर्छु, जुन म फरर्राटा बोल्छु, पढ्छु र लेख्छु।",
+      "perfil.p3":"एउटा रोचक कुरा: मैले दैनिक प्रयोग गर्ने नाम योशिकी हो — कामको ठाउँमा मलाई छोटकरीमा योशी भनिन्छ। \"लुकास\" जन्म प्रमाणपत्रमा रहेको नाम हो: मेरो हजुरबुबा, पोर्तुगाली परिवारका, मलाई दर्ता गर्न जानुभयो र, मलाई लाग्छ, नातिको लागि अनौठो जापानी नाम चाहनुभएन — अन्ततः म जन्मेको अस्पतालको नाम São Lucas पाएँ। तैपनि, म अझै पनि आफ्नो जापानी नामले आफूलाई परिचय दिन्छु। पोर्तुगाली मेरो मातृभाषा हो, तर म बोक्ने संस्कृति, काम र सोचाइ पनि जापानी नै हुन्।",
+      "galeria.eyebrow":"ग्यालरी","galeria.h2":"सुशी","galeria.antigos":"पुराना एल्बमहरू",
+      "percurso.eyebrow":"यात्रा","percurso.h2":"एक पटकमा एउटा भान्सा",
+      "percurso.sub1":"भान्सा","percurso.sub2":"दोस्रो करियर — शिक्षण",
+      "role1.title":"प्रधान सेफ / सुशी बार प्रबन्धक","role1.dates":"सेप्ट. २०२० — हालसम्म",
+      "role1.b1":"६ जनाको टिमको नेतृत्व: तालिका, तालिम र कार्य वितरण",
+      "role1.b2":"स्टक व्यवस्थापन, सामान प्राप्ति र जाँच, आपूर्तिकर्ता नियन्त्रण",
+      "role1.b3":"माछाको प्राप्ति, सफाइ, काट्ने र परिपक्वता, ताजापन र गुणस्तर मूल्याङ्कन",
+      "role1.b4":"सुशी र एसियाली परिकारहरूको सिर्जना र तयारी; mise en place निर्धारण",
+      "role1.b5":"सम्पूर्ण सञ्चालनमा HACCP मापदण्डको दैनिक लागू र प्रमाणीकरण",
+      "role2.title":"प्रधान सेफ","role2.dates":"नोभे. २०१९ — सेप्ट. २०२०",
+      "role2.b1":"दुई इकाईको भान्सा एकैसाथ नेतृत्व",
+      "role2.b2":"Palácio do Gelo मा Nomiya Sushi &amp; Ramen को उद्घाटन: भान्सा स्थापना, मेनु सिर्जना र शून्यबाट टिम निर्माण",
+      "role2.b3":"कर्मचारी र स्टक व्यवस्थापन",
+      "role3.title":"कुक","role3.dates":"नोभे. २०१८ — अक्टो. २०१९",
+      "role3.b1":"पोर्तुगाली भान्साका तातो र चिसो परिकारहरूको mise en place, तयारी र प्लेटिङ",
+      "role3.b2":"रातको कामसहित उच्च मात्राको होटल सेवा, फेरबदल हुने समयतालिका",
+      "role3.b3":"Visabeira समूहका अन्य इकाईहरूलाई सामयिक सहयोग",
+      "role4.b1":"उच्च मात्राको अन्तर्राष्ट्रिय सेवाका लागि Pantry station र बुफे तयारी",
+      "role4.b2":"नियमित लेखा परीक्षणसहित USPHS स्वच्छता मापदण्ड अन्तर्गत सञ्चालन",
+      "role5.title":"क्यापो सेफ",
+      "role5.b1":"प्रति सिफ्ट ६ जना, जम्मा १२ जनाको टिमको नेतृत्व: निर्देशन, तालिम र तयारी तथा सरसफाइको निरीक्षण",
+      "role5.b2":"इटालियन र फ्रान्सेली à la carte भान्सा: रिजोटी, पास्ता, गार्ड मान्जे, चारब्रोइलर, रोटिसरी र पेटिसरी",
+      "role5.b3":"अर्डर, खरिद र स्टक व्यवस्थापनको नियन्त्रण",
+      "role6.title":"करियरको सुरुवात",
+      "role6.b1":"इटालियन à la carte भान्सा, ग्रिल र बार्बेक्यु, र उच्च मात्राको छिटो सेवा",
+      "role7.title":"शिक्षक",
+      "role7.place":"Colégio Alexo Viazovski र Escola Estadual Laudelino Fernandes dos Santos, Praia Grande नगरपालिका मार्फत — साओ पाउलो, ब्राजिल",
+      "role7.b1":"निम्न र उच्च माध्यमिक तहमा भूगोल, विज्ञान, अंग्रेजी र सूचना प्रविधि, भौतिकशास्त्र र रसायनशास्त्रमा सहयोगसहित",
+      "role7.b2":"अंग्रेजी र सूचना प्रविधि स्व-शिक्षित, यी क्षेत्रमा कुनै औपचारिक पाठ्यक्रम वा तालिम बिना",
+      "role7.b3":"\"Mais Educação\" परियोजना: विद्यार्थीहरूसँग विद्यालय बगैंचा निर्माण र मर्मत",
+      "role8.title":"प्रमुख गाइड र प्रशिक्षार्थी",
+      "role8.b1":"पर्यटक र विद्यालय, प्राविधिक तथा विश्वविद्यालय समूहहरूका लागि तीनै सिफ्टमा गाइडेड भ्रमण",
+      "role8.b2":"नयाँ साइटमा पशु बाडा र माछाघरहरूको स्थापना र मर्मत",
+      "role8.b3":"नयाँ प्रशिक्षार्थीहरूलाई गाइडिङ र मर्मत सम्भारको तालिम",
+      "comp.eyebrow":"सीपहरू","comp.h2":"भान्सा र व्यवस्थापन उपकरणहरू",
+      "comp.g1":"व्यवस्थापन","comp.g1t1":"टिम नेतृत्व","comp.g1t2":"तालिम","comp.g1t3":"तालिका",
+      "comp.g1t4":"स्टक व्यवस्थापन","comp.g1t5":"खरिद","comp.g1t7":"गुणस्तर नियन्त्रण",
+      "comp.g2":"खाद्य सुरक्षा","comp.g2t2":"कोल्ड चेन","comp.g2t3":"पत्ता लगाउने क्षमता",
+      "comp.g2t4":"जलचर परजीवीविज्ञान","comp.g2t5":"संरक्षण",
+      "comp.g3":"प्रविधि","comp.g3t1":"सुशी र जापानी भान्सा","comp.g3t2":"माछा सफाइ र काट्ने काम",
+      "comp.g3t3":"इटालियन भान्सा","comp.g3t4":"फ्रान्सेली भान्सा","comp.g3t5":"कार्यक्रमहरू","comp.g3t7":"विवाह बुफे",
+      "comp.g4":"भाषाहरू","comp.g4t1":"पोर्तुगाली — मातृभाषा","comp.g4t2":"अंग्रेजी — फरर्राटा",
+      "comp.g4t3":"स्पेनिस — आधारभूत","comp.g4t4":"इटालियन — आधारभूत",
+      "form.eyebrow":"शिक्षा","form.h2":"शिक्षा र प्रमाणपत्रहरू",
+      "form.academica":"शैक्षिक","form.certs":"प्रमाणपत्रहरू",
+      "cred1.title":"Chef de Cuisine र Restaurateur",
+      "cred1.desc":"कर्मचारी प्रशासन, नियन्त्रण, लागत र मूल्य निर्धारण, खरिद प्रविधि, टिम तालिम र सुदृढीकरण, रेस्टुरेन्ट मार्केटिङ, भान्साको भौतिक योजना, मेनुको पोषण योजना, सामानको ज्ञान, स्वच्छता र स्वास्थ्य, भान्साका आधारभूत कुराहरू, क्लासिक, समकालीन, सिर्जनात्मक र इटालियन भान्सा, क्लासिक सस, गार्ड मान्जे प्रविधि, mise en place प्रविधि, सेवा प्रविधि, पेटिसरी, ब्राजिली मिठाई र वाइन-खाना जोडा।",
+      "cred2.title":"जैविक विज्ञानमा डिग्री",
+      "cred2.desc":"Universidade Católica de Santos मा प्रयोगशाला सहयोग: फार्मेसी औषधि परीक्षणका लागि कल्चर मिडिया तयारी र प्राकृतिक विज्ञान संग्रहालयसँगको साझेदारीमा इकोटक्सिकोलोजी प्रयोगशालासँग सहकार्य। एसेप्सिस, सूक्ष्मजीव नियन्त्रण र प्रक्रिया रेकर्डिङ।",
+      "cred3.title":"भूगोलमा डिग्री",
+      "cred3.desc":"जैविक विज्ञानसँगै अध्ययन गरिएको, प्रत्येक २८४० घण्टा, विद्यालयहरूमा कामसँगै। अन्तिम परियोजना विद्यालय बागवानीमा।",
+      "cred4.meta":"ब्राजिली नौसेना · २०११",
+      "cred6.title":"आधारभूत जहाज सुरक्षा पाठ्यक्रम (CBSN / STCW)",
+      "cred6.meta":"DPC द्वारा मान्यता प्राप्त — ब्राजिली नौसेना · २०११",
+      "cred6.desc":"आगो रोकथाम र नियन्त्रण, प्राथमिक उपचार, व्यक्तिगत बाँच्ने प्रविधि, आपतकालीन प्रक्रिया, व्यक्तिगत सुरक्षा र सामाजिक जिम्मेवारी।",
+      "contacto.eyebrow":"सम्पर्क","contacto.h2":"कुरा गरौं",
+      "contacto.residencia":"पोर्तुगालमा स्थायी बसोबास"
+    }
+  };
+
+  function setLanguage(lang){
+    if (!T[lang]) lang = 'pt';
+    window.currentLang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if (T[lang][key] !== undefined) el.innerHTML = T[lang][key];
+    });
+    document.documentElement.lang = lang;
+    var sel = document.getElementById('langSelect');
+    if (sel && sel.value !== lang) sel.value = lang;
+    try { localStorage.setItem('sushi-lang', lang); } catch (e) {}
+  }
+  window.setLanguage = setLanguage;
+  window.PORTFOLIO_T = T;
+
+  var LANG_NAMES = { pt:'Português', en:'English', es:'Español', fr:'Français', de:'Deutsch', it:'Italiano', pl:'Polski', ja:'日本語', nl:'Nederlands', cs:'Čeština', zh:'中文', ru:'Русский', ko:'한국어', ne:'नेपाली' };
+  var sel = document.getElementById('langSelect');
+  if (sel) {
+    sel.innerHTML = window.LANG_ORDER.map(function(code){ return '<option value="' + code + '">' + LANG_NAMES[code] + '</option>'; }).join('');
+  }
+  setLanguage(window.currentLang || 'pt');
 })();
 </script>
 
