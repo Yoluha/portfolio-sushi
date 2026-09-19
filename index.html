@@ -566,7 +566,13 @@
   }
   @media (max-width: 640px){
     .site-header{ flex-direction: column; align-items: flex-start; gap: 0.6rem; }
-    .hero-watermark{ display: none; }
+    .hero{ display: flex; flex-direction: column; }
+    .hero-inner{ order: 1; }
+    .hero-name{ font-size: 2.2rem; }
+    .hero-watermark{
+      position: static; order: 2; align-self: center;
+      width: 46vw; max-width: 220px; margin-block: 2rem 0;
+    }
     .lb-stage{ inset: 3.75rem 0 5rem; }
     .lb-prev, .lb-next{ top: auto; bottom: calc(0.9rem + env(safe-area-inset-bottom, 0px)); transform: none; }
     .lb-prev{ left: calc(50% - 3.5rem); }
@@ -845,6 +851,7 @@
         </div>
         <ul class="role-bullets">
           <li>Geografia, Ciências, Inglês e Informática no 3.º ciclo e no secundário, com apoio a Física e Química</li>
+          <li>Inglês e Informática aprendidos de forma autodidata, sem curso ou formação formal nessas áreas</li>
           <li>Projeto “Mais Educação”: criação e manutenção da horta escolar com os alunos</li>
         </ul>
       </div>
